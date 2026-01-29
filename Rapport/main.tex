@@ -1,5 +1,3 @@
-%!TEX encoding = IsoLatin
-
 %
 % Exemple de rapport
 % par Pierre Tremblay, Universite Laval
@@ -29,9 +27,9 @@
 \documentclass[12pt,ULlof,ULlot]{ULrapport}
 
 % Chargement des packages supplementaires (si absent de la classe)
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[french]{babel}
-\usepackage[autolanguage]{numprint}
-\usepackage{icomma}
 %\usepackage[options]{nom_du_package}
 
 % Definition d'une commande pour presenter des cellules multilignes dans un tableau
@@ -84,15 +82,15 @@
 
 %   Chapitres
 \input{tex/introduction}
-\input{tex/structure_rapport_technique}
-\input{tex/recommandations_typo}
-\input{tex/exemples_LaTeX}
-\input{tex/unites_SI_regles_ecriture}
+\input{tex/description}
+\input{tex/objectifs}
+\input{tex/cahier_des_charges}
+\input{tex/conceptualisation}
+\input{tex/etude_preliminaire}
+\input{tex/concept_retenu}
 \input{tex/bibliographie}
-
 %   Annexes
-\appendix
-\input{tex/liste_sig_acr}
+
 
 \end{document}
 % Fin du document
