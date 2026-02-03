@@ -7,3 +7,5 @@
 *.toc
 *.log
 *.DS_Store
+*.fls
+*.fdb_latexmk
