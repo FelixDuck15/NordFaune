@@ -4,9 +4,25 @@
 
 \chapter{Cahier des charges}
 \label{s:cahier_des_charges}
-\section{Automatisation du système}
-\subsection{Communication}
-\subsection{Résolution d'image}
+Cette section détaille la procédure afin d’établir le cahier des charges et présente les divers barèmes de chaque objectif. De plus, un tableau récapitulatif du cahier des charges 4.1(lien ici) et la maison de qualité 4.1(lien ici) sont exposés à la fin de cette section.
+
+\section{Assurer autonomie du système}
+L’autonomie du système est l’élément central du design, car elle permet de garantir le succès de tous les autres aspects du projet. Sans cette capacité à opérer de manière autonome pendant les 50 semaines où le site sera inaccessible, les tâches de ce système ne seront pas effectuées. C’est en raison de sa grande pertinence qu’une pondération de 30\% est attribuée à ce critère.
+
+\subsection{Robustesse de l'état d'autonomie}
+Ce sous-critère évalue les éléments qui permettent au système de rester autonome pendant au moins douze mois. Il est mis en place pour vérifier que le design prévoit toutes les fonctionnalités nécessaires à garantir la continuité des opérations, même en présence d’imprévus liés aux conditions climatiques extrêmes. En effet, ces dernières affectent de manière imprévisible la durée réelle d’autonomie, c’est pourquoi il est important d’agrandir la durée théorique. Le système doit rester opérationnel toute l’année pour garantir des données fiables. La robustesse de l’état d’autonomie a donc une pondération importante de 12\%. Pour évaluer ce critère, on considère la redondance des composantes critiques, l’autonomie énergétique, l’isolement interne et le taux de remplacement des modules essentiels. Pour respecter les attentes du client, toute autonomie de moins de douze mois sera rejetée. L’ajout d’autonomie est beaucoup plus utile lorsque la durée prévue est proche de 12 mois, mais son effet devient progressivement moins significatif à mesure que l’autonomie excède cette valeur. Donc, la note suit une fonction logarithmique selon la composante qui limite le système. Le barème est donné par l’équation suivante où A est l’autonomie théorique du design en mois:
+\begin{equation}
+    \frac{\log(A-11)}{\log(2.5)}
+\end{equation}
+
+\subsection{Fiabilité de la supervision à distance}
+Advenant qu'un problème sur le système subvienne il est important de le détecter le plus rapidement possible afin de déterminer si c'est une panne fatale ou si la prise de mesure peut continuer avec quelques ajustements. Puisque la supervision périodique du bon fonctionnement du système et de ses équipements est importante pour le succès d'un éventuel programme d'échantillonnage de la faune arctique, une pondération de 10\% sera appliquée pour ce critère pour déterminer le meilleur design conceptuel. Pour assurer une détection rapide de futurs problèmes, une surveillance sur de courts intervalles de temps est requise. En revanche, l'envoi de données et la puissance de calcul requise pour effectuer une vérification du système pour être couteuse en énergie. 
+En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine valeur moins les bénéfices seront importants. Donc le barème qui évaluera ce critère sera donné par une fonction logarithmique où t sera l'intervalle de temps en minutes entre les vérifications du système:
+\begin{equation}
+    F = \ln(t)
+\end{equation}
+
+\subsection{Taux de disponibilité opérationnelle}
 \subsection{Stockage des données}
 \subsection{Fiabilité}
 \subsection{Consommation d'énergie}
