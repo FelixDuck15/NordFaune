@@ -25,25 +25,38 @@ En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine
     F = \ln(t)
 \end{equation}
 
-\subsection{Autonomie électrique}
+\subsection{Consommation électrique}
 \label{consommation_electrique}
 
 \subsection{Résilience du système}
 \label{resilience_systeme}
 
-\subsection{Taux de disponibilité opérationnelle}
-\subsection{Stockage des données}
-\subsection{Fiabilité}
-\subsection{Consommation d'énergie}
+\section{Garantir robustesse du système}
+\label{Robustesse}
 
-\section{Installation}
+\section{Assurer observation et gestion de données}
+\label{donnees}
+\subsection{Détecter l’activité des petits mammifères}
+\label{detection_mammiferes}
+\subsection{Assurer la conservation des données}
+\label{conservation_donnees}
+\subsection{Garantir l’accès aux données}
+\label{acces_donnnees}
+\subsection{Assurer l’exploitation scientifique}
+\label{exploitation_scientifique}
 
-\section{Coût de production}
-\subsection{Choix de matériaux}
-\subsection{Qualité de construction}
-\subsection{Solidité du concept}
-
-\section{Intéraction avec la faune}
+\section{Réduire impacts et coûts}
+\label{impacts_couts}
+\subsection{Impact lumineux sur la faune}
+\label{impact_lumineux}
+\subsection{Impact environnemental}
+\label{impact_environnemental}
+\subsection{Coûts d'installation et de transport}
+\label{couts_transport}
+\subsection{Coûts d'opération et d’entretien}
+\label{couts_entretien}
+\subsection{Coûts de fabrication}
+\label{couts_fabrication}
 
 \begin{table}[htp]
     \centering
@@ -62,7 +75,31 @@ En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine
         \ref{robutesse_autonomie} Robustesse de l'état d'autonomie & 10\% & $\frac{\log(A-11)}{\log(2.5)}$ & 10 & 50 \\
         \ref{fiabilite} Fiabilité de la supervison à distance & 6\% & $F = ln(t)$ & 10 & 50 \\
         \ref{consommation_electrique} Consommation électrique & 8\% & $E = \frac{C}{P}$ & 10 & 50 \\
-        \ref{resilience_systeme} Résilience du système & 6\% & $$ & 10 & 50 \\
+        \ref{resilience_systeme} Résilience du système & 6\% & & 10 & 50 \\
+
+        \hline
+        \ref{Robustesse} Garantir robustesse du système & 30\% & &  &  \\
+        \ref{impact_lumineux} Impact lumineux sur la faune 25\% & 3\% & $\frac{\lambda - 650}{940}$ & 10 & 50 \\
+        \ref{conservation_donnees} Assurer la conservation des données& 2\% & $\frac{d-60}{60}$ & 10 & 50 \\
+        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{5000}$ & 10 & 50 \\
+        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200}$ & 10 & 50 \\
+        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000}$ & 10 & 50 \\
+        
+        \hline
+        \ref{donnees} Assurer observation et gestion de données & & &  &  \\
+        \ref{impact_lumineux} Impact lumineux sur la faune 25\% & 3\% & $\frac{\lambda - 650}{940}$ & 10 & 50 \\
+        \ref{conservation_donnees} Assurer la conservation des données& 2\% & $\frac{d-60}{60}$ & 10 & 50 \\
+        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{5000}$ & 10 & 50 \\
+        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200}$ & 10 & 50 \\
+        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000}$ & 10 & 50 \\
+
+        \hline
+        \ref{impacts_couts} Réduire impacts et coûts & 15\% & &  &  \\
+        \ref{impact_lumineux} Impact lumineux sur la faune & 3\% & $\frac{\lambda - 650}{940}$ & 10 & 50 \\
+        \ref{impact_environnemental} Impact environnemental & 2\% & $\frac{\lambda - 650}{940}$ & 10 & 50 \\
+        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{5000}$ & 10 & 50 \\
+        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200}$ & 10 & 50 \\
+        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000}$ & 10 & 50 \\
         \hline\hline
     \end{tabular}
 \end{table}
