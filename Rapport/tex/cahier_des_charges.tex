@@ -4,7 +4,7 @@
 
 \chapter{Cahier des charges}
 \label{s:cahier_des_charges}
-Cette section détaille la procédure afin d’établir le cahier des charges et présente les divers barèmes de chaque objectif. De plus, un tableau récapitulatif du cahier des charges 4.1(lien ici) et la maison de qualité 4.1(lien ici) sont exposés à la fin de cette section.
+Cette section détaille la procédure afin d’établir le cahier des charges et présente les divers barèmes de chaque objectif. De plus, un tableau récapitulatif du cahier des charges \ref{Tableau cahier des charges} et la maison de qualité \ref{maison_de_qualite} sont exposés à la fin de cette section.
 
 \section{Assurer autonomie du système}
 \label{Autonomie}
@@ -12,24 +12,43 @@ L’autonomie du système est l’élément central du design, car elle permet d
 
 \subsection{Robustesse de l'état d'autonomie}
 \label{robutesse_autonomie}
-Ce sous-critère évalue les éléments qui permettent au système de rester autonome pendant au moins douze mois. Il est mis en place pour vérifier que le design prévoit toutes les fonctionnalités nécessaires à garantir la continuité des opérations, même en présence d’imprévus liés aux conditions climatiques extrêmes. En effet, ces dernières affectent de manière imprévisible la durée réelle d’autonomie, c’est pourquoi il est important d’agrandir la durée théorique. Le système doit rester opérationnel toute l’année pour garantir des données fiables. La robustesse de l’état d’autonomie a donc une pondération importante de 12\%. Pour évaluer ce critère, on considère la redondance des composantes critiques, l’autonomie énergétique, l’isolement interne et le taux de remplacement des modules essentiels. Pour respecter les attentes du client, toute autonomie de moins de douze mois sera rejetée. L’ajout d’autonomie est beaucoup plus utile lorsque la durée prévue est proche de 12 mois, mais son effet devient progressivement moins significatif à mesure que l’autonomie excède cette valeur. Donc, la note suit une fonction logarithmique selon la composante qui limite le système. Le barème est donné par l’équation suivante où A est l’autonomie théorique du design en mois:
+Dans un climat arctique, les composantes opèrent à leurs extrêmes fonctionnels, ce qui a pour effet de réduire la durée du temps d’autonomie réelle du système. C’est pourquoi il est important de prévoir une marge d’autonomie supplémentaire pour garantir un fonctionnement continuel complet pour l’année. La robustesse de l’état d’autonomie a donc une pondération importante de 10\%. Pour évaluer ce critère, on prend en compte le facteur limitant du système parmi l’autonomie énergétique, la fiabilité des composantes critiques et leur redondance. Pour respecter les attentes du client, l’autonomie minimale exigée est de douze mois. Si un design n’atteint pas ce seuil, il sera rejeté. L’ajout d’autonomie est beaucoup plus utile initialement, mais son effet devient progressivement moins significatif à mesure que l’autonomie dépasse la valeur exigée. Donc, la note suit une fonction complexe logarithmique et se base uniquement sur l’élément qui limite le système. Le barème est donné par l’équation suivante où A est l’autonomie théorique du design en mois :
 \begin{equation}
     \frac{\log(A-11)}{\log(2.5)}
 \end{equation}
 
 \subsection{Fiabilité de la supervision à distance}
 \label{fiabilite}
-Advenant qu'un problème sur le système subvienne il est important de le détecter le plus rapidement possible afin de déterminer si c'est une panne fatale ou si la prise de mesure peut continuer avec quelques ajustements. Puisque la supervision périodique du bon fonctionnement du système et de ses équipements est importante pour le succès d'un éventuel programme d'échantillonnage de la faune arctique, une pondération de 10\% sera appliquée pour ce critère pour déterminer le meilleur design conceptuel. Pour assurer une détection rapide de futurs problèmes, une surveillance sur de courts intervalles de temps est requise. En revanche, l'envoi de données et la puissance de calcul requise pour effectuer une vérification du système pour être couteuse en énergie. 
-En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine valeur moins les bénéfices seront importants. Donc le barème qui évaluera ce critère sera donné par une fonction logarithmique où t sera l'intervalle de temps en minutes entre les vérifications du système:
+Advenant qu'un problème sur le système subvienne il est important de le détecter le plus rapidement possible afin de déterminer si c'est une panne fatale ou si la prise de mesure peut continuer avec quelques ajustements. Puisque la supervision périodique du bon fonctionnement du système et de ses équipements est importante pour le succès d'un éventuel programme d'échantillonnage de la faune arctique, une pondération de 6\% est appliquée. 
+\bigskip
+
+Pour assurer une détection rapide de futurs problèmes, une surveillance sur de courts intervalles de temps est requise. En revanche, l'envoi de données et la puissance de calcul requise pour effectuer une vérification du système pour être couteuse en énergie. En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine valeur moins les bénéfices seront importants. 
+\bigskip
+
+Donc le barème qui évaluera ce critère sera donné par une fonction logarithmique où t sera l'intervalle de temps en minutes entre les vérifications du système:
 \begin{equation}
     F = \ln(t)
 \end{equation}
 
 \subsection{Consommation électrique}
 \label{consommation_electrique}
+Avec la météo variable dans l'arctique Québécois, il est important de prévoir une autonomie électrique suffisante puisque notre système sera recouvert de neige pendant plusieurs semaines. Le système devra être en mesure de rester fonctionnel sans avoir besoin de recharger ses batteries de quelconque manière. Il faut donc s'assurer que les batteries peuvent emmagasiner suffisamment d'énergie afin de répondre à la demande énergétique du système. Le barème sera donc donné par la formule suivante:
+
+\begin{equation}
+    E = \frac{C}{P}
+\end{equation}
+
+où C et la capacité des batteries du système et P la puissance utilisée par ses capteurs et son système informatique.
 
 \subsection{Résilience du système}
 \label{resilience_systeme}
+Dans le cadre du design, toute défaillance mineure peut compromettre l’objectif d’avoir une autonomie annuelle. C’est pourquoi, bien que la résilience ne soit pas nommée explicitement par le client, elle constitue une exigence implicite du design. Le système doit être conçu de manière à tolérer certaines pannes ou de pouvoir faire de la maintenance à distance. La résilience du système a donc une pondération de 6\%. 
+\bigskip
+
+Pour évaluer ce critère, on considère le pourcentage des systèmes qui peuvent être réinitialisés hors site, la redondance des composantes critiques, les mesures de protection en place. Pour respecter les attentes du client, ce critère ne possède pas de seuil, cependant, un prototype qui ne contient aucune mesure de redondance reçoit une note de 0. Le score de résilience grandit de manière linéaire selon le nombre de mesures de protection. 
+\bigskip
+
+Le barème est donné par une évaluation semi-qualitative où le score est basé sur la proportion des fonctions critiques protégées, soit l’alimentation énergétique, la transmission, le stockage des données, le capteur et la prise de données.
 
 \section{Garantir robustesse du système}
 \label{Robustesse}
@@ -47,16 +66,48 @@ En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine
 
 \section{Réduire impacts et coûts}
 \label{impacts_couts}
+Les coûts associés à un tel projet influencent grandement sa viabilité à long terme, particulièrement en raison de l'éloignement géographique des sites d'étude. Ayant pour client le Ministère de la Faune Arctique, il a été jugé important de prendre en compte et de quantifier les coûts impliqués dans le projet Grand Nord. Bien que le client n’ait pas spécifié le budget impliqué, la réduction des frais liés aux relevés de terrain traditionnels demeure une motivation centrale du mandat. De plus, il est important de prendre en compte l’impact du projet sur la faune, car le capteur est installé directement dans un milieu naturel. Comme le but est d'étudier les animaux dans leur état sauvage, le système doit respecter l'écosystème sans le perturber. C’est pourquoi une pondération de 15\% a été accordée pour réduire l’impact et les coûts du projet.
+
 \subsection{Impact lumineux sur la faune}
 \label{impact_lumineux}
+Le système doit éclairer l'intérieur de la zone d'observation pour capturer des images de qualité, mais cet éclairage ne doit pas impacter les lemmings afin de ne pas les perturber ni les éblouir. En effet, l’intégrité des données scientifiques dépend du comportement naturel des lemmings, c’est pourquoi une pondération de 3\% a été accordée au fait de minimiser l’impact lumineux. On utilise la longueur d'onde ($\lambda$) de la source lumineuse comme critère de d’évaluation. On établit qu'une longueur d'onde de 940 nm (totalement invisible) est l'idéal, tandis qu'une valeur de 650 nm (rouge très visible et lumineux) est la limite à ne pas dépasser pour éviter l'éblouissement. Le barème est le suivant, où $\lambda$ est la longueur d'onde en nanomètres (nm):
+
+\begin{equation}
+    \frac{\lambda - 650}{940}
+\end{equation}
+
 \subsection{Impact environnemental}
 \label{impact_environnemental}
+Nous accordons une pondération de 2\% à l’objectif de limiter l’impact environnemental, car bien que cet aspect soit essentiel d'un point de vue éthique, il représente une part moins complexe du projet. Nous évaluons la durabilité par la gestion des déchets dangereux (les batteries) sur le site. Un système idéal ne nécessite aucun remplacement de batterie durant son cycle de vie (par exemple grâce à la recharge solaire), alors que la limite est fixée à 4 batteries de remplacement par an. La note suivante permet d'évaluer de manière rigoureuse la capacité du système à limiter son empreinte écologique, où b est le nombre de batteries à remplacer annuellement :
+
+\begin{equation}
+    \frac{4-b}{4}
+\end{equation}
+
 \subsection{Coûts d'installation et de transport}
 \label{couts_transport}
+Les coûts d’installation et de transport, déterminés par la masse du système et la facilité de son déploiement, représentent 4\% de la pondération. Selon les contraintes du projet, le site n'est accessible que 2 semaines en juin et l'installation doit pouvoir être réalisée par deux personnes ne possédant pas de compétences en ingénierie. Par conséquent, le système doit être conçu pour une implantation intuitive, évitant les erreurs coûteuses et réduisant le temps d’installation. Les coûts d’installation et de transport dépendent également de la masse du système. Pour un système léger (moins de 10 kg) présentant une complexité d’implantation minimale, un coût d’environ 1000 \$ est estimé. En revanche, un coût de 5000 \$ est prévu pour un système lourd et/ou complexe à installer. Une cote de 0 à 1 est attribuée en fonction de ces frais. Voici le barème déterminant la cote, où c est le coût total d’installation et de transport :
+
+\begin{equation}
+    \frac{5000 - c}{4000}
+\end{equation}
+
 \subsection{Coûts d'opération et d’entretien}
 \label{couts_entretien}
+Il faut aussi prévoir les frais engendrés par l’utilisation annuelle du système. Puisque cet aspect représente les frais nécessaires au bon fonctionnement et au maintien du lien de communication avec le site, une pondération de 3\% lui a été attribuée. Les coûts d’opération et d’entretien annuels incluent l'ensemble des dépenses nécessaires au bon fonctionnement du système. Cela comprend le coût de la transmission des données, de la consommation énergétique, ainsi que de la maintenance logicielle et physique. Puisque le site est inaccessible la majeure partie de l'année, il est essentiel de limiter le besoin d'interventions humaines. On établit qu'un système demandant 300\$ par année (frais de base de télécommunication par satellites) est l'objectif idéal, tandis qu'un système dont les frais et l'entretien dépassent 2500\$ par année est jugé inacceptable. La note suivante permet d'évaluer ce critère, où c est le coût total d'opération et d'entretien:
+
+\begin{equation}
+    \frac{5000-c}{5000}
+\end{equation}
+
 \subsection{Coûts de fabrication}
 \label{couts_fabrication}
+Le coût de fabrication représente une partie majeure des dépenses du client. Une pondération de 3\% y a donc été attribuée. Le choix des capteurs, la qualité de l'électronique et la main-d’œuvre influencent ce coût. Celui-ci est déterminé par le prix de la caméra infrarouge (NIR), des capteurs, de la boîte et du système d’alimentation.
+Par conséquent, on estime que la fabrication d'une unité coûte au maximum 5000\$ et au minimum 1000\$. Une note maximale est donc attribuée à un système coûtant 1000 dollars et moins, et une note nulle pour un prix de 5000 dollars et plus. Le barème est donné par la formule suivante, où c est le coût total de fabrication :
+
+\begin{equation}
+    \frac{5000-c}{4000}
+\end{equation}
 
 \begin{table}[htp]
     \centering
@@ -75,7 +126,7 @@ En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine
         \ref{robutesse_autonomie} Robustesse de l'état d'autonomie & 10\% & $\frac{\log(A-11)}{\log(2.5)}$ & 10 & 50 \\
         \ref{fiabilite} Fiabilité de la supervison à distance & 6\% & $F = ln(t)$ & 10 & 50 \\
         \ref{consommation_electrique} Consommation électrique & 8\% & $E = \frac{C}{P}$ & 10 & 50 \\
-        \ref{resilience_systeme} Résilience du système & 6\% & & 10 & 50 \\
+        \ref{resilience_systeme} Résilience du système & 6\% & Voir barème \ref{resilience_systeme} & 10 & 50 \\
 
         \hline
         \ref{Robustesse} Garantir robustesse du système & 30\% & &  &  \\
@@ -96,7 +147,7 @@ En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine
         \hline
         \ref{impacts_couts} Réduire impacts et coûts & 15\% & &  &  \\
         \ref{impact_lumineux} Impact lumineux sur la faune & 3\% & $\frac{\lambda - 650}{940}$ & 10 & 50 \\
-        \ref{impact_environnemental} Impact environnemental & 2\% & $\frac{\lambda - 650}{940}$ & 10 & 50 \\
+        \ref{impact_environnemental} Impact environnemental & 2\% & $\frac{4-b}{4}$ & 10 & 50 \\
         \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{5000}$ & 10 & 50 \\
         \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200}$ & 10 & 50 \\
         \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000}$ & 10 & 50 \\
@@ -104,3 +155,9 @@ En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine
     \end{tabular}
 \end{table}
 
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.7\textwidth]{fig/ul_logo.pdf}
+    \caption{Maison de la qualité}
+    \label{maison_de_qualite}
+\end{figure}
