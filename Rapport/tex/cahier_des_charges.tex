@@ -27,7 +27,7 @@ Pour assurer une détection rapide de futurs problèmes, une surveillance sur de
 
 Donc le barème qui évaluera ce critère sera donné par une fonction logarithmique où t sera l'intervalle de temps en minutes entre les vérifications du système:
 \begin{equation}
-    F = \ln(t+1)
+    -\frac{(x-15)^2}{23} + 10
 \end{equation}
 
 \subsection{Consommation électrique}
@@ -35,10 +35,10 @@ Donc le barème qui évaluera ce critère sera donné par une fonction logarithm
 Avec la météo variable dans l'arctique Québécois, il est important de prévoir une autonomie électrique suffisante puisque notre système sera recouvert de neige pendant plusieurs semaines. Le système devra être en mesure de rester fonctionnel sans avoir besoin de recharger ses batteries de quelconque manière. Il faut donc s'assurer que les batteries peuvent emmagasiner suffisamment d'énergie afin de répondre à la demande énergétique du système. Le critère a donc une pondération de 8\%. Le barème est donné par la formule suivante:
 
 \begin{equation}
-    E = \frac{C}{P}
+    \frac{C}{P}
 \end{equation}
 
-où C et la capacité des batteries du système et P la puissance utilisée par ses capteurs et son système informatique.
+Où C et la capacité des batteries du système et P la puissance utilisée par ses capteurs et son système informatique.
 
 \subsection{Résilience du système}
 \label{resilience_systeme}
@@ -60,7 +60,7 @@ Situé dans le grand nord, le système va faire face à des périodes de froids 
 \label{installation_deploiement}
 Le client demande que le système doive être installé par deux personnes sans compétence en ingénierie. De plus, le déploiement se fait au sol durant la fenêtre d'accessibilité limitée de deux semaines en juin. Aussi le système doit être optimisé pour minimiser la masse totale et garantir une résistance physique. La pondération de la section est définie à 5\%. Une valeur de 2\% est attribuée si le déploiement est fait dans les délais limité, une valeur de 1\% si l’installation est faite par deux personne sans compétence en ingénierie et une valeur de 2\% si elle garantit une résistance physique. Cependant, si l’installation dépasse la fenêtre de deux semaines le système devra être refusée. 
 
-\subsection{Résistance aux effets de l'enfouissement sous la neige}
+\subsection{Maintenir le foncitonnement sous le poids de la neige}
 \label{resistance_neige}
 Le système doit garantir une autonomie durant huit moins enfouie sous une couche de neige pouvant atteindre deux mètres de profondeur. Alors, le système doit pouvoir supporter le poids de la neige. Sans ça, tout le système se détruira. C’est pourquoi cette section est définie par une pondération de 15\%. Une valeur de 1 est attribuée si la résistance est excellente, la valeur de 0,5 si la résistance est forte et 0 si la résistance est faible.
 
@@ -68,11 +68,11 @@ Le système doit garantir une autonomie durant huit moins enfouie sous une couch
 \label{donnees}
 L’observation et la gestion de données sont une grande partie du projet afin d’assurer la collecte d’information sur la faune arctique et plus spécifiquement les lemmings. C’est pourquoi 25\% de la pondération est attribuée à cet aspect.
 
-\subsection{Détecter l’activité des petits mammifères}
+\subsection{Performance de détection faunique}
 \label{detection_mammiferes}
 La capacité du système à détecter l’activité des petits mammifères de la faune arctique, notamment des lemmings, est un élément central du projet. Elle permettra la collecte d’information sur ceux-ci à des fins statistiques. Le système doit permettre d’échantillonner les activités des petits mammifères qui évoluent sur un site arctique en détectant les événements de manière passive, c’est-à-dire sans l’usage de pièges. Il sera donc important pour ce projet d’utiliser du matériel qui assure la qualité constante des mesures prises et surtout la fiabilité de celles-ci sans perturber l’état naturel des lemmings. Les outils utilisés devront satisfaire les contraintes minimales du client quant à la résolution des images ou vidéos pour assurer la précision des données collectées. La pondération de cette section est fixée à 9\%. Une note de 0 à 1 sera attribuée à ce critère selon la capacité du système à détecter l’activité des petits mammifères de manière fiable et passive.
 
-\subsection{Assurer la conservation des données}
+\subsection{Pérennité du stockage des données}
 \label{conservation_donnees}
 Il est important d’assurer la conservation des données pour ce projet. Les données sur les activités des petits mammifères de la faune arctique et plus spécifiquement des lemmings doivent être stockées afin de documenter les statistiques sur le territoire. C’est pourquoi une pondération de 5\% est attribuée à cette section. Archiver les données est essentiel pour ce projet en plus de s’avérer avantageux. Le stockage de données permet tout d’abord le suivi à long terme des activités de la faune arctique, mais aussi d’assurer une qualité constante des mesures, ainsi qu’une amélioration continue du système. À la demande du client, il sera également important de mettre en place des alarmes indiquant lorsqu’une ou plusieurs fonctionnalités ne sont pas utilisables pour garantir la conservation des données. Pour respecter les exigences du client, toute solution impliquant le stockage des données pour une période de moins d'un an devra être retirée. Le barème est donné par l’équation suivante, où d est la durée en mois:
 
@@ -80,7 +80,7 @@ Il est important d’assurer la conservation des données pour ce projet. Les do
     \frac{d-12}{12}
 \end{equation}
 
-\subsection{Garantir l’accès aux données}
+\subsection{Pérennité du stockage des données}
 \label{performance_communication}
 Le système devra archiver des données pour une durée d’un an au cours duquel il devra être capable de communiquer chaque semaine avec la centrale à une distance de plus de 2000Km pour fournir l’état du système ainsi que le nombre d’évènements répertorié. Les données de la console locale à la centrale devront être accessibles via une application mobile à distance. Le système devra fournir un accès sécurisé à distance pour trois personnes. Une pondération de 6\% sera accordée à ce critère puisqu’il est essentiel, mais ne se démarque pas beaucoup de l’importance d’assurer l’exploitation scientifique. Le barème est donné par l’équation suivante où x est la portée maximale de communication du système en kilomètre. Toute solution donnant un résultat inférieur à 0 ne sera pas retenue: 
 
@@ -88,13 +88,15 @@ Le système devra archiver des données pour une durée d’un an au cours duque
     \frac{x-2000}{2000}
 \end{equation}
 
-\subsection{Assurer l’exploitation scientifique}
+\subsection{Qualité scientifique des données}
 \label{exploitation_scientifique}
-Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques. Les données recueillies devront également respecter certains critères de qualité. Les vidéos devront avoir une résolution minimum de 720P, 15FPS. Elles devront être d’une durée minimale de 5sec et il devra s’écouler un temps maximal de 1h entre celles-ci. Pour assurer l’exploitation scientifique des données il sera nécessaire d’optimiser la quantité de données recueillies par rapport à leur qualité. Finalement, une pondération de 5\% sera accordée à ce critère puisque le critère \ref{performance_communication} se démarque clairement des autres par son importance étant donné qu’il touche à l’objectif principal du projet. Les barèmes sont donnés par les équations suivantes où p est la résolution en pixel et f est la résolution en image par seconde. Toute solution pour laquelle l’une de ces équations donne un résultat inférieur à 0 ne sera pas retenu :
+Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques. Les données recueillies devront également respecter certains critères de qualité. Les vidéos devront avoir une résolution minimum de 720P, 15FPS. Elles devront être d’une durée minimale de 5sec et il devra s’écouler un temps maximal de 1h entre celles-ci. Pour assurer l’exploitation scientifique des données il sera nécessaire d’optimiser la quantité de données recueillies par rapport à leur qualité. Finalement, une pondération de 5\% sera accordée à ce critère puisque le critère \ref{performance_communication} se démarque clairement des autres par son importance étant donné qu’il touche à l’objectif principal du projet. Le barème est donné par l'équation suivante: 
 
 \begin{equation}
     \frac{f-15}{15}
 \end{equation}
+
+Où p est la résolution en pixel et f est la résolution en image par seconde. Toute solution pour laquelle l’une de ces équations donne un résultat inférieur à 0 ne sera pas retenu :
 
 \section{Réduire impacts et coûts}
 \label{impacts_couts}
@@ -155,31 +157,31 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
 
         \\\hline
         \ref{Autonomie} Assurer autonomie du système & 30\% &  &  &  \\
-        \ref{robutesse_autonomie} Robustesse de l'état d'autonomie & 10\% & $\frac{\log(A-11)}{\log(2.5)}$ & 10 & 50 \\
-        \ref{fiabilite} Fiabilité de la supervison à distance & 6\% & $F = ln(t+1)$ & 10 & 50 \\
-        \ref{consommation_electrique} Consommation électrique & 8\% & $E = \frac{C}{P}$ & 10 & 50 \\
-        \ref{resilience_systeme} Résilience du système & 6\% & Voir barème \ref{resilience_systeme} & 10 & 50 \\
+        \ref{robutesse_autonomie} Robustesse de l'état d'autonomie & 10\% & $\frac{\log(A-11)}{\log(2.5)}$ & 0 & 1 \\
+        \ref{fiabilite} Fiabilité de la supervison à distance & 6\% & $-\frac{(x-15)^2}{23} + 10$ & 0 & 15\\
+        \ref{consommation_electrique} Consommation électrique & 8\% & $\frac{C}{P}$ & 2 & \\
+        \ref{resilience_systeme} Résilience du système & 6\% & Voir barème \ref{resilience_systeme} & 0 & 100 \\
 
         \hline
         \ref{Robustesse} Garantir robustesse arctique & 30\% & & &  \\
-        \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 10\% & Voir barème \ref{resistance_neige} & 10 & 50 \\
+        \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 10\% & Voir barème \ref{resistance_neige} & 0 & 100 \\
         \ref{installation_deploiement} Difficulté d’installation et de déploiement & 5\% & Voir barème \ref{installation_deploiement} & 10 & 50 \\
         \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 15\% & Voir barème \ref{resistance_neige} & 10 & 50 \\
         
         \hline
         \ref{donnees} Assurer observation et gestion de données & & &  &  \\
-        \ref{detection_mammiferes} Performance de détection faunique & 9\% & Voir barème \ref{detection_mammiferes} & 10 & 50 \\
-        \ref{conservation_donnees} Pérennité du stockage des données & 5\% & $\frac{d-12}{12}$ & 10 & 50 \\
-        \ref{performance_communication} Performance de communication distante & 6\% & $\frac{x-2000}{2000}$ & 10 & 50 \\
+        \ref{detection_mammiferes} Performance de détection faunique & 9\% & Voir barème \ref{detection_mammiferes} &  & 100 \\
+        \ref{conservation_donnees} Pérennité du stockage des données & 5\% & $\frac{d-12}{12}$ & 12 & \\
+        \ref{performance_communication} Performance de communication distante & 6\% & $\frac{x-2000}{2000}$ & 2000 & \\
         \ref{exploitation_scientifique} Qualité scientifique des données & 5\% & $\frac{f-15}{15}$ & 10 & 50 \\
 
         \hline
         \ref{impacts_couts} Réduire impacts et coûts & 15\% & &  &  \\
-        \ref{impact_lumineux} Impact lumineux sur la faune & 3\% & $\frac{\lambda - 650}{940}$ & 10 & 50 \\
-        \ref{impact_environnemental} Impact environnemental & 2\% & $\frac{4-b}{4}$ & 10 & 50 \\
-        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{5000}$ & 10 & 50 \\
-        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200}$ & 10 & 50 \\
-        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000}$ & 10 & 50 \\
+        \ref{impact_lumineux} Impact lumineux sur la faune & 3\% & $\frac{\lambda - 650}{940}$ & 650 & \\
+        \ref{impact_environnemental} Impact environnemental & 2\% & $\frac{4-b}{4}$ & & 4\\
+        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{5000}$ & 0 & 5000 \\
+        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200}$ & 0 & 2500 \\
+        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000}$ & 0 & 5000 \\
         \hline\hline
     \end{tabular}
 \end{table}
