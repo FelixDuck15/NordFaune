@@ -52,6 +52,17 @@ Le barème est donné par une évaluation semi-qualitative où le score est bas�
 
 \section{Garantir robustesse du système}
 \label{Robustesse}
+\subsection{Protection contre les conditions climatiques}
+\label{conditions_climatiques}
+Situé dans le grand nord, le système va faire face à des périodes de froids extrêmes. En effet, dans la zone de déploiement, les températures varient de –20 à +20°C. Donc, il faut s’assurer que le système maintienne son fonctionnement malgré la température auquel il va faire face. La pondération de la section est définie à 10\%. Une valeur de 0 à 1 est attribuée si l’isolation est excellente, une valeur de 7.5\% si l’isolation est passable. Tout fois si l’isolation est faible le système devra être refusée. 
+
+\subsection{Difficulté d’installation et de déploiement}
+\label{installation_deploiement}
+Le client demande que le système doive être installé par deux personnes sans compétence en ingénierie. De plus, le déploiement se fait au sol durant la fenêtre d'accessibilité limitée de deux semaines en juin. Aussi le système doit être optimisé pour minimiser la masse totale et garantir une résistance physique. La pondération de la section est définie à 5\%. Une valeur de 2\% est attribuée si le déploiement est fait dans les délais limité, une valeur de 1\% si l’installation est faite par deux personne sans compétence en ingénierie et une valeur de 2\% si elle garantit une résistance physique. Cependant, si l’installation dépasse la fenêtre de deux semaines le système devra être refusée. 
+
+\subsection{Résistance aux effets de l'enfouissement sous la neige}
+\label{resistance_neige}
+Le système doit garantir une autonomie durant huit moins enfouie sous une couche de neige pouvant atteindre deux mètres de profondeur. Alors, le système doit pouvoir supporter le poids de la neige. Sans ça, tout le système se détruira. C’est pourquoi cette section est définie par une pondération de 15\%. Une valeur de 1 est attribuée si la résistance est excellente, la valeur de 0,5 si la résistance est forte et 0 si la résistance est faible.
 
 \section{Assurer observation et gestion de données}
 \label{donnees}
@@ -70,7 +81,7 @@ Il est important d’assurer la conservation des données pour ce projet. Les do
 \end{equation}
 
 \subsection{Garantir l’accès aux données}
-\label{acces_donnnees}
+\label{performance_communication}
 Le système devra archiver des données pour une durée d’un an au cours duquel il devra être capable de communiquer chaque semaine avec la centrale à une distance de plus de 2000Km pour fournir l’état du système ainsi que le nombre d’évènements répertorié. Les données de la console locale à la centrale devront être accessibles via une application mobile à distance. Le système devra fournir un accès sécurisé à distance pour trois personnes. Une pondération de 6\% sera accordée à ce critère puisqu’il est essentiel, mais ne se démarque pas beaucoup de l’importance d’assurer l’exploitation scientifique. Le barème est donné par l’équation suivante où x est la portée maximale de communication du système en kilomètre. Toute solution donnant un résultat inférieur à 0 ne sera pas retenue: 
 
 \begin{equation}
@@ -79,7 +90,7 @@ Le système devra archiver des données pour une durée d’un an au cours duque
 
 \subsection{Assurer l’exploitation scientifique}
 \label{exploitation_scientifique}
-Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques. Les données recueillies devront également respecter certains critères de qualité. Les vidéos devront avoir une résolution minimum de 720P, 15FPS. Elles devront être d’une durée minimale de 5sec et il devra s’écouler un temps maximal de 1h entre celles-ci. Pour assurer l’exploitation scientifique des données il sera nécessaire d’optimiser la quantité de données recueillies par rapport à leur qualité. Finalement, une pondération de 5\% sera accordée à ce critère puisque le critère \ref{acces_donnnees} se démarque clairement des autres par son importance étant donné qu’il touche à l’objectif principal du projet. Les barèmes sont donnés par les équations suivantes où p est la résolution en pixel et f est la résolution en image par seconde. Toute solution pour laquelle l’une de ces équations donne un résultat inférieur à 0 ne sera pas retenu :
+Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques. Les données recueillies devront également respecter certains critères de qualité. Les vidéos devront avoir une résolution minimum de 720P, 15FPS. Elles devront être d’une durée minimale de 5sec et il devra s’écouler un temps maximal de 1h entre celles-ci. Pour assurer l’exploitation scientifique des données il sera nécessaire d’optimiser la quantité de données recueillies par rapport à leur qualité. Finalement, une pondération de 5\% sera accordée à ce critère puisque le critère \ref{performance_communication} se démarque clairement des autres par son importance étant donné qu’il touche à l’objectif principal du projet. Les barèmes sont donnés par les équations suivantes où p est la résolution en pixel et f est la résolution en image par seconde. Toute solution pour laquelle l’une de ces équations donne un résultat inférieur à 0 ne sera pas retenu :
 
 \begin{equation}
     \frac{f-15}{15}
@@ -150,20 +161,17 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
         \ref{resilience_systeme} Résilience du système & 6\% & Voir barème \ref{resilience_systeme} & 10 & 50 \\
 
         \hline
-        \ref{Robustesse} Garantir robustesse du système & 30\% & &  &  \\
-        \ref{impact_lumineux} Impact lumineux sur la faune 25\% & 3\% & $\frac{\lambda - 650}{940}$ & 10 & 50 \\
-        \ref{conservation_donnees} Assurer la conservation des données& 2\% & $\frac{d-60}{60}$ & 10 & 50 \\
-        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{5000}$ & 10 & 50 \\
-        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200}$ & 10 & 50 \\
-        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000}$ & 10 & 50 \\
+        \ref{Robustesse} Garantir robustesse arctique & 30\% & & &  \\
+        \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 10\% & Voir barème \ref{resistance_neige} & 10 & 50 \\
+        \ref{installation_deploiement} Difficulté d’installation et de déploiement & 5\% & Voir barème \ref{installation_deploiement} & 10 & 50 \\
+        \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 15\% & Voir barème \ref{resistance_neige} & 10 & 50 \\
         
         \hline
         \ref{donnees} Assurer observation et gestion de données & & &  &  \\
-        \ref{impact_lumineux} Impact lumineux sur la faune 25\% & 3\% & $\frac{\lambda - 650}{940}$ & 10 & 50 \\
-        \ref{conservation_donnees} Assurer la conservation des données& 2\% & $\frac{d-60}{60}$ & 10 & 50 \\
-        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{5000}$ & 10 & 50 \\
-        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200}$ & 10 & 50 \\
-        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000}$ & 10 & 50 \\
+        \ref{detection_mammiferes} Performance de détection faunique & 9\% & Voir barème \ref{detection_mammiferes} & 10 & 50 \\
+        \ref{conservation_donnees} Pérennité du stockage des données & 5\% & $\frac{d-12}{12}$ & 10 & 50 \\
+        \ref{performance_communication} Performance de communication distante & 6\% & $\frac{x-2000}{2000}$ & 10 & 50 \\
+        \ref{exploitation_scientifique} Qualité scientifique des données & 5\% & $\frac{f-15}{15}$ & 10 & 50 \\
 
         \hline
         \ref{impacts_couts} Réduire impacts et coûts & 15\% & &  &  \\
@@ -178,7 +186,7 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=0.7\textwidth]{fig/ul_logo.pdf}
+    \includegraphics[width=1\textwidth]{fig/maison_qualite.png}
     \caption{Maison de la qualité}
     \label{maison_de_qualite}
 \end{figure}
