@@ -27,7 +27,7 @@ Pour assurer une détection rapide de futurs problèmes, une surveillance sur de
 
 Donc le barème qui évaluera ce critère sera donné par une fonction logarithmique où t sera l'intervalle de temps en minutes entre les vérifications du système:
 \begin{equation}
-    F = \ln(t)
+    F = \ln(t+1)
 \end{equation}
 
 \subsection{Consommation électrique}
@@ -156,7 +156,7 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
         \\\hline
         \ref{Autonomie} Assurer autonomie du système & 30\% &  &  &  \\
         \ref{robutesse_autonomie} Robustesse de l'état d'autonomie & 10\% & $\frac{\log(A-11)}{\log(2.5)}$ & 10 & 50 \\
-        \ref{fiabilite} Fiabilité de la supervison à distance & 6\% & $F = ln(t)$ & 10 & 50 \\
+        \ref{fiabilite} Fiabilité de la supervison à distance & 6\% & $F = ln(t+1)$ & 10 & 50 \\
         \ref{consommation_electrique} Consommation électrique & 8\% & $E = \frac{C}{P}$ & 10 & 50 \\
         \ref{resilience_systeme} Résilience du système & 6\% & Voir barème \ref{resilience_systeme} & 10 & 50 \\
 
