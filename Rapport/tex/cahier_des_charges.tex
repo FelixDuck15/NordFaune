@@ -55,14 +55,35 @@ Le barème est donné par une évaluation semi-qualitative où le score est bas�
 
 \section{Assurer observation et gestion de données}
 \label{donnees}
+L’observation et la gestion de données sont une grande partie du projet afin d’assurer la collecte d’information sur la faune arctique et plus spécifiquement les lemmings. C’est pourquoi 25\% de la pondération est attribuée à cet aspect.
+
 \subsection{Détecter l’activité des petits mammifères}
 \label{detection_mammiferes}
+La capacité du système à détecter l’activité des petits mammifères de la faune arctique, notamment des lemmings, est un élément central du projet. Elle permettra la collecte d’information sur ceux-ci à des fins statistiques. Le système doit permettre d’échantillonner les activités des petits mammifères qui évoluent sur un site arctique en détectant les événements de manière passive, c’est-à-dire sans l’usage de pièges. Il sera donc important pour ce projet d’utiliser du matériel qui assure la qualité constante des mesures prises et surtout la fiabilité de celles-ci sans perturber l’état naturel des lemmings. Les outils utilisés devront satisfaire les contraintes minimales du client quant à la résolution des images ou vidéos pour assurer la précision des données collectées. La pondération de cette section est fixée à 9\%. Une note de 0 à 1 sera attribuée à ce critère selon la capacité du système à détecter l’activité des petits mammifères de manière fiable et passive.
+
 \subsection{Assurer la conservation des données}
 \label{conservation_donnees}
+Il est important d’assurer la conservation des données pour ce projet. Les données sur les activités des petits mammifères de la faune arctique et plus spécifiquement des lemmings doivent être stockées afin de documenter les statistiques sur le territoire. C’est pourquoi une pondération de 5\% est attribuée à cette section. Archiver les données est essentiel pour ce projet en plus de s’avérer avantageux. Le stockage de données permet tout d’abord le suivi à long terme des activités de la faune arctique, mais aussi d’assurer une qualité constante des mesures, ainsi qu’une amélioration continue du système. À la demande du client, il sera également important de mettre en place des alarmes indiquant lorsqu’une ou plusieurs fonctionnalités ne sont pas utilisables pour garantir la conservation des données. Pour respecter les exigences du client, toute solution impliquant le stockage des données pour une période de moins d'un an devra être retirée. Le barème est donné par l’équation suivante, où d est la durée en mois:
+
+\begin{equation}
+    \frac{d-12}{12}
+\end{equation}
+
 \subsection{Garantir l’accès aux données}
 \label{acces_donnnees}
+Le système devra archiver des données pour une durée d’un an au cours duquel il devra être capable de communiquer chaque semaine avec la centrale à une distance de plus de 2000Km pour fournir l’état du système ainsi que le nombre d’évènements répertorié. Les données de la console locale à la centrale devront être accessibles via une application mobile à distance. Le système devra fournir un accès sécurisé à distance pour trois personnes. Une pondération de 6\% sera accordée à ce critère puisqu’il est essentiel, mais ne se démarque pas beaucoup de l’importance d’assurer l’exploitation scientifique. Le barème est donné par l’équation suivante où x est la portée maximale de communication du système en kilomètre. Toute solution donnant un résultat inférieur à 0 ne sera pas retenue: 
+
+\begin{equation}
+    \frac{x-2000}{2000}
+\end{equation}
+
 \subsection{Assurer l’exploitation scientifique}
 \label{exploitation_scientifique}
+Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques. Les données recueillies devront également respecter certains critères de qualité. Les vidéos devront avoir une résolution minimum de 720P, 15FPS. Elles devront être d’une durée minimale de 5sec et il devra s’écouler un temps maximal de 1h entre celles-ci. Pour assurer l’exploitation scientifique des données il sera nécessaire d’optimiser la quantité de données recueillies par rapport à leur qualité. Finalement, une pondération de 5\% sera accordée à ce critère puisque le critère \ref{acces_donnnees} se démarque clairement des autres par son importance étant donné qu’il touche à l’objectif principal du projet. Les barèmes sont donnés par les équations suivantes où p est la résolution en pixel et f est la résolution en image par seconde. Toute solution pour laquelle l’une de ces équations donne un résultat inférieur à 0 ne sera pas retenu :
+
+\begin{equation}
+    \frac{f-15}{15}
+\end{equation}
 
 \section{Réduire impacts et coûts}
 \label{impacts_couts}
