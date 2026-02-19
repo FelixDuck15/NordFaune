@@ -17,28 +17,28 @@ Dans un climat arctique, les composantes opèrent à leurs extrêmes fonctionnel
     \frac{\log(A-11)}{\log(2.5)}
 \end{equation}
 
-\subsection{Fiabilité de la supervision à distance}
-\label{fiabilite}
-Advenant qu'un problème sur le système subvienne il est important de le détecter le plus rapidement possible afin de déterminer si c'est une panne fatale ou si la prise de mesure peut continuer avec quelques ajustements. Puisque la supervision périodique du bon fonctionnement du système et de ses équipements est importante pour le succès d'un éventuel programme d'échantillonnage de la faune arctique, une pondération de 6\% est appliquée. 
-\bigskip
+% \subsection{Fiabilité de la supervision à distance}
+% \label{fiabilite}
+% Advenant qu'un problème sur le système subvienne il est important de le détecter le plus rapidement possible afin de déterminer si c'est une panne fatale ou si la prise de mesure peut continuer avec quelques ajustements. Puisque la supervision périodique du bon fonctionnement du système et de ses équipements est importante pour le succès d'un éventuel programme d'échantillonnage de la faune arctique, une pondération de 6\% est appliquée. 
+% \bigskip
 
-Pour assurer une détection rapide de futurs problèmes, une surveillance sur de courts intervalles de temps est requise. En revanche, l'envoi de données et la puissance de calcul requise pour effectuer une vérification du système pour être couteuse en énergie. En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine valeur moins les bénéfices seront importants. 
-\bigskip
+% Pour assurer une détection rapide de futurs problèmes, une surveillance sur de courts intervalles de temps est requise. En revanche, l'envoi de données et la puissance de calcul requise pour effectuer une vérification du système pour être couteuse en énergie. En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine valeur moins les bénéfices seront importants. 
+% \bigskip
 
-Donc le barème qui évaluera ce critère sera donné par une fonction logarithmique où t sera l'intervalle de temps en minutes entre les vérifications du système:
-\begin{equation}
-    -\frac{(x-15)^2}{23} + 10
-\end{equation}
+% Donc le barème qui évaluera ce critère sera donné par une fonction logarithmique où t sera l'intervalle de temps en minutes entre les vérifications du système:
+% \begin{equation}
+%     -\frac{(x-15)^2}{23} + 10
+% \end{equation}
 
 \subsection{Consommation électrique}
 \label{consommation_electrique}
-Avec la météo variable dans l'arctique Québécois, il est important de prévoir une autonomie électrique suffisante puisque notre système sera recouvert de neige pendant plusieurs semaines. Le système devra être en mesure de rester fonctionnel sans avoir besoin de recharger ses batteries de quelconque manière. Il faut donc s'assurer que les batteries peuvent emmagasiner suffisamment d'énergie afin de répondre à la demande énergétique du système. Le critère a donc une pondération de 8\%. Le barème est donné par la formule suivante:
+Avec la météo variable dans l'arctique Québécois, il est important de prévoir une autonomie électrique suffisante puisque notre système sera recouvert de neige pendant plusieurs semaines. Il devra donc être en mesure de rester fonctionnel sans avoir besoin de recharger ses batteries de quelconque manière et ce sur une période de plusieurs jours. Il faut donc s'assurer que les batteries du système puisssent emmagasiner suffisamment d'énergie afin de répondre à la demande énergétique du système. Le critère aura donc une pondération de 8\%. Le barème est donné par la formule suivante:
 
 \begin{equation}
     \frac{C}{P}
 \end{equation}
 
-Où C et la capacité des batteries du système et P la puissance utilisée par ses capteurs et son système informatique.
+Où C et la capacité des batteries du système et P la puissance utilisée par ses capteurs et son système informatique. Un système qui marque un pointage élevé à ce barême signie qu'il consomme peu d'énergie en comparaison à la capcité de stockage de ses batteries. Une marque élevée est donc à prioriser ici.
 
 \subsection{Résilience du système}
 \label{resilience_systeme}
@@ -52,17 +52,34 @@ Le barème est donné par une évaluation semi-qualitative où le score est bas�
 
 \section{Garantir robustesse du système}
 \label{Robustesse}
+Puisque ce système sera déployé dans l'arctique Québécois, ses équipements de mesures seront directement exposés aux conditions hostiles du territoire. La robustesse du système est donc capitale afin d'assurer une protection adéquate de ses composatns électroniques et par le fait même assurer le succès d'une future mission de collecte de données. C'est pourquoi ce volet se verra attribuer une pondération de 30\%.
+
 \subsection{Protection contre les conditions climatiques}
 \label{conditions_climatiques}
-Situé dans le grand nord, le système va faire face à des périodes de froids extrêmes. En effet, dans la zone de déploiement, les températures varient de –20 à +20°C. Donc, il faut s’assurer que le système maintienne son fonctionnement malgré la température auquel il va faire face. La pondération de la section est définie à 10\%. Une valeur de 0 à 1 est attribuée si l’isolation est excellente, une valeur de 7.5\% si l’isolation est passable. Tout fois si l’isolation est faible le système devra être refusée. 
+Situé dans le grand nord, le système devra faire face à des périodes de froids extrêmes. En effet, dans la zone de déploiement, les températures varient de –20 à +20°C. Donc, il faut s’assurer que le système maintienne son fonctionnement malgré la température auquel il va faire face. La pondération de la section est définie à 10\%. Une valeur de 0 à 1 est attribuée si l’isolation est excellente, une valeur de 7.5\% si l’isolation est passable. Tout fois si l’isolation est faible le système devra être refusée. 
 
 \subsection{Difficulté d’installation et de déploiement}
 \label{installation_deploiement}
-Le client demande que le système doive être installé par deux personnes sans compétence en ingénierie. De plus, le déploiement se fait au sol durant la fenêtre d'accessibilité limitée de deux semaines en juin. Aussi le système doit être optimisé pour minimiser la masse totale et garantir une résistance physique. La pondération de la section est définie à 5\%. Une valeur de 2\% est attribuée si le déploiement est fait dans les délais limité, une valeur de 1\% si l’installation est faite par deux personne sans compétence en ingénierie et une valeur de 2\% si elle garantit une résistance physique. Cependant, si l’installation dépasse la fenêtre de deux semaines le système devra être refusée. 
+À la demande du client, le système devra pouvoir être installé par deux personnes ne disposant d'aucune compétence en génie. De plus, la taille minimale du système devra être d'un mètre cube. Puisque qu'une installation et qu'un déploiement facile font partie des volontés de l'employeur, une pondération de 8\% sera attribuée à ce critère. Dans le but de faciliter son installation, la masse ainsi que la taille du système devront, dans la mesure du possible, être réduites au minimum. C'est pourquoi le barème de cette section sera décrit par la fonction suivante:
+
+\begin{equation}
+    \frac{G-1}{M}
+\end{equation}
+
+Où G est la grandeur en $m^3$ du système et M la masse en Kg du système. Un critère plus petit que 0 sera automatiquement rejeté, puisqu'il ne répondrait pas aux dimensions minimales imposées par le client.
 
 \subsection{Maintenir le foncitonnement sous le poids de la neige}
 \label{resistance_neige}
-Le système doit garantir une autonomie durant huit moins enfouie sous une couche de neige pouvant atteindre deux mètres de profondeur. Alors, le système doit pouvoir supporter le poids de la neige. Sans ça, tout le système se détruira. C’est pourquoi cette section est définie par une pondération de 15\%. Une valeur de 1 est attribuée si la résistance est excellente, la valeur de 0,5 si la résistance est forte et 0 si la résistance est faible.
+Le système pourrait être recouvert de neige sur une période pouvant allée jusqu'à huit mois. Il est donc important de protéger les équipements électroniques du poids de la neige afin d'assurer leur bon fonctionnent tout au long de la période de collecte de données. C'est pourquoi une pondération de 12\% sera attribuée pour ce critère.
+\bigskip
+
+Pour se faire, il est important de prévoir une enveloppe protectrice rigide qui assurera la protection des équipements scientifiques. Le barème de cette section sera donné par la formule suivante:
+
+\begin{equation}
+    \sqrt{x}
+\end{equation}
+
+Où X et le poids maximal pouvant être toléré par la boîte du système. Un fonction racine carrée est choisie ici, puisqu'il est important que le système puisse résister à un poids minimum, mais que passé une certaine valeur l'intérêt à résister à un poids de plus en plus lourd n'est pas nécessaire. Un système qui obtiendrait une valeur en dessous de 10 à ce critère sera automatiquement rejeté. \footnote{Une note de 10 équivaut au poids d'environ 2m de neige au-dessus d' système avec une surface d'un mètre carré}
 
 \section{Assurer observation et gestion de données}
 \label{donnees}
@@ -158,15 +175,14 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
         \\\hline
         \ref{Autonomie} Assurer autonomie du système & 30\% &  &  &  \\
         \ref{robutesse_autonomie} Robustesse de l'état d'autonomie & 10\% & $\frac{\log(A-11)}{\log(2.5)}$ & 0 & 1 \\
-        \ref{fiabilite} Fiabilité de la supervison à distance & 6\% & $-\frac{(x-15)^2}{23} + 10$ & 0 & 15\\
-        \ref{consommation_electrique} Consommation électrique & 8\% & $\frac{C}{P}$ & 2 & \\
+        \ref{consommation_electrique} Consommation électrique & 8\% & $\frac{C}{P}$ & & \\
         \ref{resilience_systeme} Résilience du système & 6\% & Voir barème \ref{resilience_systeme} & 0 & 100 \\
 
         \hline
         \ref{Robustesse} Garantir robustesse arctique & 30\% & & &  \\
         \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 10\% & Voir barème \ref{resistance_neige} & 0 & 100 \\
-        \ref{installation_deploiement} Difficulté d’installation et de déploiement & 5\% & Voir barème \ref{installation_deploiement} & 10 & 50 \\
-        \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 15\% & Voir barème \ref{resistance_neige} & 10 & 50 \\
+        \ref{installation_deploiement} Difficulté d’installation et de déploiement & 5\% & $\frac{G-1}{M}$ & 0 & \\
+        \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 15\% & $\sqrt{x}$ & 10 & \\
         
         \hline
         \ref{donnees} Assurer observation et gestion de données & & &  &  \\
