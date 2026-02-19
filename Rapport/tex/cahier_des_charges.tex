@@ -107,13 +107,11 @@ Le système devra archiver des données pour une durée d’un an au cours duque
 
 \subsection{Qualité scientifique des données}
 \label{exploitation_scientifique}
-Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques. Les données recueillies devront également respecter certains critères de qualité. Les vidéos devront avoir une résolution minimum de 720P, 15FPS. Elles devront être d’une durée minimale de 5sec et il devra s’écouler un temps maximal de 1h entre celles-ci. Pour assurer l’exploitation scientifique des données il sera nécessaire d’optimiser la quantité de données recueillies par rapport à leur qualité. Finalement, une pondération de 5\% sera accordée à ce critère puisque le critère \ref{performance_communication} se démarque clairement des autres par son importance étant donné qu’il touche à l’objectif principal du projet. Le barème est donné par l'équation suivante: 
+Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques. Les données recueillies devront également respecter certains critères de qualité. Les vidéos devront avoir une résolution minimum de 720P, 15 FPS. Elles devront être d’une durée minimale de 5 secondes et il devra s’écouler un temps maximal de 1h entre celles-ci. Pour assurer l’exploitation scientifique des données, il sera nécessaire d’optimiser la quantité de données recueillies par rapport à leur qualité. Finalement, une pondération de 5\% sera accordée à ce critère puisque le critère \ref{detection_mammiferes} se démarque clairement des autres par son importance étant donné qu’il touche à l’objectif principal du projet. Le barème est donné par l’équation suivante où f est la fréquence d’images par seconde des vidéos. On établit que 60 FPS (résolution considérée fluide) est l’idéal et 15 FPS est le minimum. Tout système pour lequel cette équation donne un résultat inférieur à 0 ne sera pas retenu:   
 
 \begin{equation}
-    \frac{f-15}{15}
+    \frac{f-15}{45}
 \end{equation}
-
-Où p est la résolution en pixel et f est la résolution en image par seconde. Toute solution pour laquelle l’une de ces équations donne un résultat inférieur à 0 ne sera pas retenu :
 
 \section{Réduire impacts et coûts}
 \label{impacts_couts}
@@ -189,7 +187,7 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
         \ref{detection_mammiferes} Performance de détection faunique & 9\% & Voir barème \ref{detection_mammiferes} &  & 100 \\
         \ref{conservation_donnees} Pérennité du stockage des données & 5\% & $\frac{d-12}{12}$ & 12 & \\
         \ref{performance_communication} Performance de communication distante & 6\% & $\frac{x-2000}{2000}$ & 2000 & \\
-        \ref{exploitation_scientifique} Qualité scientifique des données & 5\% & $\frac{f-15}{15}$ & 10 & 50 \\
+        \ref{exploitation_scientifique} Qualité scientifique des données & 5\% & $\frac{f-15}{45}$ & 15 & 60 \\
 
         \hline
         \ref{impacts_couts} Réduire impacts et coûts & 15\% & &  &  \\
