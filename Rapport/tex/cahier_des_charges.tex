@@ -12,7 +12,10 @@ L’autonomie du système est l’élément central du design, car elle permet d
 
 \subsection{Robustesse de l'état d'autonomie}
 \label{robutesse_autonomie}
-Dans un climat arctique, les composantes opèrent à leurs extrêmes fonctionnels, ce qui a pour effet de réduire la durée du temps d’autonomie réelle du système. C’est pourquoi il est important de prévoir une marge d’autonomie supplémentaire pour garantir un fonctionnement continuel complet pour l’année. La robustesse de l’état d’autonomie a donc une pondération importante de 10\%. Pour évaluer ce critère, on prend en compte le facteur limitant du système parmi l’autonomie énergétique, la fiabilité des composantes critiques et leur redondance. Pour respecter les attentes du client, l’autonomie minimale exigée est de douze mois. Si un design n’atteint pas ce seuil, il sera rejeté. L’ajout d’autonomie est beaucoup plus utile initialement, mais son effet devient progressivement moins significatif à mesure que l’autonomie dépasse la valeur exigée. Donc, la note suit une fonction complexe logarithmique et se base uniquement sur l’élément qui limite le système. Le barème est donné par l’équation suivante où A est l’autonomie théorique du design en mois :
+Dans un climat arctique, les composantes opèrent à leurs extrêmes fonctionnels, ce qui a pour effet de réduire la durée du temps d’autonomie réelle du système. C’est pourquoi il est important de prévoir une marge d’autonomie supplémentaire pour garantir un fonctionnement continuel complet pour l’année. La robustesse de l’état d’autonomie a donc une pondération importante de 10\%. 
+\bigskip
+
+Pour évaluer ce critère, on prend en compte le facteur limitant du système parmi l’autonomie énergétique, la fiabilité des composantes critiques et leur redondance. Pour respecter les attentes du client, l’autonomie minimale exigée est de douze mois. Si un design n’atteint pas ce seuil, il sera rejeté. L’ajout d’autonomie est beaucoup plus utile initialement, mais son effet devient progressivement moins significatif à mesure que l’autonomie dépasse la valeur exigée. Donc, la note suit une fonction complexe logarithmique qui se base uniquement sur l’élément qui limite le système, et ne peut pas dépasser 1. Le barème est donné par l’équation suivante où A est l’autonomie théorique du design en mois :
 \begin{equation}
     \frac{\log(A-11)}{\log(2.5)}
 \end{equation}
@@ -32,7 +35,10 @@ Dans un climat arctique, les composantes opèrent à leurs extrêmes fonctionnel
 
 \subsection{Consommation électrique}
 \label{consommation_electrique}
-Avec la météo variable dans l'arctique Québécois, il est important de prévoir une autonomie électrique suffisante puisque notre système sera recouvert de neige pendant plusieurs semaines. Il devra donc être en mesure de rester fonctionnel sans avoir besoin de recharger ses batteries de quelconque manière et ce sur une période de plusieurs jours. Il faut donc s'assurer que les batteries du système puisssent emmagasiner suffisamment d'énergie afin de répondre à la demande énergétique du système. Le critère aura donc une pondération de 8\%. Le barème est donné par la formule suivante:
+Avec la météo variable dans l'arctique Québécois, il est important de prévoir une autonomie électrique suffisante puisque notre système sera recouvert de neige pendant plusieurs semaines. Il devra donc être en mesure de rester fonctionnel sans avoir besoin de recharger ses batteries de quelconque manière et ce sur une période de plusieurs jours. Il faut donc s'assurer que les batteries du système puisssent emmagasiner suffisamment d'énergie afin de répondre à la demande énergétique du système. 
+\bigskip
+
+Le critère aura donc une pondération de 8\% et le barème sera donné par la formule suivante:
 
 \begin{equation}
     \frac{C}{P}
@@ -54,13 +60,20 @@ Le barème est donné par une évaluation semi-qualitative où le score est bas�
 \label{Robustesse}
 Puisque ce système sera déployé dans l'arctique Québécois, ses équipements de mesures seront directement exposés aux conditions hostiles du territoire. La robustesse du système est donc capitale afin d'assurer une protection adéquate de ses composatns électroniques et par le fait même assurer le succès d'une future mission de collecte de données. C'est pourquoi ce volet se verra attribuer une pondération de 30\%.
 
-\subsection{Protection contre les conditions climatiques}
+\subsection{Protection contre les températures extrêmes}
 \label{conditions_climatiques}
-Situé dans le grand nord, le système devra faire face à des périodes de froids extrêmes. En effet, dans la zone de déploiement, les températures varient de –20 à +20°C. Donc, il faut s’assurer que le système maintienne son fonctionnement malgré la température auquel il va faire face. La pondération de la section est définie à 10\%. Une valeur de 0 à 1 est attribuée si l’isolation est excellente, une valeur de 7.5\% si l’isolation est passable. Tout fois si l’isolation est faible le système devra être refusée. 
+Situé dans le grand nord, le système va faire face à des périodes de froids extrêmes. En effet, dans la zone de déploiement, les températures peuvent aller jusqu’à –20°C ou + 20°C. Il est donc essentiel que l’isolation du système soit conçue de manière à limiter les échanges thermiques avec l’environnement. C’est pourquoi la pondération de la section est définie à 10\%. Pour respecter les attentes du client, le système doit être capable d’opérer lorsque la température extérieure est de -20°C. Si un design n’atteint pas cette exigence, ou obtient une note inférieure à zéro, il sera rejeté. Le barème est donné cette fonction, où $T_{sys}$ la température du système minimale, en °C. Si le résultat dépasse la note de 1, il est considéré comme un 1 :
+
+\begin{equation}
+    \frac{-20 -T_{sys}}{10}
+\end{equation}
 
 \subsection{Difficulté d’installation et de déploiement}
 \label{installation_deploiement}
-À la demande du client, le système devra pouvoir être installé par deux personnes ne disposant d'aucune compétence en génie. De plus, la taille minimale du système devra être d'un mètre cube. Puisque qu'une installation et qu'un déploiement facile font partie des volontés de l'employeur, une pondération de 8\% sera attribuée à ce critère. Dans le but de faciliter son installation, la masse ainsi que la taille du système devront, dans la mesure du possible, être réduites au minimum. C'est pourquoi le barème de cette section sera décrit par la fonction suivante:
+À la demande du client, le système devra pouvoir être installé par deux personnes ne disposant d'aucune compétence en génie. De plus, la taille minimale du système devra être d'un mètre cube. Puisque qu'une installation et qu'un déploiement facile font partie des volontés de l'employeur, une pondération de 8\% sera attribuée à ce critère. 
+\bigskip
+
+Dans le but de faciliter son installation, la masse ainsi que la taille du système devront, dans la mesure du possible, être réduites au minimum. C'est pourquoi le barème de cette section sera décrit par la fonction suivante:
 
 \begin{equation}
     \frac{G-1}{M}
@@ -70,7 +83,7 @@ Où G est la grandeur en $m^3$ du système et M la masse en Kg du système. Un c
 
 \subsection{Maintenir le foncitonnement sous le poids de la neige}
 \label{resistance_neige}
-Le système pourrait être recouvert de neige sur une période pouvant allée jusqu'à huit mois. Il est donc important de protéger les équipements électroniques du poids de la neige afin d'assurer leur bon fonctionnent tout au long de la période de collecte de données. C'est pourquoi une pondération de 12\% sera attribuée pour ce critère.
+Le système pourrait être recouvert de neige sur une période pouvant allée jusqu'à huit mois. Si la boite cède, c’est l’entièreté du système qui est détruit. Il est donc important de protéger les équipements électroniques du poids de la neige afin d'assurer leur bon fonctionnent tout au long de la période de collecte de données. C'est pourquoi une pondération de 12\% sera attribuée pour ce critère.
 \bigskip
 
 Pour se faire, il est important de prévoir une enveloppe protectrice rigide qui assurera la protection des équipements scientifiques. Le barème de cette section sera donné par la formule suivante:
@@ -79,7 +92,7 @@ Pour se faire, il est important de prévoir une enveloppe protectrice rigide qui
     \sqrt{x}
 \end{equation}
 
-Où X et le poids maximal pouvant être toléré par la boîte du système. Un fonction racine carrée est choisie ici, puisqu'il est important que le système puisse résister à un poids minimum, mais que passé une certaine valeur l'intérêt à résister à un poids de plus en plus lourd n'est pas nécessaire. Un système qui obtiendrait une valeur en dessous de 10 à ce critère sera automatiquement rejeté. \footnote{Une note de 10 équivaut au poids de 2m de neige au-dessus d'un système avec une surface de $1m^2$}
+Où X et le poids maximal pouvant être toléré par la boîte du système. Un fonction racine carrée est choisie ici, puisqu'il est important que le système puisse résister à un poids minimum, mais que passé une certaine valeur l'intérêt à résister à un poids de plus en plus lourd n'est pas nécessaire. Un système qui obtiendrait une valeur en dessous de 10 ($x = 100$) à ce critère sera automatiquement rejeté. \footnote{Une note de 10 équivaut au poids de 2m de neige au-dessus d'un système avec une surface de $1m^2$}
 
 \section{Assurer observation et gestion de données}
 \label{donnees}
@@ -87,11 +100,11 @@ L’observation et la gestion de données sont une grande partie du projet afin 
 
 \subsection{Performance de détection faunique}
 \label{detection_mammiferes}
-La capacité du système à détecter l’activité des petits mammifères de la faune arctique, notamment des lemmings, est un élément central du projet. Elle permettra la collecte d’information sur ceux-ci à des fins statistiques. Le système doit permettre d’échantillonner les activités des petits mammifères qui évoluent sur un site arctique en détectant les événements de manière passive, c’est-à-dire sans l’usage de pièges. Il sera donc important pour ce projet d’utiliser du matériel qui assure la qualité constante des mesures prises et surtout la fiabilité de celles-ci sans perturber l’état naturel des lemmings. Les outils utilisés devront satisfaire les contraintes minimales du client quant à la résolution des images ou vidéos pour assurer la précision des données collectées. La pondération de cette section est fixée à 9\%. Une note de 0 à 1 sera attribuée à ce critère selon la capacité du système à détecter l’activité des petits mammifères de manière fiable et passive.
+La capacité du système à détecter l’activité des petits mammifères de la faune arctique, notamment des lemmings, est un élément central du projet. Le système doit permettre d’échantillonner les activités des petits mammifères qui évoluent sur un site arctique en détectant les événements de manière passive, c’est-à-dire sans l’usage de pièges. Il sera donc important pour ce projet d’utiliser du matériel qui assure la qualité constante des mesures prises et surtout la fiabilité de celles-ci sans perturber l’état naturel des lemmings. La pondération de cette section est fixée à 9\%. Une note de 0 à 1 sera attribuée à ce critère selon la capacité du système à détecter l’activité des petits mammifères de manière fiable et passive. Cependant, toute solution se voyant accorder une note de 0 pour cet aspect ne respecte pas les contraintes du client et devra être rejetée. 
 
 \subsection{Pérennité du stockage des données}
 \label{conservation_donnees}
-Il est important d’assurer la conservation des données pour ce projet. Les données sur les activités des petits mammifères de la faune arctique et plus spécifiquement des lemmings doivent être stockées afin de documenter les statistiques sur le territoire. C’est pourquoi une pondération de 5\% est attribuée à cette section. Archiver les données est essentiel pour ce projet en plus de s’avérer avantageux. Le stockage de données permet tout d’abord le suivi à long terme des activités de la faune arctique, mais aussi d’assurer une qualité constante des mesures, ainsi qu’une amélioration continue du système. À la demande du client, il sera également important de mettre en place des alarmes indiquant lorsqu’une ou plusieurs fonctionnalités ne sont pas utilisables pour garantir la conservation des données. Pour respecter les exigences du client, toute solution impliquant le stockage des données pour une période de moins d'un an devra être retirée. Le barème est donné par l’équation suivante, où d est la durée en mois:
+Les données sur les activités des petits mammifères de la faune arctique et plus spécifiquement des lemmings doivent être stockées afin de documenter les statistiques sur le territoire. C’est pourquoi une pondération de 5\% est attribuée à cette section. Le stockage de données permet tout d’abord le suivi à long terme des activités de la faune arctique, mais aussi d’assurer une qualité constante des mesures. Les vidéos sauvegardées doivent être de 5 secondes en 720p à 15 images par secondes avec un maximum d’un seul enregistrement par heure, pour une période de 12 mois. Il est donc important d’estimer l’espace nécessaire avec cette prise de vidéo. Pour respecter les exigences du client, toute solution impliquant le stockage des données pour une période de moins de 12 mois devra être retirée. Une durée de 24 mois de conservation des données sera considérée comme un résultat idéal et mérite un score de 1. Le barème est donné par l’équation suivante, où d représente la durée en mois. 
 
 \begin{equation}
     \frac{d-12}{12}
@@ -107,7 +120,7 @@ Le système devra archiver des données pour une durée d’un an au cours duque
 
 \subsection{Qualité scientifique des données}
 \label{exploitation_scientifique}
-Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques. Les données recueillies devront également respecter certains critères de qualité. Les vidéos devront avoir une résolution minimum de 720P, 15 FPS. Elles devront être d’une durée minimale de 5 secondes et il devra s’écouler un temps maximal de 1h entre celles-ci. Pour assurer l’exploitation scientifique des données, il sera nécessaire d’optimiser la quantité de données recueillies par rapport à leur qualité. Finalement, une pondération de 5\% sera accordée à ce critère puisque le critère \ref{detection_mammiferes} se démarque clairement des autres par son importance étant donné qu’il touche à l’objectif principal du projet. Le barème est donné par l’équation suivante où f est la fréquence d’images par seconde des vidéos. On établit que 60 FPS (résolution considérée fluide) est l’idéal et 15 FPS est le minimum. Tout système pour lequel cette équation donne un résultat inférieur à 0 ne sera pas retenu:   
+Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques. Les données recueillies devront également respecter certains critères de qualité. Les vidéos devront avoir une résolution minimum de 720P, 15FPS. Elles devront être d’une durée minimale de 5 secondes et il devra s’écouler un temps maximal de 1h entre celles-ci. Pour assurer l’exploitation scientifique des données, il sera nécessaire d’optimiser la quantité de données recueillies par rapport à leur qualité. Finalement, une pondération de 5\% sera accordée à ce critère. Le barème est donné par l’équation suivante où f est la fréquence d’images par seconde des vidéos. On établit que 60FPS (résolution considérée fluide) est l’idéal et 15FPS est le minimum. Tout système pour lequel cette équation donne un résultat inférieur à 0 ne sera pas retenu:  
 
 \begin{equation}
     \frac{f-15}{45}
@@ -178,14 +191,14 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
 
         \hline
         \ref{Robustesse} Garantir robustesse arctique & 30\% & & &  \\
-        \ref{resistance_neige} Protection contre les conditions climatiques & 10\% & Voir barème \ref{resistance_neige} & 0 & 100 \\
-        \ref{installation_deploiement} Difficulté d’installation et de déploiement & 8\% & $\frac{G-1}{M}$ & 0 & \\
-        \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 12\% & $\sqrt{x}$ & 10 & \\
+        \ref{resistance_neige} Protection contre les températures extrêmes & 10\% & Voir barème \ref{resistance_neige} & 0 & 100 \\
+        \ref{installation_deploiement} Difficulté d’installation et de déploiement & 8\% & $\frac{G-1}{M}$ & $G\geq1$ & \\
+        \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 12\% & $\sqrt{x}$ & 100 & \\
         
         \hline
         \ref{donnees} Assurer observation et gestion de données & & &  &  \\
         \ref{detection_mammiferes} Performance de détection faunique & 9\% & Voir barème \ref{detection_mammiferes} &  & 100 \\
-        \ref{conservation_donnees} Pérennité du stockage des données & 5\% & $\frac{d-12}{12}$ & 12 & \\
+        \ref{conservation_donnees} Pérennité du stockage des données & 5\% & $\frac{d-12}{12}$ & 12 & 24\\
         \ref{performance_communication} Performance de communication distante & 6\% & $\frac{x-2000}{2000}$ & 2000 & \\
         \ref{exploitation_scientifique} Qualité scientifique des données & 5\% & $\frac{f-15}{45}$ & 15 & 60 \\
 
