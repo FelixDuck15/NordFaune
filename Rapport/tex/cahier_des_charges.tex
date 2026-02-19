@@ -20,19 +20,6 @@ Pour évaluer ce critère, on prend en compte le facteur limitant du système pa
     \frac{\log(A-11)}{\log(2.5)}
 \end{equation}
 
-% \subsection{Fiabilité de la supervision à distance}
-% \label{fiabilite}
-% Advenant qu'un problème sur le système subvienne il est important de le détecter le plus rapidement possible afin de déterminer si c'est une panne fatale ou si la prise de mesure peut continuer avec quelques ajustements. Puisque la supervision périodique du bon fonctionnement du système et de ses équipements est importante pour le succès d'un éventuel programme d'échantillonnage de la faune arctique, une pondération de 6\% est appliquée. 
-% \bigskip
-
-% Pour assurer une détection rapide de futurs problèmes, une surveillance sur de courts intervalles de temps est requise. En revanche, l'envoi de données et la puissance de calcul requise pour effectuer une vérification du système pour être couteuse en énergie. En d'autres mots, plus l'intervalle de temps sera petit au-dessus d'une certaine valeur moins les bénéfices seront importants. 
-% \bigskip
-
-% Donc le barème qui évaluera ce critère sera donné par une fonction logarithmique où t sera l'intervalle de temps en minutes entre les vérifications du système:
-% \begin{equation}
-%     -\frac{(x-15)^2}{23} + 10
-% \end{equation}
-
 \subsection{Consommation électrique}
 \label{consommation_electrique}
 Avec la météo variable dans l'arctique Québécois, il est important de prévoir une autonomie électrique suffisante puisque notre système sera recouvert de neige pendant plusieurs semaines. Il devra donc être en mesure de rester fonctionnel sans avoir besoin de recharger ses batteries de quelconque manière et ce sur une période de plusieurs jours. Il faut donc s'assurer que les batteries du système puisssent emmagasiner suffisamment d'énergie afin de répondre à la demande énergétique du système. 
@@ -185,13 +172,13 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
 
         \\\hline
         \ref{Autonomie} Assurer autonomie du système & 30\% &  &  &  \\
-        \ref{robutesse_autonomie} Robustesse de l'état d'autonomie & 10\% & $\frac{\log(A-11)}{\log(2.5)}$ & 0 & 1 \\
+        \ref{robutesse_autonomie} Robustesse de l'état d'autonomie & 10\% & $\frac{\log(A-11)}{\log(2.5)}$ & 12 & \\
         \ref{consommation_electrique} Consommation électrique & 8\% & $\frac{C}{P}$ & & \\
         \ref{resilience_systeme} Résilience du système & 6\% & Voir barème \ref{resilience_systeme} & 0 & 100 \\
 
         \hline
         \ref{Robustesse} Garantir robustesse arctique & 30\% & & &  \\
-        \ref{resistance_neige} Protection contre les températures extrêmes & 10\% & Voir barème \ref{resistance_neige} & 0 & 100 \\
+        \ref{conditions_climatiques} Protection contre les températures extrêmes & 10\% & $\frac{-20 -T_{sys}}{10}$ & -20 & \\
         \ref{installation_deploiement} Difficulté d’installation et de déploiement & 8\% & $\frac{G-1}{M}$ & $G\geq1$ & \\
         \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 12\% & $\sqrt{x}$ & 100 & \\
         
@@ -206,9 +193,9 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
         \ref{impacts_couts} Réduire impacts et coûts & 15\% & &  &  \\
         \ref{impact_lumineux} Impact lumineux sur la faune & 3\% & $\frac{\lambda - 650}{940}$ & 650 & \\
         \ref{impact_environnemental} Impact environnemental & 2\% & $\frac{4-b}{4}$ & & 4\\
-        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{5000}$ & 0 & 5000 \\
-        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200}$ & 0 & 2500 \\
-        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000}$ & 0 & 5000 \\
+        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{5000}$ & & 5000 \\
+        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200}$ & & 2500 \\
+        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000}$ & & 5000 \\
         \hline\hline
     \end{tabular}
 \end{table}
