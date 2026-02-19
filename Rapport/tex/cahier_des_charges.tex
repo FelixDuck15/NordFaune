@@ -79,7 +79,7 @@ Pour se faire, il est important de prévoir une enveloppe protectrice rigide qui
     \sqrt{x}
 \end{equation}
 
-Où X et le poids maximal pouvant être toléré par la boîte du système. Un fonction racine carrée est choisie ici, puisqu'il est important que le système puisse résister à un poids minimum, mais que passé une certaine valeur l'intérêt à résister à un poids de plus en plus lourd n'est pas nécessaire. Un système qui obtiendrait une valeur en dessous de 10 à ce critère sera automatiquement rejeté. \footnote{Une note de 10 équivaut au poids d'environ 2m de neige au-dessus d' système avec une surface d'un mètre carré}
+Où X et le poids maximal pouvant être toléré par la boîte du système. Un fonction racine carrée est choisie ici, puisqu'il est important que le système puisse résister à un poids minimum, mais que passé une certaine valeur l'intérêt à résister à un poids de plus en plus lourd n'est pas nécessaire. Un système qui obtiendrait une valeur en dessous de 10 à ce critère sera automatiquement rejeté. \footnote{Une note de 10 équivaut au poids de 2m de neige au-dessus d'un système avec une surface de $1m^2$}
 
 \section{Assurer observation et gestion de données}
 \label{donnees}
@@ -97,7 +97,7 @@ Il est important d’assurer la conservation des données pour ce projet. Les do
     \frac{d-12}{12}
 \end{equation}
 
-\subsection{Pérennité du stockage des données}
+\subsection{Performance de communication distante}
 \label{performance_communication}
 Le système devra archiver des données pour une durée d’un an au cours duquel il devra être capable de communiquer chaque semaine avec la centrale à une distance de plus de 2000Km pour fournir l’état du système ainsi que le nombre d’évènements répertorié. Les données de la console locale à la centrale devront être accessibles via une application mobile à distance. Le système devra fournir un accès sécurisé à distance pour trois personnes. Une pondération de 6\% sera accordée à ce critère puisqu’il est essentiel, mais ne se démarque pas beaucoup de l’importance d’assurer l’exploitation scientifique. Le barème est donné par l’équation suivante où x est la portée maximale de communication du système en kilomètre. Toute solution donnant un résultat inférieur à 0 ne sera pas retenue: 
 
@@ -148,7 +148,7 @@ Les coûts d’installation et de transport, déterminés par la masse du systè
 Il faut aussi prévoir les frais engendrés par l’utilisation annuelle du système. Puisque cet aspect représente les frais nécessaires au bon fonctionnement et au maintien du lien de communication avec le site, une pondération de 3\% lui a été attribuée. Les coûts d’opération et d’entretien annuels incluent l'ensemble des dépenses nécessaires au bon fonctionnement du système. Cela comprend le coût de la transmission des données, de la consommation énergétique, ainsi que de la maintenance logicielle et physique. Puisque le site est inaccessible la majeure partie de l'année, il est essentiel de limiter le besoin d'interventions humaines. On établit qu'un système demandant 300\$ par année (frais de base de télécommunication par satellites) est l'objectif idéal, tandis qu'un système dont les frais et l'entretien dépassent 2500\$ par année est jugé inacceptable. La note suivante permet d'évaluer ce critère, où c est le coût total d'opération et d'entretien:
 
 \begin{equation}
-    \frac{5000-c}{5000}
+    \frac{2500-c}{2200}
 \end{equation}
 
 \subsection{Coûts de fabrication}
