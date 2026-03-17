@@ -12,10 +12,10 @@ L’autonomie du système est l’élément central du design, car elle permet d
 
 \subsection{Marge de l'état d'autonomie}
 \label{robutesse_autonomie}
-Dans un climat arctique, les composantes opèrent à leurs extrêmes fonctionnels, ce qui a pour effet de réduire la durée du temps d’autonomie réelle du système. C’est pourquoi il est important de prévoir une marge d’autonomie supplémentaire pour garantir un fonctionnement continuel complet pour l’année. La robustesse de l’état d’autonomie a donc une pondération importante de 10\%. 
+Dans un climat arctique, les composantes opèrent à leurs extrêmes fonctionnels, ce qui a pour effet de réduire la durée du temps d’autonomie réelle du système. C’est pourquoi il est important de prévoir une marge d’autonomie supplémentaire pour garantir un fonctionnement continuel complet pour l’année. La marge de l’état d’autonomie a donc une pondération importante de 10\%. 
 \bigskip
 
-Pour évaluer ce critère, on prend en compte le facteur limitant du système parmi l’autonomie énergétique, la fiabilité des composantes critiques et leur redondance. Pour respecter les attentes du client, l’autonomie minimale exigée est de douze mois. Si un design n’atteint pas ce seuil, il sera rejeté. L’ajout d’autonomie est beaucoup plus utile initialement, mais son effet devient progressivement moins significatif à mesure que l’autonomie dépasse la valeur exigée. Donc, la note suit une fonction complexe logarithmique qui se base uniquement sur l’élément qui limite le système. Toute valeur supérieure à 1 est ramenée à 1. Le barème est donné par l’équation suivante où A est l’autonomie théorique du design en mois :
+Pour évaluer ce critère, on prend en compte le facteur limitant du système parmi l’autonomie énergétique, la fiabilité des composantes critiques et leur redondance. Pour respecter les attentes du client, l’autonomie minimale exigée est de douze mois. Si un design n’atteint pas ce seuil, il sera rejeté. L’ajout d’autonomie est plus utile initialement, mais son effet devient progressivement moins significatif à mesure que l’autonomie dépasse la valeur exigée. Donc, la note suit une fonction complexe logarithmique qui se base uniquement sur l’élément qui limite le système, borné entre 0 et 1. Toute valeur supérieure à 1 est ramenée à 1. Le barème est donné par l’équation suivante où A est l’autonomie théorique du design en mois :
 \begin{equation}
     \frac{\log(A-11)}{\log(2.5)}
 \end{equation}
@@ -31,7 +31,7 @@ Le critère aura donc une pondération de 8\% et le barème sera donné par la f
     \frac{C}{P}
 \end{equation}
 
-Où C et la capacité des batteries du système et P la puissance utilisée par ses capteurs et son système informatique. Toute solution pour laquelle $C \leq 0$ est automatiquement rejetée. Un système qui marque un pointage élevé à ce barême signie qu'il consomme peu d'énergie en comparaison à la capcité de stockage de ses batteries. Une marque élevée est donc à prioriser ici.
+Où $C$ est la capacité des batteries du système en watt-heures et $P$ la puissance consommée en watts. Dans ce calcul, la consommation $P$ est considérée comme une constante. Toute solution pour laquelle $C \leq 0$ est automatiquement rejetée et le score est borné entre 0 et 1. Un système qui marque un pointage élevé à ce barême signie une bonne proportion entre consommation et capacité.
 
 \subsection{Proportion des fonctions protégées}
 \label{resilience_systeme}
@@ -49,7 +49,7 @@ Le barème est donné par une évaluation semi-qualitative où le score est bas�
 
 \section{Résistance et entretien du système}
 \label{Robustesse}
-Puisque ce système sera déployé dans l'arctique Québécois, ses équipements de mesures seront directement exposés aux conditions hostiles du territoire. La robustesse du système est donc capitale afin d'assurer une protection adéquate de ses composatns électroniques et par le fait même assurer le succès d'une future mission de collecte de données. C'est pourquoi ce volet se verra attribuer une pondération de 30\%.
+Puisque ce système sera déployé dans l'arctique Québécois, ses équipements de mesures seront directement exposés aux conditions hostiles du territoire. La robustesse du système est donc capitale afin d'assurer une protection adéquate de ses composants électroniques, et par le fait même, assurer le succès d'une future mission de collecte de données. C'est pourquoi ce volet se verra attribuer une pondération de 30\%.
 
 \subsection{Plage opérationnelle de température}
 \label{conditions_climatiques}
@@ -61,29 +61,34 @@ Situé dans le grand nord, le système va faire face à des périodes de froids 
 
 \subsection{Complexité d'installation}
 \label{installation_deploiement}
-À la demande du client, le système devra pouvoir être installé par deux personnes ne disposant d'aucune compétence en génie. De plus, la taille minimale du système devra être d'un mètre cube. Puisque qu'une installation et qu'un déploiement facile font partie des volontés de l'employeur, une pondération de 8\% sera attribuée à ce critère. 
-\bigskip
-
-Dans le but de faciliter son installation, la masse ainsi que la taille du système devront, dans la mesure du possible, être réduites au minimum. C'est pourquoi le barème de cette section sera décrit par la fonction suivante:
+À la demande du client, le système devra pouvoir être installé par deux personnes ne disposant d'aucune compétence en génie.
+Puisque qu'une installation et qu'un déploiement facile font partie des volontés cruciales de l'employeur, une pondération de 8\% sera attribuée à ce critère. 
+La complexité de l'installement provient majoritairement du volume de l'équipement à manipuler sur place.
+C'est pourquoi la taille du système doit, dans la mesure du possible, être réduite au minimum.
+Dans un cas optimal, la taille ne peut pas être plus petite qu'un mètre cube. Le barème de cette section est décrit par la fonction suivante:
 
 \begin{equation}
-    \frac{G-1}{M}
+    1 - \frac{G-1}{9}
 \end{equation}
 
-Où G est la grandeur en $m^3$ du système et M la masse en Kg du système. Un critère plus petit que 0 sera automatiquement rejeté, puisqu'il ne répondrait pas aux dimensions minimales imposées par le client.
+Où $G$ est le volume en $m^3$ du système. Une solution comportant un volume inférieur à 1$m^3$ ou suppérieur à 10$m^3$ est rejeté.
 
 \subsection{Résistance mécanique à la neige}
 \label{resistance_neige}
-Le système pourrait être recouvert de neige sur une période pouvant allée jusqu'à huit mois. Si la boite cède, c’est l’entièreté du système qui est détruit. Il est donc important de protéger les équipements électroniques du poids de la neige afin d'assurer leur bon fonctionnent tout au long de la période de collecte de données. C'est pourquoi une pondération de 12\% sera attribuée pour ce critère.
-\bigskip
-
-Pour ce faire, il est important de prévoir une enveloppe protectrice rigide qui assurera la protection des équipements scientifiques. Le barème de cette section sera donné par la formule suivante:
+Le système pourrait être recouvert de neige sur une période pouvant aller jusqu'à huit mois.
+Si la boite cède, c’est l’entièreté du système qui est détruit.
+Il est donc important de protéger les équipements électroniques du poids de la neige afin d'assurer leur fonctionnement tout au long de la période de collecte.
+C'est pourquoi une pondération de 12\% sera attribuée pour ce critère.
+Le barème de cette section est donné par la formule suivante:
 
 \begin{equation}
-    \sqrt{x}
+    \frac{\sqrt{x - 10}}{12}
 \end{equation}
 
-Où $x$ est le poids maximal pouvant être toléré par la boîte du système. Une fonction racine carrée est choisie ici, puisqu'il est important que le système puisse résister à un poids minimum, mais qu'après une certaine valeur l'intérêt à résister à un poids plus lourd n'est pas nécessaire. Un système qui obtiendrait une valeur en dessous de 10 ($x = 100$) à ce critère sera automatiquement rejeté. \footnote{Une note de 10 équivaut au poids de 2m de neige au-dessus d'un système avec une surface de $1m^2$}
+Où $x$ est la charge maximale supporté par le boîtier en kg équivalent.
+La fonction racine carrée est choisie ici, puisqu'il est important que le système puisse résister à un poids minimum, mais qu'après une certaine valeur l'intérêt à résister à un poids plus lourd n'est pas nécessaire.
+Une solution incapable de supporter une charge de 10 kg ne respecte pas les attentes et est rejeté. Tout score supérieur à 1 est ramené à 1.
+
 
 \section{Observation et gestion de données}
 \label{donnees}
@@ -102,7 +107,7 @@ Une plus grande couverture donne un score plus élevé :
 \end{equation}
 Où Z représente l’aire de la zone d’observation en mètres carrés et A l’aire de la base en mètres carrés.
 Dans cette équation, Z est la seule variable du barème, tandis que A est une constante.
-Toute solution pour laquelle $Z \leq 0$ est automatiquement rejetée. Le score est borné entre 0 et 1.
+Toute solution pour laquelle $Z \leq 0$ est automatiquement rejetée.
 
 \subsection{Capacité de stockage}
 \label{conservation_donnees}
@@ -110,7 +115,7 @@ Les données sur les activités des petits mammifères de la faune arctique et p
 C’est pourquoi une pondération de 5\% est attribuée à cette section.
 Le stockage de données permet tout d’abord le suivi à long terme des activités de la faune arctique, mais aussi d’assurer une qualité constante des mesures.
 Les vidéos sauvegardées doivent être de 5 secondes en 720p à 15 images par secondes avec un maximum d’un seul enregistrement par heure, pour une période de 12 mois.
-La capacité de stockage du système ($S$) doit au minimum être suffisante pour archiver 12 mois de données ($S_{min}$).
+La capacité de stockage du système en gigaoctet ($S$) doit au minimum être suffisante pour archiver 12 mois de données ($S_{min}$).
 Pour chaque solution ces valeurs sont calculées en fonction de la résolution, de la fréquence et de la compression utilisée.
 Toute valeur supérieure à 1 est ramenée à 1.
 Toute solution pour laquelle $S < S_{min}$ est automatiquement rejeté. $S$ est la seule variable du barème, tandis que $S_{min}$ est une constante.
@@ -121,15 +126,25 @@ Le score est donné par :
 
 \subsection{Performance de communication distante}
 \label{performance_communication}
-Le système devra archiver des données pour une durée d’un an au cours duquel il devra être capable de communiquer chaque semaine avec la centrale à une distance de plus de 2000Km pour fournir l’état du système ainsi que le nombre d’évènements répertorié. Les données de la console locale à la centrale devront être accessibles via une application mobile à distance. Le système devra fournir un accès sécurisé à distance pour trois personnes. Une pondération de 6\% sera accordée à ce critère puisqu’il est essentiel, mais ne se démarque pas beaucoup de l’importance d’assurer l’exploitation scientifique. Le barème est donné par l’équation suivante où x est la portée maximale de communication du système en kilomètres. Toute solution donnant un résultat inférieur à 0 ne sera pas retenue: 
+Le système devra archiver des données pour une durée d’un an au cours duquel il devra être capable de communiquer chaque semaine avec la centrale à une distance de plus de 2000Km pour fournir l’état du système ainsi que le nombre d’évènements répertorié.
+Les données de la console locale à la centrale devront être accessibles via une application mobile à distance.
+Le système devra fournir un accès sécurisé à distance pour trois personnes. Une pondération de 6\% sera accordée à ce critère puisqu’il est essentiel, mais ne se démarque pas beaucoup.
+Toute solution ayant une portée de moins de 2000 km est insufisante et rejetée. Au contraire, si la porté est de 4000 km ou plus, le score est de 1. 
+Le barème est donné par l’équation suivante où $p$ est la portée maximale de communication du système en kilomètres.
 
 \begin{equation}
-    \frac{x-2000}{2000}
+    \frac{p-2000}{2000}
 \end{equation}
 
 \subsection{Qualité scientifique des données}
 \label{exploitation_scientifique}
-Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques. Les données recueillies devront également respecter certains critères de qualité. Les vidéos devront avoir une résolution minimum de 720P, 15FPS. Elles devront être d’une durée minimale de 5 secondes et il devra s’écouler un temps maximal de 1h entre celles-ci. Pour assurer l’exploitation scientifique des données, il sera nécessaire d’optimiser la quantité de données recueillies par rapport à leur qualité. Finalement, une pondération de 5\% sera accordée à ce critère. Le barème est donné par l’équation suivante où f est la fréquence d’images par seconde des vidéos. On établit que 60FPS (résolution considérée fluide) est l’idéal et 15FPS est le minimum. Tout système pour lequel cette équation donne un résultat inférieur à 0 ne sera pas retenu:  
+Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques.
+Les données recueillies devront également respecter certains critères de qualité.
+Les vidéos devront avoir une résolution minimum de 720P, 15FPS. Elles devront être d’une durée minimale de 5 secondes et il devra s’écouler un temps maximal de 1h entre celles-ci.
+Finalement, une pondération de 5\% sera accordée à ce critère.
+On établit que 60FPS (résolution considérée fluide) est l’idéal et 15FPS est le minimum exigé.
+Tout système qui ne respecte pas le minimum est rejeté, tandis qu'une solution ayant une fréquence plus grande ou égale à 60 FPS ne peut pas dépasser 1.
+Le barème est donné par l’équation suivante où $f$ est la fréquence d’images par seconde des vidéos :
 
 \begin{equation}
     \frac{f-15}{45}
@@ -157,7 +172,7 @@ Nous accordons une pondération de 2\% à l’objectif de limiter l’impact env
 
 \subsection{Coûts d'installation et de transport}
 \label{couts_transport}
-Les coûts d’installation et de transport, déterminés par la masse du système et la facilité de son déploiement, représentent 4\% de la pondération. Selon les contraintes du projet, le site n'est accessible que 2 semaines en juin et l'installation doit pouvoir être réalisée par deux personnes ne possédant pas de compétences en ingénierie. Par conséquent, le système doit être conçu pour une implantation intuitive, évitant les erreurs coûteuses et réduisant le temps d’installation. Les coûts d’installation et de transport dépendent également de la masse du système. Pour un système léger (moins de 10 kg) présentant une complexité d’implantation minimale, un coût d’environ 1000 \$ est estimé. En revanche, un coût de 5000 \$ est prévu pour un système lourd et/ou complexe à installer. Une cote de 0 à 1 est attribuée en fonction de ces frais. Voici le barème déterminant la cote, où c est le coût total d’installation et de transport :
+Les coûts d’installation et de transport, déterminés par la masse du système et la facilité de son déploiement, représentent 4\% de la pondération. Selon les contraintes du projet, le site n'est accessible que 2 semaines en juin et l'installation doit pouvoir être réalisée par deux personnes ne possédant pas de compétences en ingénierie. Par conséquent, le système doit être conçu pour une implantation intuitive, évitant les erreurs coûteuses et réduisant le temps d’installation. Les coûts d’installation et de transport dépendent également de la masse du système. Pour un système léger (moins de 10 kg) présentant une complexité d’implantation minimale, un coût d’environ 1000 \$ est estimé. En revanche, un coût de 5000 \$ est prévu pour un système lourd et/ou complexe à installer. Une cote de 0 à 1 est attribuée en fonction de ces frais. Voici le barème déterminant la cote, où $c$ est le coût total d’installation et de transport en dollars :
 
 \begin{equation}
     \frac{5000 - c}{4000}
@@ -165,7 +180,7 @@ Les coûts d’installation et de transport, déterminés par la masse du systè
 
 \subsection{Coûts d'opération et d’entretien}
 \label{couts_entretien}
-Il faut aussi prévoir les frais engendrés par l’utilisation annuelle du système. Puisque cet aspect représente les frais nécessaires au bon fonctionnement et au maintien du lien de communication avec le site, une pondération de 3\% lui a été attribuée. Les coûts d’opération et d’entretien annuels incluent l'ensemble des dépenses nécessaires au bon fonctionnement du système. Cela comprend le coût de la transmission des données, de la consommation énergétique, ainsi que de la maintenance logicielle et physique. Puisque le site est inaccessible la majeure partie de l'année, il est essentiel de limiter le besoin d'interventions humaines. On établit qu'un système demandant 300\$ par année (frais de base de télécommunication par satellites) est l'objectif idéal, tandis qu'un système dont les frais et l'entretien dépassent 2500\$ par année est jugé inacceptable. La note suivante permet d'évaluer ce critère, où c est le coût total d'opération et d'entretien:
+Il faut aussi prévoir les frais engendrés par l’utilisation annuelle du système. Puisque cet aspect représente les frais nécessaires au bon fonctionnement et au maintien du lien de communication avec le site, une pondération de 3\% lui a été attribuée. Les coûts d’opération et d’entretien annuels incluent l'ensemble des dépenses nécessaires au bon fonctionnement du système. Cela comprend le coût de la transmission des données, de la consommation énergétique, ainsi que de la maintenance logicielle et physique. Puisque le site est inaccessible la majeure partie de l'année, il est essentiel de limiter le besoin d'interventions humaines. On établit qu'un système demandant 300\$ par année (frais de base de télécommunication par satellites) est l'objectif idéal, tandis qu'un système dont les frais et l'entretien dépassent 2500\$ par année est jugé inacceptable. La note suivante permet d'évaluer ce critère, où c est le coût total d'opération et d'entretien en dollars:
 
 \begin{equation}
     \frac{2500-c}{2200}
@@ -174,7 +189,7 @@ Il faut aussi prévoir les frais engendrés par l’utilisation annuelle du syst
 \subsection{Coûts de fabrication}
 \label{couts_fabrication}
 Le coût de fabrication représente une partie majeure des dépenses du client. Une pondération de 3\% y a donc été attribuée. Le choix des capteurs, la qualité de l'électronique et la main-d’œuvre influencent ce coût. Celui-ci est déterminé par le prix de la caméra infrarouge (NIR), des capteurs, de la boîte et du système d’alimentation.
-Par conséquent, on estime que la fabrication d'une unité coûte au maximum 5000\$ et au minimum 1000\$. Une note maximale est donc attribuée à un système coûtant 1000 dollars et moins, et une note nulle pour un prix de 5000 dollars et plus. Le barème est donné par la formule suivante, où c est le coût total de fabrication :
+Par conséquent, on estime que la fabrication d'une unité coûte au maximum 5000\$ et au minimum 1000\$. Une note maximale est donc attribuée à un système coûtant 1000 dollars et moins, et une note nulle pour un prix de 5000 dollars et plus. Le barème est donné par la formule suivante, où c est le coût total de fabrication en dollars:
 
 \begin{equation}
     \frac{5000-c}{4000}
