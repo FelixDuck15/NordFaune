@@ -4,41 +4,52 @@
 
 \chapter{Cahier des charges}
 \label{s:cahier_des_charges}
-Cette section détaille la procédure afin d’établir le cahier des charges et présente les divers barèmes de chaque objectif. De plus, un tableau récapitulatif du cahier des charges \ref{Tableau cahier des charges} et la maison de qualité \ref{maison_de_qualite} sont exposés à la fin de cette section.
+Cette section détaille la procédure afin d’établir le cahier des charges et présente les divers barèmes de chaque objectif.
+De plus, un tableau récapitulatif du cahier des charges \ref{Tableau cahier des charges} et la maison de qualité \ref{maison_de_qualite} sont exposés à la fin de cette section.
+Enfin, tout score de barème supérieur à 1 est automatiquement ramené à 1 et une valeur négative est plafonnée à 0.
 
 \section{Fonctionnement autonome du système}
 \label{Autonomie}
-L’autonomie du système est l’élément central du design, car elle permet de garantir le succès de tous les autres aspects du projet. Sans cette capacité à opérer de manière autonome pendant les 50 semaines où le site sera inaccessible, les tâches de ce système ne seront pas effectuées. C’est en raison de sa grande pertinence qu’une pondération de 30\% est attribuée à ce critère.
+L’autonomie du système est l’élément central du design, car elle permet de garantir le succès des autres aspects du projet. Sans cette capacité à opérer de manière autonome pendant les 50 semaines où le site sera inaccessible, les tâches de ce système ne seront pas effectuées. C’est en raison de sa grande pertinence qu’une pondération de 30\% est attribuée à ce critère.
 
 \subsection{Marge de l'état d'autonomie}
 \label{robutesse_autonomie}
-Dans un climat arctique, les composantes opèrent à leurs extrêmes fonctionnels, ce qui a pour effet de réduire la durée du temps d’autonomie réelle du système. C’est pourquoi il est important de prévoir une marge d’autonomie supplémentaire pour garantir un fonctionnement continuel complet pour l’année. La marge de l’état d’autonomie a donc une pondération importante de 10\%. 
+Dans un climat arctique, les composantes opèrent à leurs extrêmes fonctionnels, ce qui a pour effet de réduire la durée d’autonomie réelle du système.
+C’est pourquoi il est important de prévoir une marge d’autonomie supplémentaire pour garantir un fonctionnement continuel complet pour l’année.
+La marge de l’état d’autonomie a donc une pondération importante de 10\%. 
 \bigskip
 
-Pour évaluer ce critère, on prend en compte le facteur limitant du système parmi l’autonomie énergétique, la fiabilité des composantes critiques et leur redondance. Pour respecter les attentes du client, l’autonomie minimale exigée est de douze mois. Si un design n’atteint pas ce seuil, il sera rejeté. L’ajout d’autonomie est plus utile initialement, mais son effet devient progressivement moins significatif à mesure que l’autonomie dépasse la valeur exigée. Donc, la note suit une fonction complexe logarithmique qui se base uniquement sur l’élément qui limite le système, borné entre 0 et 1. Toute valeur supérieure à 1 est ramenée à 1. Le barème est donné par l’équation suivante où A est l’autonomie théorique du design en mois :
+Pour évaluer ce critère, on prend en compte le facteur limitant du système parmi l’autonomie énergétique, la fiabilité des composantes critiques et leur redondance.
+Pour respecter les attentes du client, l’autonomie minimale exigée est de douze mois. 
+Si un design n’atteint pas ce seuil, il sera rejeté.
+Au-delà de 15 mois, la contribution devient négligeable et la note est maximale.
+L’ajout d’autonomie est plus utile initialement, mais son effet devient progressivement moins significatif. Donc, la note suit une fonction complexe logarithmique.
+Le barème est donné par l’équation suivante où A est l’autonomie théorique du design en mois :
 \begin{equation}
-    \frac{\log(A-11)}{\log(2.5)}
+    \frac{\log(A-11)}{\log(4)}
 \end{equation}
 
-\subsection{Efficacité énergétique}
+\subsection{Consommation énergétique}
 \label{consommation_electrique}
-Avec la météo variable dans l'arctique Québécois, il est important de prévoir une autonomie électrique suffisante puisque notre système sera recouvert de neige pendant plusieurs semaines. Il devra donc être en mesure de rester fonctionnel sans avoir besoin de recharger ses batteries de quelconque manière et ce sur une période de plusieurs jours. Il faut donc s'assurer que les batteries du système puisssent emmagasiner suffisamment d'énergie afin de répondre à la demande énergétique du système. 
-\bigskip
-
-Le critère aura donc une pondération de 8\% et le barème sera donné par la formule suivante:
+Avec la météo variable dans l'Arctique québécois, il est important de prévoir une capacité électrique suffisante puisque notre système sera recouvert de neige pendant plusieurs semaines.
+Il doit donc être en mesure de rester fonctionnel sans avoir besoin de recharger ses batteries le plus longtemps possible.
+Il faut donc s'assurer que la consommation en électricité du système reste sous contrôle afin de préserver l'énergie. 
+Le critère aura donc une pondération de 8\%, et le barème sera donné par la formule suivante:
 
 \begin{equation}
-    \frac{C}{P}
+    \frac{25-P}{22}
 \end{equation}
 
-Où $C$ est la capacité des batteries du système en watt-heures et $P$ la puissance consommée en watts. Dans ce calcul, la consommation $P$ est considérée comme une constante. Toute solution pour laquelle $C \leq 0$ est automatiquement rejetée et le score est borné entre 0 et 1. Un système qui marque un pointage élevé à ce barême signie une bonne proportion entre consommation et capacité.
+Où $P$ est la puissance nette consommée en watts.
+On établit qu'un système qui optimise ce paramètre aurait une consommation d'environ 3W, ce qui donne le score idéal.
+Au-delà de 25W, la puissance est considérée comme non-optimale et le barème est plafonné à zéro.
 
 \subsection{Proportion des fonctions protégées}
 \label{resilience_systeme}
 Dans le cadre du design, toute défaillance mineure peut compromettre l’objectif d’avoir une autonomie annuelle. C’est pourquoi, bien que la résilience ne soit pas nommée explicitement par le client, elle constitue une exigence implicite du design. Le système doit être conçu de manière à tolérer certaines pannes ou de pouvoir faire de la maintenance à distance. La résilience du système a donc une pondération de 6\%. 
 \bigskip
 
-Pour évaluer ce critère, on considère le pourcentage des systèmes qui peuvent être réinitialisés hors site, la redondance des composantes critiques, les mesures de protection en place. Pour respecter les attentes du client, ce critère ne possède pas de seuil, cependant, un prototype qui ne contient aucune mesure de redondance reçoit une note de 0. Le score de résilience grandit de manière linéaire selon le nombre de mesures de protection. 
+Pour évaluer ce critère, on considère le pourcentage des systèmes qui peuvent être réinitialisés hors site, la redondance des composantes critiques, les mesures de protection en place. Pour respecter les attentes du client, ce critère ne possède pas de seuil, cependant, un prototype qui ne contient aucune mesure de redondance reçoit une note de 0. Le score de résilience augmente de manière linéaire selon le nombre de mesures de protection. 
 \bigskip
 
 Le barème est donné par une évaluation semi-qualitative où le score est basé sur la proportion des fonctions critiques protégées, soit l’alimentation énergétique, la transmission, le stockage des données, le capteur et la prise de données. Où $n$ représente le nombre de fonctions critiques protégées :
@@ -53,42 +64,46 @@ Puisque ce système sera déployé dans l'arctique Québécois, ses équipements
 
 \subsection{Plage opérationnelle de température}
 \label{conditions_climatiques}
-Situé dans le grand nord, le système va faire face à des périodes de froids extrêmes. En effet, dans la zone de déploiement, les températures peuvent aller jusqu’à –20°C ou + 20°C. Il est donc essentiel que l’isolation du système soit conçue de manière à limiter les échanges thermiques avec l’environnement. C’est pourquoi la pondération de la section est définie à 10\%. Pour respecter les attentes du client, le système doit être capable d’opérer lorsque la température extérieure est de -20°C. Si un design n’atteint pas cette exigence, ou obtient une note inférieure à zéro, il sera rejeté. Le barème est donné cette fonction, où $T_{sys}$ la température du système minimale, en °C. Si le résultat dépasse la note de 1, il est considéré comme un 1 :
+Situé dans le grand nord, le système va faire face à des périodes de froid extrêmes.
+En effet, dans la zone de déploiement, les températures peuvent aller jusqu’à –20°C ou +20°C.
+Il est donc essentiel que l’isolation du système soit conçue de manière à limiter les échanges thermiques avec l’environnement.
+C’est pourquoi la pondération de la section est définie à 10\%.
+Pour respecter les attentes du client, le système doit être capable d’opérer lorsque la température extérieure est de -20°C.
+Si un design n’atteint pas cette exigence, ou obtient une note inférieure à zéro, il sera rejeté.
+On considère qu'une température de -30°C est l'idéal et offre une note maximale.
+Le barème est donné par cette fonction, où $T_{sys}$ est la température du système minimale, en °C :
 
 \begin{equation}
     \frac{-20 -T_{sys}}{10}
 \end{equation}
 
-\subsection{Complexité d'installation}
+\subsection{Encombrement et complexité d'installation}
 \label{installation_deploiement}
 À la demande du client, le système devra pouvoir être installé par deux personnes ne disposant d'aucune compétence en génie.
-Puisque qu'une installation et qu'un déploiement facile font partie des volontés cruciales de l'employeur, une pondération de 8\% sera attribuée à ce critère. 
-La complexité de l'installement provient majoritairement du volume de l'équipement à manipuler sur place.
+Puisqu'une installation et qu'un déploiement facile sont des éléments essentiels pour le client, une pondération de 8\% sera attribuée à ce critère. 
+La complexité qu'apporte l'installation provient majoritairement du volume de l'équipement à manipuler sur place.
 C'est pourquoi la taille du système doit, dans la mesure du possible, être réduite au minimum.
-Dans un cas optimal, la taille ne peut pas être plus petite qu'un mètre cube. Le barème de cette section est décrit par la fonction suivante:
+Selon les contraintes, le volume ne peut pas être plus petite qu'un mètre cube.
+Alors, une solution comportant un volume inférieur à 1$m^3$ est rejetée, tandis qu'un de 10$m^3$ est considéré comme le maximum acceptable.
+Le barème de cette section est décrit par la fonction suivante, où $G$ est le volume en mètres cubes du système :
 
 \begin{equation}
-    1 - \frac{G-1}{9}
+    \frac{10-G}{9}
 \end{equation}
-
-Où $G$ est le volume en $m^3$ du système. Une solution comportant un volume inférieur à 1$m^3$ ou suppérieur à 10$m^3$ est rejeté.
 
 \subsection{Résistance mécanique à la neige}
 \label{resistance_neige}
 Le système pourrait être recouvert de neige sur une période pouvant aller jusqu'à huit mois.
-Si la boite cède, c’est l’entièreté du système qui est détruit.
-Il est donc important de protéger les équipements électroniques du poids de la neige afin d'assurer leur fonctionnement tout au long de la période de collecte.
-C'est pourquoi une pondération de 12\% sera attribuée pour ce critère.
-Le barème de cette section est donné par la formule suivante:
+Si la boîte cède, c’est l’entièreté du système qui est détruit.
+Il est donc important de protéger les équipements électroniques du poids de la neige pour une collecte continue.
+C'est pourquoi une pondération de 12\% sera attribuée à ce critère.
+Le système doit résister à un poids minimal, mais l'intérêt à résister à un poids plus lourd diminue plus on s'en éloigne, alors on utilise une fonction racine carrée.
+Un système qui assure une protection minimale à la neige supporte 10 $kg/m^2$, tandis qu'un système optimal supporterait 154 $kg/m^2$.
+Le barème de cette section est donné par la formule suivante, où $H$ est la charge maximale supportée par le boîtier en $kg/m^2$ :
 
 \begin{equation}
-    \frac{\sqrt{x - 10}}{12}
+    \frac{\sqrt{H - 10}}{12}
 \end{equation}
-
-Où $x$ est la charge maximale supporté par le boîtier en kg équivalent.
-La fonction racine carrée est choisie ici, puisqu'il est important que le système puisse résister à un poids minimum, mais qu'après une certaine valeur l'intérêt à résister à un poids plus lourd n'est pas nécessaire.
-Une solution incapable de supporter une charge de 10 kg ne respecte pas les attentes et est rejeté. Tout score supérieur à 1 est ramené à 1.
-
 
 \section{Observation et gestion de données}
 \label{donnees}
@@ -96,41 +111,41 @@ L’observation et la gestion de données sont une grande partie du projet afin 
 
 \subsection{Couverture de la zone d'observation}
 \label{detection_mammiferes}
-La capacité du système à détecter l’activité des petits mammifères de la faune arctique, notamment des lemmings, est un élément central du projet.
-Le système doit permettre d’échantillonner les activités des petits mammifères qui évoluent sur un site arctique en détectant les événements de manière passive, c’est-à-dire sans l’usage de pièges.
-Il sera donc important pour ce projet d’utiliser du matériel qui assure la qualité constante des mesures prises et surtout la fiabilité de celles-ci sans perturber l’état naturel des lemmings.
+Le système doit permettre d’échantillonner les activités des petits mammifères en détectant les événements de manière passive, c’est-à-dire sans l’usage de pièges.
+Il est donc important pour ce projet d’utiliser du matériel qui assure une capture fiable et constante sans manquer ni perturber les lemmings.
 La pondération de cette section est fixée à 9\%.
 Le score est basé sur la proportion de l’aire de la base qui est couverte par la zone d’observation du système.
-Une plus grande couverture donne un score plus élevé :
+L'estimation de cette couverture est faite à partir du boîtier et d'une projection géométrique.
+Pour un système parfait, la zone serait de 100\% et 1\% dans le cas d'un système minimal.
+La couverture ne peut être nulle, car la collecte demandée par le client serait impossible.
+Voici le barème, où Z représente le pourcentage de l’aire couverte par la zone de détection :
 \begin{equation}
-    \frac{Z}{A}
+    \frac{Z}{100}
 \end{equation}
-Où Z représente l’aire de la zone d’observation en mètres carrés et A l’aire de la base en mètres carrés.
-Dans cette équation, Z est la seule variable du barème, tandis que A est une constante.
-Toute solution pour laquelle $Z \leq 0$ est automatiquement rejetée.
 
 \subsection{Capacité de stockage}
 \label{conservation_donnees}
-Les données sur les activités des petits mammifères de la faune arctique et plus spécifiquement des lemmings doivent être stockées afin de documenter les statistiques sur le territoire.
-C’est pourquoi une pondération de 5\% est attribuée à cette section.
+Les données sur les activités des petits mammifères de la faune arctique doivent être stockées afin de documenter les statistiques sur le territoire.
 Le stockage de données permet tout d’abord le suivi à long terme des activités de la faune arctique, mais aussi d’assurer une qualité constante des mesures.
-Les vidéos sauvegardées doivent être de 5 secondes en 720p à 15 images par secondes avec un maximum d’un seul enregistrement par heure, pour une période de 12 mois.
-La capacité de stockage du système en gigaoctet ($S$) doit au minimum être suffisante pour archiver 12 mois de données ($S_{min}$).
-Pour chaque solution ces valeurs sont calculées en fonction de la résolution, de la fréquence et de la compression utilisée.
-Toute valeur supérieure à 1 est ramenée à 1.
-Toute solution pour laquelle $S < S_{min}$ est automatiquement rejeté. $S$ est la seule variable du barème, tandis que $S_{min}$ est une constante.
-Le score est donné par :
+C’est pourquoi une pondération de 5\% est attribuée à cette section.
+Les vidéos sauvegardées doivent être de 5 secondes en 720p à 15 images par seconde avec un maximum d’un seul enregistrement par heure, pendant 12 mois.
+Le montant nécessaire varie en fonction de la résolution, de la fréquence et de la compression utilisée.
+Pour subvenir à ce besoin, on estime que le stockage doit pouvoir contenir au minimum 128 GB avec un maximum de 1024 GB.
+Toute solution qui est inférieure au minimum est rejetée.
+L’ajout d'espace est plus utile initialement, mais son effet devient progressivement moins significatif.
+La formule qui évalue ce critère est la suivante, où $S$ est la capacité en GB :
+
 \begin{equation}
-    \frac{S-S_{min}}{S_{min}}
+    \frac{\log(S-127)}{\log(897)}
 \end{equation}
 
 \subsection{Performance de communication distante}
 \label{performance_communication}
-Le système devra archiver des données pour une durée d’un an au cours duquel il devra être capable de communiquer chaque semaine avec la centrale à une distance de plus de 2000Km pour fournir l’état du système ainsi que le nombre d’évènements répertorié.
+Le système devra archiver des données pour une durée d’un an au cours de laquelle il devra être capable de communiquer chaque semaine avec la centrale à une distance de plus de 2000 km pour fournir l’état du système ainsi que le nombre d’évènements répertoriés.
 Les données de la console locale à la centrale devront être accessibles via une application mobile à distance.
-Le système devra fournir un accès sécurisé à distance pour trois personnes. Une pondération de 6\% sera accordée à ce critère puisqu’il est essentiel, mais ne se démarque pas beaucoup.
-Toute solution ayant une portée de moins de 2000 km est insufisante et rejetée. Au contraire, si la porté est de 4000 km ou plus, le score est de 1. 
-Le barème est donné par l’équation suivante où $p$ est la portée maximale de communication du système en kilomètres.
+Le système devra fournir un accès sécurisé à distance pour trois personnes. Une pondération de 6\% est accordée à ce critère.
+Toute solution ayant une portée de moins de 2000 km est insuffisante et rejetée. Au contraire, une portée est de 4000 km ou plus, est considérée comme excellente. 
+Le barème est donné par l’équation suivante où $p$ est la portée maximale de communication du système en kilomètres :
 
 \begin{equation}
     \frac{p-2000}{2000}
@@ -140,10 +155,10 @@ Le barème est donné par l’équation suivante où $p$ est la portée maximale
 \label{exploitation_scientifique}
 Afin d’assurer l’exploitation scientifique du système, les données recueillies devront être archivées de façon à faciliter leur compilation à des fins statistiques.
 Les données recueillies devront également respecter certains critères de qualité.
-Les vidéos devront avoir une résolution minimum de 720P, 15FPS. Elles devront être d’une durée minimale de 5 secondes et il devra s’écouler un temps maximal de 1h entre celles-ci.
-Finalement, une pondération de 5\% sera accordée à ce critère.
-On établit que 60FPS (résolution considérée fluide) est l’idéal et 15FPS est le minimum exigé.
-Tout système qui ne respecte pas le minimum est rejeté, tandis qu'une solution ayant une fréquence plus grande ou égale à 60 FPS ne peut pas dépasser 1.
+Les vidéos devront avoir une résolution minimum de 720 p, 15 fps. Elles devront être d’une durée minimale de 5 secondes et il devra s’écouler un temps maximal de 1h entre celles-ci.
+Finalement, une pondération de 5\% est accordée à ce critère.
+On établit que 60 fps (résolution considérée fluide) est excellent et 15 fps est le minimum exigé.
+Tout système qui ne respecte pas le minimum est rejeté, tandis qu'une solution ayant une fréquence supérieure ou égale à 60 fps est idéale.
 Le barème est donné par l’équation suivante où $f$ est la fréquence d’images par seconde des vidéos :
 
 \begin{equation}
@@ -159,7 +174,7 @@ Les coûts associés à un tel projet influencent grandement sa viabilité à lo
 Le système doit éclairer l'intérieur de la zone d'observation pour capturer des images de qualité, mais cet éclairage ne doit pas impacter les lemmings afin de ne pas les perturber ni les éblouir. En effet, l’intégrité des données scientifiques dépend du comportement naturel des lemmings, c’est pourquoi une pondération de 3\% a été accordée au fait de minimiser l’impact lumineux. On utilise la longueur d'onde ($\lambda$) de la source lumineuse comme critère de d’évaluation. On établit qu'une longueur d'onde de 940 nm (totalement invisible) est l'idéal, tandis qu'une valeur de 650 nm (rouge très visible et lumineux) est la limite à ne pas dépasser pour éviter l'éblouissement. Le barème est le suivant, où $\lambda$ est la longueur d'onde en nanomètres (nm):
 
 \begin{equation}
-    \frac{\lambda - 650}{940}
+    \frac{\lambda - 650}{290}
 \end{equation}
 
 \subsection{Nombre de batteries remplacées par an}
@@ -172,7 +187,7 @@ Nous accordons une pondération de 2\% à l’objectif de limiter l’impact env
 
 \subsection{Coûts d'installation et de transport}
 \label{couts_transport}
-Les coûts d’installation et de transport, déterminés par la masse du système et la facilité de son déploiement, représentent 4\% de la pondération. Selon les contraintes du projet, le site n'est accessible que 2 semaines en juin et l'installation doit pouvoir être réalisée par deux personnes ne possédant pas de compétences en ingénierie. Par conséquent, le système doit être conçu pour une implantation intuitive, évitant les erreurs coûteuses et réduisant le temps d’installation. Les coûts d’installation et de transport dépendent également de la masse du système. Pour un système léger (moins de 10 kg) présentant une complexité d’implantation minimale, un coût d’environ 1000 \$ est estimé. En revanche, un coût de 5000 \$ est prévu pour un système lourd et/ou complexe à installer. Une cote de 0 à 1 est attribuée en fonction de ces frais. Voici le barème déterminant la cote, où $c$ est le coût total d’installation et de transport en dollars :
+Les coûts d'installation et de transport sont déterminés par la masse du système et la facilité de son déploiement. Selon les contraintes du projet, le site n'est accessible que 2 semaines en juin et l'installation doit pouvoir être réalisée par deux personnes ne possédant pas de compétences en ingénierie. Par conséquent, le système doit être conçu pour une implantation intuitive, évitant les erreurs coûteuses et réduisant le temps d’installation. Compte tenu des contraintes de simplicité et d'accès, le critère des coûts de transport représente 4\% de la pondération. Les coûts d’installation et de transport dépendent également de la masse du système. Pour un système léger (moins de 10 kg) présentant une complexité d’implantation minimale, un coût d’environ 1000 \$ est estimé. En revanche, un coût de 5000 \$ est prévu pour un système lourd et/ou complexe à installer. Une cote de 0 à 1 est attribuée en fonction de ces frais. Voici le barème déterminant la cote, où $c$ est le coût total d’installation et de transport en dollars :
 
 \begin{equation}
     \frac{5000 - c}{4000}
@@ -208,38 +223,40 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
         & \cellulemultiligne{\emph{Max}}
 
         \\\hline
-        \ref{Autonomie} Assurer autonomie du système & 30\% &  &  &  \\
-        \ref{robutesse_autonomie} Robustesse de l'état d'autonomie & 10\% & $\frac{\log(A-11)}{\log(2.5)}$ & 12 & \\
-        \ref{consommation_electrique} Consommation électrique & 8\% & $\frac{C}{P}$ & & \\
-        \ref{resilience_systeme} Résilience du système & 6\% & Voir barème \ref{resilience_systeme} & 0 & 100 \\
+        \ref{Autonomie} Fonctionnement autonome du système & 30\% &  &  &  \\
+        \ref{robutesse_autonomie} Marge de l'état d'autonomie & 10\% & $\frac{\log(A-11)}{\log(4)} \: A \in [12;15]$ & 12 mois & \\
+        \ref{consommation_electrique} Consommation énergétique & 8\% & $\frac{25-P}{22} \: P \in [3,25]$ & & \\
+        \ref{resilience_systeme} Proportion des fonctions protégées & 6\% & $\frac{n}{5}$ Barème \ref{resilience_systeme} & & \\
 
         \hline
-        \ref{Robustesse} Garantir robustesse arctique & 30\% & & &  \\
-        \ref{conditions_climatiques} Protection contre les températures extrêmes & 10\% & $\frac{-20 -T_{sys}}{10}$ & -20 & \\
-        \ref{installation_deploiement} Difficulté d’installation et de déploiement & 8\% & $\frac{G-1}{M}$ & $G\geq1$ & \\
-        \ref{resistance_neige} Résistance aux effets de l'enfouissement sous la neige & 12\% & $\sqrt{x}$ & 100 & \\
+        \ref{Robustesse} Résistance et entretien du système & 30\% & & &  \\
+        \ref{conditions_climatiques} Plage opérationnelle de température & 10\% & $\frac{-20 -T_{sys}}{10} \: T_{sys} \in [-30,-20]$ & -20°C & \\
+        \ref{installation_deploiement} Encombrement et complexité d’installation & 8\% & $\frac{10-G}{9} \: G \in [1,10]$ & 1$m^3$ & \\
+        \ref{resistance_neige} Résistance mécanique à la neige & 12\% & $\frac{\sqrt{H - 10}}{12} \: H \in [10,154]$ & & \\
         
         \hline
-        \ref{donnees} Assurer observation et gestion de données & & &  &  \\
-        \ref{detection_mammiferes} Performance de détection faunique & 9\% & Voir barème \ref{detection_mammiferes} &  & 100 \\
-        \ref{conservation_donnees} Pérennité du stockage des données & 5\% & $\frac{d-12}{12}$ & 12 & 24\\
-        \ref{performance_communication} Performance de communication distante & 6\% & $\frac{x-2000}{2000}$ & 2000 & \\
-        \ref{exploitation_scientifique} Qualité scientifique des données & 5\% & $\frac{f-15}{45}$ & 15 & 60 \\
+        \ref{donnees} Observation et gestion de données & & &  &  \\
+        \ref{detection_mammiferes} Couverture de la zone d’observation & 9\% & $\frac{Z}{100} \: Z \in [1,100]$ &  & \\
+        \ref{conservation_donnees} Capacité de stockage & 5\% & $\frac{\log(S-127)}{\log(897)} \: S \in [128,1024]$ & & \\
+        \ref{performance_communication} Performance de communication distante & 6\% & $\frac{p-2000}{2000} \: p \in [2000,4000]$ & 2000km & \\
+        \ref{exploitation_scientifique} Qualité scientifique des données & 5\% & $\frac{f-15}{45} \: f \in [15,60]$ & 15fps & \\
 
         \hline
         \ref{impacts_couts} Réduire impacts et coûts & 15\% & &  &  \\
-        \ref{impact_lumineux} Impact lumineux sur la faune & 3\% & $\frac{\lambda - 650}{940}$ & 650 & \\
-        \ref{impact_environnemental} Impact environnemental & 2\% & $\frac{4-b}{4}$ & & 4\\
-        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{5000}$ & & 5000 \\
-        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200}$ & & 2500 \\
-        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000}$ & & 5000 \\
+        \ref{impact_lumineux} Impact lumineux sur la faune & 3\% & $\frac{\lambda - 650}{290} \: \lambda \in [650,940]$ & & \\
+        \ref{impact_environnemental} Impact environnemental & 2\% & $\frac{4-b}{4} \: b \in [0,4]$ & & \\
+        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{4000} \: c \in [1000,5000]$ & & \\
+        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200} \: c \in [300,2500]$ & & \\
+        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000} \: c \in [1000,5000]$ & & \\
         \hline\hline
     \end{tabular}
 \end{table}
 
 \begin{figure}[p]
     \centering
-    \includegraphics[width=1\textwidth]{fig/maison_qualite.png}
+    \makebox[\textwidth]{%
+        \includegraphics[width=1.2\textwidth]{fig/MQ_V2.png}
+    }
     \caption{Maison de la qualité}
     \label{maison_de_qualite}
 \end{figure}
