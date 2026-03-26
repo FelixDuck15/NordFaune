@@ -109,14 +109,13 @@ La prise de vidéo est un concept capital du projet NordFaune, puisque les vidé
 % Section sur la détection de mouvement
 %-------------------------------%
 \subsection{Détecter le mouvement}
-La prise de vidéo est un concept capital du projet NordFaune, puisque les vidéos captées seront utilisées à des fins statiques par la suite. Il est donc important d'assurer une qualité constante de chaque vidéo, (résolution de 720p à 15 FPS) en s'assurant toutefois de ne pas dépasser les limites imposées par le système. (Voir \ref{} sur le stockage des données)
+La détection de mouvement est un aspect essentiel du projet NordFaune. En effet, les mouvements de l’animal seront l’élément déclencheur de plusieurs autres actions qui sont tout aussi importantes les unes que les autres. Il est donc important d’assurer un fonctionnement en s'assurant toutefois de ne pas dépasser les limites imposées par le système.  (Voir \ref{} sur la gestion de l’énergie)
 \bigskip
 
 \noindent\textbf{Aspect physique:}
 \begin{itemize}
     \item Le capteur vidéo doit être assez petit pour pouvoir être intégré au système.
-    \item Les vidéos captées par l'appareil doivent disposer d'une résolution satisfaisante pour une analyse future.
-    \item Doit pouvoir communiquer et interagir avec un ordinateur moderne.
+    \item Doit pouvoir communiquer et interagir avec les autres composantes du système.  
 \end{itemize}
 
 \noindent\textbf{Aspect économique:}
@@ -126,43 +125,43 @@ La prise de vidéo est un concept capital du projet NordFaune, puisque les vidé
 
 \noindent\textbf{Aspect temporel:}
 \begin{itemize}
-    \item Les capteurs doivent être facile à se procurer
+    \item Ne dois pas prendre trop d’énergie.
 \end{itemize}
 
 \noindent\textbf{Aspect socio-environnemental:}
 \begin{itemize}
-    \item Ne doit pas interférer avec la faune artique.
+    \item Ne doit pas interférer avec la faune artique sur place.
 \end{itemize}
 
 
-\subsubsection{GoPro Hero}
-\noindent\textbf{Description} La caméra Hero de la marque GoPro est une petite caméra très compacte et légère. (56,6 mm de large et 29,4 mm de hauteur) Elle peut enregistrer des vidéos jusqu'à une résolution de 4k à 30 FPS et dispose d'un port microSD pour pouvoir enregistrer les vidéos capturées. Au besoin, elle peut se connecter VIA Wifi, Bluetooth ou tout simplement à l'aide d'un câble USB-C pour communiquer et transférer ses données vers un ordinateur. La caméra Hero est robuste et étanche jusqu'à une profondeur de 5m. De plus, elle résiste généralement bien au froid, surtout si connectée à une source d'énergie externe. La caméra Hero peut s'acheter facilement sur le site de GoPro ou sur Amazon à un prix d'environ 280\$.
+\subsubsection{Détecteurs de mouvement Zigbee}
+\noindent\textbf{Description} Le détecteur de mouvement de THIRDREALITY détient le protocole de communication sans fil Zigbee, il est peu énergivore. L’avantage de ce système c’est qu’il utilise un réseau maillé pour la communication entre eux, donc plus sécuritaire. De plus, il peut envoyer des commandes pour le système avec une latence minimale. Ils garantissent la protection de données. Il peut se connecter avec plusieurs appareils de domotique. Il détecte jusqu’à 30 pieds. Avec son prix de 42\$ pour 2 détecteurs, cela n’est pas trop cher. Pour finir, cette méthode est écoresponsable pour les animaux qui vont entrer dans le système.  
 
 \noindent\textbf{Décision} Rejetée
 
-\noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond à l'ensemble des critères préalablement fixés. Cette caméra est robuste, résiste bien au froid et permet de capturer des vidéos avec une excellente qualité et résolution. Cependant, le prix de cette caméra laisse beaucoup à désirer, puisqu'on sent ici que l'on paye pour des caractéristiques inutiles qui n'apporteraient pas de bénéfices réels au projet. C'est le cas par exemple, de la résolution maximale de 4K qui est inutile pour une analyse future des vidéos.
+\noindent\textbf{Justification} Ce concept a été rejeté, pour le meilleur fonctionnement de cet appareil, il nous en faudrait plus qui ont la même communication Zigbee. De plus, le capteur est trop gros pour le système.  
 
 \noindent\textbf{Références}
 \cite{Gopro1}
 \cite{Gopro2}
 
-\subsubsection{ArduCam IMX219}
-\noindent\textbf{Description} La module ArduCam IMX219 est principalement conçue pour permettre une intégration facile avec les ordinateurs Raspberry Pi. Avec son capteur de 8MP, il est possible de prendre des vidéos HD jusqu'à 47 images par seconde. Le module communique directement avec un ordinateur Raspberry Pi par l'intermédiaire de deux lignes MIPI CSI-2. Elle est très compacte et elle sera facile à installer dans la boîte avec les autres composants du système. De plus, puisque c'est seulement un module de caméra dédié uniquement à la prise de photos ou de vidéos, il consomme très peu d'énergie. Avec un prix de 30\$ dur le site de ArduCam ou 40\$ sur Amazon, cette caméra n'est pas dispendieuse et facile à se procurer.
+\subsubsection{Capteur infrarouge 333179}
+\noindent\textbf{Description} Le Capteur infrarouge 333179 est fait pour des systèmes embarqués. Il mesure 2x2x1 cm et son poids de 10g.  La distance de détection est ajustable de 3m à 5m. Il est fonctionnel avec tout type de système. Il a un capteur d’angle de plus de 100° (angle de cône) et fonctionne dans des températures entre -20 °C et 60 °C. Il est aussi peu énergivore et facile d’installation. Avec son prix de 16.13\$ chaque capteur, nous pouvons en acheter plusieurs pour ne pas avoir de fausses détections. Pour finir, les animaux ne seront pas affectés par ce capteur, car il va seulement détecter s’il y a une chaleur d’un corps vivant qui passe devant.  
 
 \noindent\textbf{Décision} Retenue
 
-\noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond aisément à tous les critères. Il n'est pas cher, occupe très peu d'espace et peut enregistrer des vidéos avec une résolution acceptable. Cependant, il est préférable d'utiliser un ordinateur Raspberry avec ce capteur ce qui facilitera son installation et sa mise en service.
+\noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond à tous les critères préalablement fixés. Il est facile d’utilisation pour les autres composantes du système, il est de petit format, ne consomme pas beaucoup et il est écoresponsable pour les animaux qui vont entrer dans le système. 
 
 \noindent\textbf{Références} 
 \cite{ArduCam1}
 \cite{ArduCam2}
 
-\subsubsection{ESP32-CAM}
-\noindent\textbf{Description} L'ESP32-CAM est un petit module de caméra qui accepte une certaine variété de capteurs photo et vidéo. Combiné avec la caméra OV2640, il est possible d'enregistrer des vidéos allant jusqu'à une résolution maximale de 720p à 30 FPS. Le module est équipé d'un port micro-USB ce qui permet de connecter rapidement et facilement la caméra à un ordinateur pour le transfert de données. De plus, un flash est intégré au module, ce qui facilite la capture vidéo la nuit. La caméra ainsi que son module peuvent se trouver facilement en ligne sur des sites tels qu'Amazon à un prix d'environ 30\$.
+\subsubsection{Plaques piézoélectriques}
+\noindent\textbf{Description} Les plaques piézoélectriques sont des cercles de 1mm à 3mm d’épaisseur à 15mm de diamètre qui ne détecte pas le mouvement, mais les vibrations ou le toucher de quelqu’un. Ils sont faciles à installer et à utiliser. De plus de son prix médiocre de 2.42\$ pour un sac, il peut être utilisé dans n’importe quel système parce qu’il consomme peu d’énergie. Il est aussi étanche, donc la neige ou l’eau ne va pas détruire ce capteur. 
 
-\noindent\textbf{Décision} Retenue
+\noindent\textbf{Décision} Retenue, mais
 
-\noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond à tous les critères préalablement fixés. Son intégration facile avec des ordinateurs compatibles ESP32 le rend très polyvalent. De plus, le flash intégré au module est parfait pour assurer la qualité des vidéos même la nuit.
+\noindent\textbf{Justification} Ce concept a été retenu, puisqu’il est très peu énergivore et se met en mode veille quand il détecte rien. Cependant, il dépendant d’un contact physique, l’animal peut être trop léger pour déclencher le capteur. De plus, s’il y a de la neige ou de la glace qui heurte notre système et qu’il fait vibrer la boite, le capteur pourrait se déclencher à tort.
 
 \noindent\textbf{Références} 
 \cite{ArduCam1}
@@ -177,11 +176,11 @@ La prise de vidéo est un concept capital du projet NordFaune, puisque les vidé
     \cline{2-5}
     & Physique & Économique & Temporelle & Socio-env. & \\
     \hline
-    GoPro Hero & Oui & Oui & Oui & Oui & Retenue \\
+    Détecteurs de mouvement Zigbee & Non & Oui,mais & Oui & Oui & Rejeté \\
     \hline
-    ArduCam IMX219 & Oui & Oui & Oui & Oui & Retenue \\
+    Capteur infrarouge 333179 & Oui & Oui & Oui & Oui & Retenue \\
     \hline
-    ESP32-CAM & Oui & Oui & Oui & Oui & Retenue \\
+    Plaques piézoélectriques & Oui & Oui & Oui, mais & Oui & Retenue, mais \\
     \hline
 \end{tabular}
 \caption{Analyse de faisabilité des solutions}
