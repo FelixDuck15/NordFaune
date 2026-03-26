@@ -186,3 +186,86 @@ La détection de mouvement est un aspect essentiel du projet NordFaune. En effet
 \caption{Analyse de faisabilité des solutions}
 \label{tab:faisabiliteMouvement}
 \end{table}
+
+
+%-------------------------------%
+% Section sur le contrôle d'accès
+%-------------------------------%
+
+\subsection{Contrôler l'accès}
+Le système se doit d’être en mesure de fournir un accès sécurisé à distance à la centrale pour trois personnes. L’objectif est de permettre un accès sécuritaire aux données et aux fonctionnalités du système via une application mobile fournissant un accès à la console locale de la centrale.\bigskip
+
+\noindent\textbf{Aspect physique:}
+\begin{itemize}
+    \item Le concept doit permettre l’accès à distance pour trois personnes
+    \item Le système doit limiter l'accès aux trois personnes authorisé seulement.
+\end{itemize}
+
+\noindent\textbf{Aspect économique:}
+\begin{itemize}
+    \item Le coût doit être raisonnable
+\end{itemize}
+
+\noindent\textbf{Aspect temporel:}
+\begin{itemize}
+    \item Fournir un accès hebdomadaire pendant 1ans
+\end{itemize}
+
+\noindent\textbf{Aspect socio-environnemental:}
+\begin{itemize}
+    \item N/A
+\end{itemize}
+
+
+\subsubsection{Microsoft Authenticator}
+\noindent\textbf{Description} Les applications d’authentifications à deux facteurs, tels que Microsoft Authenticator, permettent d’améliorer la sécurité d’accès à un système. Cette application utilise un protocole appelé TOTP (time based one time password). Dans ce protocole le serveur (Microsoft Azure) et le client (l’application mobile) s’échangent une clef secrète composée d’une chaine de caractère généré aléatoirement, après cet échange, la clef n’est plus jamais partagée. Pour permettre l’accès à une application, le protocole génère un code à 6 chiffres en utilisant une fonction cryptographique HMAC prenant comme entrée la clef secrète et le temps UNIX arrondi à 30 secondes près. Puisque l’application et le serveur ont la même clef secrète, le même temps UNIX et utilisent la même fonction mathématique, il arrive au même code à 6 chiffres sans échange supplémentaire d’information. 
+
+\noindent\textbf{Décision} Retenue
+
+\noindent\textbf{Justification} L’application Microsoft Authenticator elle-même est gratuite, son implémentation dans une application mobile requiert une licence Azure pour le service Entra ID. Pour ce projet une licence gratuite (jusqu’à 50'000 utilisateurs) est plus que suffisante, car le client ne requiert que 3 utilisateurs. Au niveau de la complexité de l’implémentation, Microsoft fournit une librairie python (azure-identity) pour l’intégration avec son API (application programming interface), il est donc relativement simple d’intégrer cette solution dans une application mobile pour sécuriser l’accès. 
+
+\noindent\textbf{Références}
+\cite{Gopro1}
+\cite{Gopro2}
+
+\subsubsection{AES-256}
+\noindent\textbf{Description} Le cryptage de données de type symétrique tel que AES-256 est une manière simple d’assurer un accès sécurisé aux données d’une application. AES-256 utilise un chiffrement aux clefs symétriques, il y a donc une clef du côté client et une clef du côté serveur. Ces clefs permettent de chiffrer et déchiffrer les données cryptées qui sont partagées entre l’application mobile et la console de la centrale. Cette solution utilise une architecture PSK (pre-shared key) pour laquelle la clef est archivée dans l’enclave de l’appareil mobile, ce qui permet au client (application mobile) de déchiffrer les données du serveur (console de la centrale).
+
+\noindent\textbf{Décision} Retenue
+
+\noindent\textbf{Justification} C’est une solution simple et gratuite avec une implémentation relativement simple. Il suffit d’utiliser une librairie python (librairie « cryptography ») pour chiffrer et déchiffrer les données. La seule considération est l’échange de clefs initial doit être fait en étant physiquement présent à la console de la centrale avec l’appareil mobile. En terme plus simple, il est nécessaire de générer une clef depuis la console et de la copier dans l’application mobile pour l’initialisation d’un compte. 
+
+\noindent\textbf{Références} 
+\cite{ArduCam1}
+\cite{ArduCam2}
+
+\subsubsection{Tunnel Cloudflare}
+\noindent\textbf{Description} L’un des concepts principaux de la cybersécurité est la surface d’attaque. Réduire cette surface est un moyen simple et efficace d’améliorer la sécurité d’un système. Dans un modèle client-serveur classique, le serveur se doit de posséder une adresse IP publique. Cette adresse IP constitue une surface d’attaque puisque n’importe qui peut faire une requête au serveur. Une solution simple est d’utiliser un réseau privé pour éviter d’exposer un seul port du serveur à l’internet public. Il existe plusieurs implémentations de ce principe, mais l’utilisation d’un CDN tels qu’un Tunnel Cloudflare semble être l’option la plus approprié pour les besoins du client. Il suffit de connecter le serveur (console de la centrale) au réseau Cloudflare et diriger les requêtes du client (application mobile) via le réseau Cloudflare. 
+
+\noindent\textbf{Décision} Retenue
+
+\noindent\textbf{Justification} Un VPN classique masque le trafic de données, mais n’aide pas vraiment à la sécurité et a contrôlé l’accès, car le serveur demeure exposé à l’internet public. En utilisant un tunnel Cloudflare, le serveur demeure connecté au réseau Cloudflare, mais pas à l’internet public. Lorsqu’un utilisateur fait une requête pour l’application mobile, la requête est envoyée à Cloudflare, qui redirige la requête jusqu’au serveur si l’utilisateur est en mesure de valider son identité. De plus, les tunnels Cloudflare, un des services de l’écosystème Cloudflare Zero Trust, sont gratuits en dessous de 50 utilisateurs et 1000 tunnels. Au niveau de l’implémentation, il suffit d’installer le daemon cloudflared sur le serveur (console de la centrale) et de pointer les requêtes du client (application mobile) vers un domaine Cloudflare.
+
+\noindent\textbf{Références} 
+\cite{ArduCam1}
+\cite{ArduCam2}
+
+\begin{table}[h]
+    \centering
+\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \centering
+    \textbf{Solutions} & \multicolumn{4}{c|}{Faisabilité} & \textbf{Décision} \\
+    \cline{2-5}
+    & Physique & Économique & Temporelle & Socio-env. & \\
+    \hline
+    Microsoft Authenticator & Oui & Oui & Oui & N/A & Retenue \\
+    \hline
+    AES-256 & Oui & Oui & Oui & N/A & Retenue \\
+    \hline
+    Tunnel Cloudflare & Oui & Oui & Oui & N/A & Retenue \\
+    \hline
+\end{tabular}
+\caption{Analyse de faisabilité des solutions}
+\label{tab:faisabiliteVideo}
+\end{table}
