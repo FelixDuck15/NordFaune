@@ -275,7 +275,7 @@ Le système se doit d’être en mesure de fournir un accès sécurisé à dista
 
 \section{Conceptualisation des solutions}
 
-\subsection{tockage de vidéos}
+\subsection{Enregistrer les données}
 
 Le système de stockage des vidéos prises dans le Grand Nord doit archiver celles-ci pendant une durée d’au moins un an selon les contraintes du client. Les concepts retenus doivent donc être fiables et durables considérant les conditions environnementales. Considérant les contraintes minimales du client concernant la résolution des vidéos de 5 secondes prises aux heures et la fréquence à laquelle celles-ci doivent être prises, soit à 720p avec une fréquence de 15 fps une estimation peut être faite pour guider le choix de l'outil de stockage. Une vidéo de 720p a typiquement un débit binaire de 1 Mbit par seconde ce qui peut être converti en 0,125 Mo par seconde. Ainsi, pour des vidéos de 5 secondes prises aux heures pendant 24 heures sur une période d’un an et en laissant une marge d’erreur pour compenser les variations de compression, on estime qu’une capacité de stockage minimale de 8 Go répondrait aux besoins du client.
 
@@ -335,11 +335,11 @@ Le système de stockage des vidéos prises dans le Grand Nord doit archiver cell
 
 \noindent\textbf{Références}
 
-\cite{microSD1}
+\cite{CarteMicroSD1}
 
-\cite{microSD2}
+\cite{CarteMicroSD2}
 
-\cite{microSD3}
+\cite{CarteMicroSD3}
 
 
 
@@ -359,11 +359,11 @@ Le système de stockage des vidéos prises dans le Grand Nord doit archiver cell
 
 \noindent\textbf{Références}
 
-\cite{SSD1}
+\cite{DisqueSSD1}
 
-\cite{SSD2}
+\cite{DisqueSSD2}
 
-\cite{SSD3}
+\cite{DisqueSSD3}
 
 
 
@@ -379,11 +379,11 @@ Le système de stockage des vidéos prises dans le Grand Nord doit archiver cell
 
 \noindent\textbf{Références}
 
-\cite{Cloud1}
+\cite{Nuage1}
 
-\cite{Cloud2}
+\cite{Nuage2}
 
-\cite{Cloud3}
+\cite{Nuage3}
 
 
 
@@ -392,35 +392,193 @@ Le système de stockage des vidéos prises dans le Grand Nord doit archiver cell
     \centering
 
 \begin{tabular}{|c|c|c|c|c|c|}
-
     \hline
-
     \centering
-
     \textbf{Solutions} & \multicolumn{4}{c|}{Faisabilité} & \textbf{Décision} \\
-
     \cline{2-5}
-
     & Physique & Économique & Temporelle & Socio-env. & \\
-
     \hline
-
     MicroSD(HC) industrielle & Oui & N/A & N/A & N/A & Retenue \\
-
     \hline
-
     Disque SSD SATA III& Oui & N/A & N/A & N/A & Retenue \\
-
     \hline
-
     Azure et Starlink & Oui & N/A & N/A & N/A & Retenue \\
-
     \hline
-
 \end{tabular}
 
 \caption{Analyse de faisabilité des solutions}
 
 \label{tab:faisabiliteStockage}
 
+\end{table}
+
+%-------------------------------%
+% Section sur les événements
+%-------------------------------%
+\subsection{Analyser les événements et l'état du système}
+L’analyse des événements et de l’état du système constitue une fonction centrale du projet NordFaune. En effet, le système doit être capable de traiter différents intrants provenant de ses capteurs afin d’identifier la nature des événements détectés. Ces événements peuvent être liés à l’activité faunique comme la détection de mouvement par caméra ou à des défaillances internes. L’objectif est donc de convertir ces intrants en informations exploitables, permettant une classification fiable des événements ainsi qu’un suivi de l’état du système.
+\bigskip
+
+\noindent\textbf{Aspect physique:}
+\begin{itemize}
+    \item Le système doit être capable être capable de traiter des données provenant de plusieurs capteurs (caméra, capteurs, internes).
+    \item Il doit fonctionner dans des conditions environnementales extrêmes (-20°C à +20°C).
+    \item L’unité de traitement doit être compacte et intégrable dans le système global.
+\end{itemize}
+
+\noindent\textbf{Aspect économique:}
+\begin{itemize}
+    \item Le coût du micro-ordinateur ou du système de traitement doit être raisonnable.
+\end{itemize}
+
+\noindent\textbf{Aspect temporel:}
+\begin{itemize}
+    \item Le traitement des événements doit être effectué en temps quasi réel.
+    \item Le système doit fonctionner de manière autonome sans intervention humaine.
+\end{itemize}
+
+\noindent\textbf{Aspect socio-environnemental:}
+\begin{itemize}
+    \item La consommation énergétique doit être faible afin de préserver l’autonomie du système.
+    \item Le système doit minimiser son impact environnemental.
+\end{itemize}
+
+
+\subsubsection{Microncontrôleur embarqué -STM32}
+\noindent\textbf{Description} Le microcontrôleur STM32 est une solution embarquée largement utilisée pour le traitement de données en temps réel. Il permet d’exécuter des algorithmes simples de détection et de classification à partir de signaux provenant de capteurs. Grâce à sa faible consommation énergétique, il est particulièrement adapté aux systèmes autonomes. Il peut être programmé pour analyser des détections de mouvement et surveiller l’état des composantes. Toutefois, sa capacité de calcul reste limitée, ce qui restreint l’utilisation d’algorithmes complexes. 
+
+\noindent\textbf{Décision} Rejetée
+
+\noindent\textbf{Justification} Le microcontrôleur STM32 répond bien aux contraintes énergétiques et environnementales. Cependant, il ne permet pas une analyse avancée des données, notamment pour la reconnaissance d’images ou la classification précise des événements fauniques. Étant donné les exigences de qualité scientifique des données, cette limitation est critique.
+
+\noindent\textbf{Références}
+\cite{STM321}
+\cite{STM322}
+\cite{STM323}
+
+\subsubsection{Micro-ordinateur -Raspberry Pi}
+\noindent\textbf{Description} Le Raspberry Pi est un micro-ordinateur compact capable d’exécuter un système d’exploitation complet comme Linux. Il permet l’implémentation d’algorithmes plus complexes, incluant la vision par ordinateur et l’intelligence artificielle légère. Il peut traiter des images provenant de la caméra afin de distinguer différents types d’événements comme la présence animale, le bruit et les erreurs système. Sa consommation énergétique est modérée (environ 2 à 6 W selon le modèle), ce qui reste compatible avec une alimentation autonome. Il supporte également de nombreux capteurs et interfaces.
+
+\noindent\textbf{Décision} Retenue
+
+\noindent\textbf{Justification} Le Raspberry Pi offre un bon compromis entre puissance de calcul et consommation énergétique. Il permet une analyse avancée des événements, essentielle pour garantir la qualité scientifique des données. Sa flexibilité logicielle permet également d’intégrer des mécanismes de détection de défaillances internes. De plus, son coût est raisonnable et son intégration est relativement simple.
+
+\noindent\textbf{Références} 
+\cite{Raspberry1}
+\cite{Raspberry2}
+\cite{Raspberry3}
+
+\subsubsection{Ordinateur embarqué haute performance – NVIDIA Jetson Nano}
+\noindent\textbf{Description} Le NVIDIA Jetson Nano est une plateforme embarquée spécialisée dans l’intelligence artificielle. Il permet l’exécution d’algorithmes de deep learning pour l’analyse d’images en temps réel. Cette solution est particulièrement performante pour la reconnaissance avancée d’objets et la classification précise des événements. Toutefois, sa consommation énergétique est plus élevée (5 à 10 W), ce qui peut représenter un défi pour un système autonome. De plus, son coût est supérieur à celui d’un Raspberry Pi.
+
+\noindent\textbf{Décision} Rejetée
+
+\noindent\textbf{Justification} Malgré sa bonne performance, cette solution dépasse les besoins réels du projet. La complexité et la consommation énergétique élevée nuisent à l’autonomie du système. De plus, le volume de données et la fréquence d’analyse ne justifient pas l’utilisation d’une solution aussi avancée.
+
+\noindent\textbf{Références} 
+\cite{Jetson1}
+\cite{Jetson2}
+\cite{Jetson3}
+
+\begin{table}[h]
+    \centering
+\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \centering
+    \textbf{Solutions} & \multicolumn{4}{c|}{Faisabilité} & \textbf{Décision} \\
+    \cline{2-5}
+    & Physique & Économique & Temporelle & Socio-env. & \\
+    \hline
+    Bois de cèdre & Oui & Oui & Oui & Oui & Rejetée \\
+    \hline
+    Aluminium & Oui & Oui & Oui & Oui & Retenue \\
+    \hline
+    Plastique & Oui & Non & Oui & Non & Rejetée \\
+    \hline
+\end{tabular}
+\caption{Analyse de faisabilité des solutions}
+\label{tab:faisabiliteEvenement}
+\end{table}
+
+%-------------------------------%
+% Section sur la prise de matériaux
+%-------------------------------%
+
+\section{Conceptualisation des solutions}
+\subsection{Supporter 2m de neige et les écarts de température}
+La robustesse et la solidité du système conceptuel Nord Faune est un concept clé, puisqu'il est primordial d'assurer la protection de l'équipement informatique utilisé contre les conditions météorologiques. Entre autres, le design conceptuel devra résister au poids de deux mètres de neige ainsi qu'à des écarts de température de 40°C tout au long de l'année.
+\bigskip
+
+\noindent\textbf{Aspect physique:}
+\begin{itemize}
+    \item Supporter le poids de deux mètres de neige.
+    \item Résister aux écarts de température entre -20°C et 20°C
+    \item Doit rester léger.
+\end{itemize}
+
+\noindent\textbf{Aspect économique:}
+\begin{itemize}
+    \item Les coûts des matériaux utilisés pour protéger les instruments ne doivent pas être couteux.
+\end{itemize}
+
+\noindent\textbf{Aspect temporel:}
+\begin{itemize}
+    \item Les matériaux doivent être faciles à se procurer.
+\end{itemize}
+
+\noindent\textbf{Aspect socio-environnemental:}
+\begin{itemize}
+    \item Ne doit pas laisser polluer l'environnement autour de la zone de déploiement.
+\end{itemize}
+
+
+\subsubsection{Boîtier en bois de cèdre}
+\noindent\textbf{Description} Le bois de cèdre peut être un matériau intéressant à utiliser. C'est un type de bois qui est reconnu pour résister à l'humidité et qui ne pourri pas. De plus, c'est un matériau durable et résistant tout en étant léger. Avec une résistance à la flexion entre 750-850 $Kg/cm^2$, il est donc capable de supporter le poids de deux mètres de neige \cite{Neige}. Il est d'ailleurs très utilisé pour des applications extérieures diverses par exemple pour les planchers des patios extérieurs. Étant un matériau biologique et présent au Québec, il ne perturbera pas la faune arctique sur place. De plus, il est naturellement résistant aux insectes et à la moisissure. Finalement, c'est un matériau se procure facilement et qui est peu dispendieux. Par exemple, on peut retrouver des planches de cèdre rouge 11/16 Po X 6 Po pour 3,77\$ / Pied linéaire. 
+
+\noindent\textbf{Décision} Retenue
+
+\noindent\textbf{Justification} Le bois de cèdre est un concept qui sera retenu, puisqu'il répond à tous les critères énoncés ci-haut. Il est durable, résistant et supporte bien les conditions météorologiques extrêmes que l'on retrouve dans l'arctique québécois. De plus, il peut être pertinent de mentionner que c'est un matériau naturel et donc respectueux de l'environnement.
+
+\noindent\textbf{Références}
+\cite{Bois1}
+\cite{Bois2}
+
+\subsubsection{Boîtier en aluminium}
+\noindent\textbf{Description} L'aluminium est reconnu pour être un matériau solide, mais aussi très léger. Très résistant à la corrosion, il nécessite un entretien minimal et résisterait donc bien aux conditions météorologiques de l'arctique Québécois. De plus, en utilisant l'aluminium sous forme d'alliage, on peut grandement augmenter sa résistance mécanique pour qu'il puisse supporter et résister au poids de 2m de neige. Le prix pour construire une boîte en aluminium est très raisonnable, le prix moyen d'une tonne d'aluminium étant 2193 \$ USD (~3000\$ CAD). Cela revient à environ 2,19\$/Kg.
+\noindent\textbf{Décision} Retenue
+
+\noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond à tous les critères initialement fixés. Il est robuste, léger, facile à se procurer, mais surtout peu couteux. De plus, même si ce n'est pas un critère, il est facilement recyclable.
+
+\noindent\textbf{Références} 
+\cite{Aluminium1}
+\cite{Aluminium2}
+
+\subsubsection{Plastique}
+\noindent\textbf{Description} Un boîtier en plastique pourrait être considéré afin de s'assurer que la boîte protégeant les équipements reste le plus léger possible. De plus, le plastique est peu couteux et facile à se procurer. De plus, certains types de plastiques comme le PC (polycarbonate) ont à la fois une grande résistance mécanique et supportent bien les grands écarts de température. Cependant, comme tout type de plastique, ils peuvent souffrir de dégradation ce qui laisse des micros-particules de plastique dans l'environnement. 
+
+\noindent\textbf{Décision} Rejetée
+
+\noindent\textbf{Justification} Bien que le plastique serait en tout point un bon candidat aux niveaux des aspects physique, économique et temporel, les micros plastiques qu'ils peuvent libérer dans l'environnement pourraient être nuisible et avoir des impacts à long terme sur la faune arctique. C'est pourquoi ce concept est rejeté.
+
+\noindent\textbf{Références} 
+\cite{Plastique1}
+
+\begin{table}[h]
+    \centering
+\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \centering
+    \textbf{Solutions} & \multicolumn{4}{c|}{Faisabilité} & \textbf{Décision} \\
+    \cline{2-5}
+    & Physique & Économique & Temporelle & Socio-env. & \\
+    \hline
+    Bois de cèdre & Oui & Oui & Oui & Oui & Retenue \\
+    \hline
+    Aluminium & Oui & Oui & Oui & Oui & Retenue \\
+    \hline
+    Plastique & Oui & Oui & Oui & Non & Rejetée \\
+    \hline
+\end{tabular}
+\caption{Analyse de faisabilité des solutions}
+\label{tab:faisabiliteMateriaux}
 \end{table}
