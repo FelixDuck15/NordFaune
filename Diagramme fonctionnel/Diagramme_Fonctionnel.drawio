@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0" version="29.6.4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:148.0) Gecko/20100101 Firefox/148.0" version="29.6.6">
   <diagram name="Page-1" id="II2oKLridMty-yCdjQcX">
-    <mxGraphModel dx="1719" dy="995" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="light-dark(#FFFFFF,#FFFFFF)" math="0" shadow="0">
+    <mxGraphModel dx="1375" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="light-dark(#FFFFFF,#FFFFFF)" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -43,7 +43,7 @@
         <mxCell id="E9L8uG32Q5AC7NXLklB--4" edge="1" parent="1" source="Hss04u528seFxMROfv8x-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=light-dark(#000000,#000000);strokeWidth=3;" target="Hss04u528seFxMROfv8x-12">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Hss04u528seFxMROfv8x-8" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=light-dark(#FA6800,#FF8000);fontColor=#000000;strokeColor=#C73500;" value="Enregistrer les vidéos" vertex="1">
+        <mxCell id="Hss04u528seFxMROfv8x-8" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=light-dark(#FA6800,#FF8000);fontColor=#000000;strokeColor=#C73500;" value="Enregistrer les données" vertex="1">
           <mxGeometry height="60" width="120" x="280" y="500" as="geometry" />
         </mxCell>
         <mxCell id="E9L8uG32Q5AC7NXLklB--11" edge="1" parent="1" source="Hss04u528seFxMROfv8x-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;strokeColor=light-dark(#000000,#000000);strokeWidth=3;jumpStyle=arc;" target="Hss04u528seFxMROfv8x-6">
