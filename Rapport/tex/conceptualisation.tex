@@ -159,7 +159,7 @@ La détection de mouvement est un aspect essentiel du projet NordFaune. En effet
 \subsubsection{Plaques piézoélectriques}
 \noindent\textbf{Description} Les plaques piézoélectriques sont des cercles de 1mm à 3mm d’épaisseur à 15mm de diamètre qui ne détecte pas le mouvement, mais les vibrations ou le toucher de quelqu’un. Ils sont faciles à installer et à utiliser. De plus de son prix médiocre de 2.42\$ pour un sac, il peut être utilisé dans n’importe quel système parce qu’il consomme peu d’énergie. Il est aussi étanche, donc la neige ou l’eau ne va pas détruire ce capteur. 
 
-\noindent\textbf{Décision} Retenue, mais
+\noindent\textbf{Décision} Retenue
 
 \noindent\textbf{Justification} Ce concept a été retenu, puisqu’il est très peu énergivore et se met en mode veille quand il détecte rien. Cependant, il dépendant d’un contact physique, l’animal peut être trop léger pour déclencher le capteur. De plus, s’il y a de la neige ou de la glace qui heurte notre système et qu’il fait vibrer la boite, le capteur pourrait se déclencher à tort.
 
@@ -189,65 +189,62 @@ La détection de mouvement est un aspect essentiel du projet NordFaune. En effet
 
 
 %-------------------------------%
-% Section sur le stockage de vidéos
+% Section sur le contrôle d'accès
 %-------------------------------%
 
-\section{Conceptualisation des solutions}
-\subsection{Prendre une vidéo}
-La prise de vidéo est un concept capital du projet NordFaune, puisque les vidéos captées seront utilisées à des fins statiques par la suite. Il est donc important d'assurer une qualité constante de chaque vidéo, (résolution de 720p à 15 FPS) en s'assurant toutefois de ne pas dépasser les limites imposées par le système. (Voir \ref{} sur le stockage des données)
-\bigskip
+\subsection{Contrôler l'accès}
+Le système se doit d’être en mesure de fournir un accès sécurisé à distance à la centrale pour trois personnes. L’objectif est de permettre un accès sécuritaire aux données et aux fonctionnalités du système via une application mobile fournissant un accès à la console locale de la centrale.\bigskip
 
 \noindent\textbf{Aspect physique:}
 \begin{itemize}
-    \item Le capteur vidéo doit être assez petit pour pouvoir être intégré au système.
-    \item Les vidéos captées par l'appareil doivent disposer d'une résolution satisfaisante pour une analyse future.
-    \item Doit pouvoir communiquer et interagir avec un ordinateur moderne.
+    \item Le concept doit permettre l’accès à distance pour trois personnes
+    \item Le système doit limiter l'accès aux trois personnes authorisé seulement.
 \end{itemize}
 
 \noindent\textbf{Aspect économique:}
 \begin{itemize}
-    \item Le capteur doit être peut couteux.
+    \item Le coût doit être raisonnable
 \end{itemize}
 
 \noindent\textbf{Aspect temporel:}
 \begin{itemize}
-    \item Les capteurs doivent être facile à se procurer
+    \item Fournir un accès hebdomadaire pendant 1ans
 \end{itemize}
 
 \noindent\textbf{Aspect socio-environnemental:}
 \begin{itemize}
-    \item Ne doit pas interférer avec la faune artique.
+    \item N/A
 \end{itemize}
 
 
-\subsubsection{GoPro Hero}
-\noindent\textbf{Description} La caméra Hero de la marque GoPro est une petite caméra très compacte et légère. (56,6 mm de large et 29,4 mm de hauteur) Elle peut enregistrer des vidéos jusqu'à une résolution de 4k à 30 FPS et dispose d'un port microSD pour pouvoir enregistrer les vidéos capturées. Au besoin, elle peut se connecter VIA Wifi, Bluetooth ou tout simplement à l'aide d'un câble USB-C pour communiquer et transférer ses données vers un ordinateur. La caméra Hero est robuste et étanche jusqu'à une profondeur de 5m. De plus, elle résiste généralement bien au froid, surtout si connectée à une source d'énergie externe. La caméra Hero peut s'acheter facilement sur le site de GoPro ou sur Amazon à un prix d'environ 280\$.
+\subsubsection{Microsoft Authenticator}
+\noindent\textbf{Description} Les applications d’authentifications à deux facteurs, tels que Microsoft Authenticator, permettent d’améliorer la sécurité d’accès à un système. Cette application utilise un protocole appelé TOTP (time based one time password). Dans ce protocole le serveur (Microsoft Azure) et le client (l’application mobile) s’échangent une clef secrète composée d’une chaine de caractère généré aléatoirement, après cet échange, la clef n’est plus jamais partagée. Pour permettre l’accès à une application, le protocole génère un code à 6 chiffres en utilisant une fonction cryptographique HMAC prenant comme entrée la clef secrète et le temps UNIX arrondi à 30 secondes près. Puisque l’application et le serveur ont la même clef secrète, le même temps UNIX et utilisent la même fonction mathématique, il arrive au même code à 6 chiffres sans échange supplémentaire d’information. 
 
-\noindent\textbf{Décision} Rejetée
+\noindent\textbf{Décision} Retenue
 
-\noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond à l'ensemble des critères préalablement fixés. Cette caméra est robuste, résiste bien au froid et permet de capturer des vidéos avec une excellente qualité et résolution. Cependant, le prix de cette caméra laisse beaucoup à désirer, puisqu'on sent ici que l'on paye pour des caractéristiques inutiles qui n'apporteraient pas de bénéfices réels au projet. C'est le cas par exemple, de la résolution maximale de 4K qui est inutile pour une analyse future des vidéos.
+\noindent\textbf{Justification} L’application Microsoft Authenticator elle-même est gratuite, son implémentation dans une application mobile requiert une licence Azure pour le service Entra ID. Pour ce projet une licence gratuite (jusqu’à 50'000 utilisateurs) est plus que suffisante, car le client ne requiert que 3 utilisateurs. Au niveau de la complexité de l’implémentation, Microsoft fournit une librairie python (azure-identity) pour l’intégration avec son API (application programming interface), il est donc relativement simple d’intégrer cette solution dans une application mobile pour sécuriser l’accès. 
 
 \noindent\textbf{Références}
 \cite{Gopro1}
 \cite{Gopro2}
 
-\subsubsection{ArduCam IMX219}
-\noindent\textbf{Description} La module ArduCam IMX219 est principalement conçue pour permettre une intégration facile avec les ordinateurs Raspberry Pi. Avec son capteur de 8MP, il est possible de prendre des vidéos HD jusqu'à 47 images par seconde. Le module communique directement avec un ordinateur Raspberry Pi par l'intermédiaire de deux lignes MIPI CSI-2. Elle est très compacte et elle sera facile à installer dans la boîte avec les autres composants du système. De plus, puisque c'est seulement un module de caméra dédié uniquement à la prise de photos ou de vidéos, il consomme très peu d'énergie. Avec un prix de 30\$ dur le site de ArduCam ou 40\$ sur Amazon, cette caméra n'est pas dispendieuse et facile à se procurer.
+\subsubsection{AES-256}
+\noindent\textbf{Description} Le cryptage de données de type symétrique tel que AES-256 est une manière simple d’assurer un accès sécurisé aux données d’une application. AES-256 utilise un chiffrement aux clefs symétriques, il y a donc une clef du côté client et une clef du côté serveur. Ces clefs permettent de chiffrer et déchiffrer les données cryptées qui sont partagées entre l’application mobile et la console de la centrale. Cette solution utilise une architecture PSK (pre-shared key) pour laquelle la clef est archivée dans l’enclave de l’appareil mobile, ce qui permet au client (application mobile) de déchiffrer les données du serveur (console de la centrale).
 
 \noindent\textbf{Décision} Retenue
 
-\noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond aisément à tous les critères. Il n'est pas cher, occupe très peu d'espace et peut enregistrer des vidéos avec une résolution acceptable. Cependant, il est préférable d'utiliser un ordinateur Raspberry avec ce capteur ce qui facilitera son installation et sa mise en service.
+\noindent\textbf{Justification} C’est une solution simple et gratuite avec une implémentation relativement simple. Il suffit d’utiliser une librairie python (librairie « cryptography ») pour chiffrer et déchiffrer les données. La seule considération est l’échange de clefs initial doit être fait en étant physiquement présent à la console de la centrale avec l’appareil mobile. En terme plus simple, il est nécessaire de générer une clef depuis la console et de la copier dans l’application mobile pour l’initialisation d’un compte. 
 
 \noindent\textbf{Références} 
 \cite{ArduCam1}
 \cite{ArduCam2}
 
-\subsubsection{ESP32-CAM}
-\noindent\textbf{Description} L'ESP32-CAM est un petit module de caméra qui accepte une certaine variété de capteurs photo et vidéo. Combiné avec la caméra OV2640, il est possible d'enregistrer des vidéos allant jusqu'à une résolution maximale de 720p à 30 FPS. Le module est équipé d'un port micro-USB ce qui permet de connecter rapidement et facilement la caméra à un ordinateur pour le transfert de données. De plus, un flash est intégré au module, ce qui facilite la capture vidéo la nuit. La caméra ainsi que son module peuvent se trouver facilement en ligne sur des sites tels qu'Amazon à un prix d'environ 30\$.
+\subsubsection{Tunnel Cloudflare}
+\noindent\textbf{Description} L’un des concepts principaux de la cybersécurité est la surface d’attaque. Réduire cette surface est un moyen simple et efficace d’améliorer la sécurité d’un système. Dans un modèle client-serveur classique, le serveur se doit de posséder une adresse IP publique. Cette adresse IP constitue une surface d’attaque puisque n’importe qui peut faire une requête au serveur. Une solution simple est d’utiliser un réseau privé pour éviter d’exposer un seul port du serveur à l’internet public. Il existe plusieurs implémentations de ce principe, mais l’utilisation d’un CDN tels qu’un Tunnel Cloudflare semble être l’option la plus approprié pour les besoins du client. Il suffit de connecter le serveur (console de la centrale) au réseau Cloudflare et diriger les requêtes du client (application mobile) via le réseau Cloudflare. 
 
 \noindent\textbf{Décision} Retenue
 
-\noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond à tous les critères préalablement fixés. Son intégration facile avec des ordinateurs compatibles ESP32 le rend très polyvalent. De plus, le flash intégré au module est parfait pour assurer la qualité des vidéos même la nuit.
+\noindent\textbf{Justification} Un VPN classique masque le trafic de données, mais n’aide pas vraiment à la sécurité et a contrôlé l’accès, car le serveur demeure exposé à l’internet public. En utilisant un tunnel Cloudflare, le serveur demeure connecté au réseau Cloudflare, mais pas à l’internet public. Lorsqu’un utilisateur fait une requête pour l’application mobile, la requête est envoyée à Cloudflare, qui redirige la requête jusqu’au serveur si l’utilisateur est en mesure de valider son identité. De plus, les tunnels Cloudflare, un des services de l’écosystème Cloudflare Zero Trust, sont gratuits en dessous de 50 utilisateurs et 1000 tunnels. Au niveau de l’implémentation, il suffit d’installer le daemon cloudflared sur le serveur (console de la centrale) et de pointer les requêtes du client (application mobile) vers un domaine Cloudflare.
 
 \noindent\textbf{Références} 
 \cite{ArduCam1}
@@ -262,11 +259,11 @@ La prise de vidéo est un concept capital du projet NordFaune, puisque les vidé
     \cline{2-5}
     & Physique & Économique & Temporelle & Socio-env. & \\
     \hline
-    GoPro Hero & Oui & Oui & Oui & Oui & Retenue \\
+    Microsoft Authenticator & Oui & Oui & Oui & N/A & Retenue \\
     \hline
-    ArduCam IMX219 & Oui & Oui & Oui & Oui & Retenue \\
+    AES-256 & Oui & Oui & Oui & N/A & Retenue \\
     \hline
-    ESP32-CAM & Oui & Oui & Oui & Oui & Retenue \\
+    Tunnel Cloudflare & Oui & Oui & Oui & N/A & Retenue \\
     \hline
 \end{tabular}
 \caption{Analyse de faisabilité des solutions}
