@@ -266,3 +266,167 @@ Le système se doit d’être en mesure de fournir un accès sécurisé à dista
 \caption{Analyse de faisabilité des solutions}
 \label{tab:faisabiliteVideo}
 \end{table}
+
+%-------------------------------%
+% Section sur le stockage de vidéos 
+%-------------------------------%
+
+
+
+\section{Conceptualisation des solutions}
+
+\subsection{tockage de vidéos}
+
+Le système de stockage des vidéos prises dans le Grand Nord doit archiver celles-ci pendant une durée d’au moins un an selon les contraintes du client. Les concepts retenus doivent donc être fiables et durables considérant les conditions environnementales. Considérant les contraintes minimales du client concernant la résolution des vidéos de 5 secondes prises aux heures et la fréquence à laquelle celles-ci doivent être prises, soit à 720p avec une fréquence de 15 fps une estimation peut être faite pour guider le choix de l'outil de stockage. Une vidéo de 720p a typiquement un débit binaire de 1 Mbit par seconde ce qui peut être converti en 0,125 Mo par seconde. Ainsi, pour des vidéos de 5 secondes prises aux heures pendant 24 heures sur une période d’un an et en laissant une marge d’erreur pour compenser les variations de compression, on estime qu’une capacité de stockage minimale de 8 Go répondrait aux besoins du client.
+
+\bigskip
+
+
+
+\noindent\textbf{Aspect physique:}
+
+\begin{itemize}
+
+    \item Stockage d’au moins 8-10 Go, durée minimale de 1 an
+
+
+
+\end{itemize}
+
+
+
+\noindent\textbf{Aspect économique:}
+
+\begin{itemize}
+
+    \item Non applicable
+
+\end{itemize}
+
+
+
+\noindent\textbf{Aspect temporel:}
+
+\begin{itemize}
+
+    \item Non applicable
+
+\end{itemize}
+
+
+
+\noindent\textbf{Aspect socio-environnemental:}
+
+\begin{itemize}
+
+    \item Non applicable
+
+\end{itemize}
+
+
+
+
+
+\subsubsection{Carte microSD(HC) industrielle}
+
+\noindent\textbf{Description} Les cartes SD (Secure Digital) sont des cartes mémoire qui utilisent la mémoire flash pour stocker des données. Elles sont compactes, petites et légères, les rendant faciles à transporter et à intégrer à une variété d’appareils comme des caméras, téléphones ou ordinateurs. Pour notre projet, une carte microSDHC de grade industriel est préférable dûe à leur durabilité, ce qui est un facteur important considérant les conditions environnementales du Grand Nord, et leur capacité de stockage supérieure. Une carte microSDHC de classe 10, avec une vitesse d’écriture de 10Mo par seconde, permet de capturer des vidéos avec une résolution allant de 720p jusqu’à 1080p ce qui satisfait les demandes du client à cet égard. Pour une carte microSDHC industrielle de classe 10 de 8Go de la compagnie Kingston le prix est de 35$.
+
+\noindent\textbf{Décision} Retenue
+
+
+
+\noindent\textbf{Justification} La carte SD de grade industriel est retenue car elle répond aux standards minimaux du client par rapport au stockage et à la résolution des vidéos. Par ailleurs, son petit format rend son installation sur le site plus facile pour ce projet et son prix est acceptable.
+
+
+
+\noindent\textbf{Références}
+
+\cite{microSD1}
+
+\cite{microSD2}
+
+\cite{microSD3}
+
+
+
+\subsubsection{Disque SSD SATA III}
+
+\noindent\textbf{Description} Les disques SSD (Solide State Drive) utilisent une mémoire flash, non volatile et à base de semi-conducteurs. Cela permet un accès aux données et des vitesses de transfert plus rapides. Ces types de disques ne possèdent pas de pièces mobiles les rendant plus durables et moins sensibles à la perte de données causée par les chocs physiques ce qui est important pour ce projet considérant la présence de mammifères dans l’environnement du Grand Nord. Les SSD sont également plus rapides et consomment moins d’énergie que d’autres types de stockage. Les disques SSD ont aujourd’hui en général une capacité de stockage minimale de 128 Go ce qui dépasse l’estimation de stockage requis pour ce projet. Pour un SSD Topesel d’une capacité de stockage de 128 Go le prix est de 40$.
+
+
+
+\noindent\textbf{Décision} Retenue
+
+
+
+\noindent\textbf{Justification} Le disque SSD Topesel respecte les contraintes du client en termes de capacité de stockage en plus d’être durable et fiable ce qui est avantageux pour les conditions du Grand Nord et son prix est acceptable pour le projet.
+
+
+
+\noindent\textbf{Références}
+
+\cite{SSD1}
+
+\cite{SSD2}
+
+\cite{SSD3}
+
+
+
+\subsubsection{Stockage infonuagique Azure avec accès Starlink}
+
+\noindent\textbf{Description} Le stockage infonuagique (Cloud) permet de déléguer la conservation des données à des entreprises spécialisées. Cependant, cette méthode de conservation de données nécessite une connexion internet pour transmettre les données jusqu’au Cloud. Ainsi, en combinant le stockage infonuagique avec une antenne et la constellation de satellites Starlink, les données du projet peuvent être enregistrées par voie satellite. L'antenne capte le signal de la caméra prenant les vidéos pour le relayer aux satellites en orbites qui redirigent les données vers les serveurs de stockage infonuagique. Les capacités de stockage offertes par les compagnies spécialisées en infonuagique sont supérieures aux options de stockage physique. Par ailleurs, ces compagnies assurent la sécurité et la sauvegarde des données, enlevant donc cette responsabilité au client. Pour l’option Microsoft Azure Blob Storage le coût dépend du nombre de Go par mois stocké et revient à environ 0,024$/Go/mois pour un accès fréquent aux données. Quant au mini kit Starlink, celui-ci son coût est de 350$.
+
+\noindent\textbf{Décision} Retenue
+
+
+
+\noindent\textbf{Justification} La combinaison du mini kit Starlink et du Microsoft Azure Blob Storage est retenue car elle permet de satisfaire les contraintes du client concernant le stockage des données pendant une durée minimale d’un an. Cette solution assure une conservation des données qui est fiable en ligne, toutefois le prix est élevé pour ce concept considérant que d’autres outils de stockage répondent également aux attentes du client à coût réduit.
+
+\noindent\textbf{Références}
+
+\cite{Cloud1}
+
+\cite{Cloud2}
+
+\cite{Cloud3}
+
+
+
+\begin{table}[h]
+
+    \centering
+
+\begin{tabular}{|c|c|c|c|c|c|}
+
+    \hline
+
+    \centering
+
+    \textbf{Solutions} & \multicolumn{4}{c|}{Faisabilité} & \textbf{Décision} \\
+
+    \cline{2-5}
+
+    & Physique & Économique & Temporelle & Socio-env. & \\
+
+    \hline
+
+    MicroSD(HC) industrielle & Oui & N/A & N/A & N/A & Retenue \\
+
+    \hline
+
+    Disque SSD SATA III& Oui & N/A & N/A & N/A & Retenue \\
+
+    \hline
+
+    Azure et Starlink & Oui & N/A & N/A & N/A & Retenue \\
+
+    \hline
+
+\end{tabular}
+
+\caption{Analyse de faisabilité des solutions}
+
+\label{tab:faisabiliteVideo}
+
+\end{table}
