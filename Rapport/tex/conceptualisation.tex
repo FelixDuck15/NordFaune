@@ -186,3 +186,89 @@ La détection de mouvement est un aspect essentiel du projet NordFaune. En effet
 \caption{Analyse de faisabilité des solutions}
 \label{tab:faisabiliteMouvement}
 \end{table}
+
+
+%-------------------------------%
+% Section sur le stockage de vidéos
+%-------------------------------%
+
+\section{Conceptualisation des solutions}
+\subsection{Prendre une vidéo}
+La prise de vidéo est un concept capital du projet NordFaune, puisque les vidéos captées seront utilisées à des fins statiques par la suite. Il est donc important d'assurer une qualité constante de chaque vidéo, (résolution de 720p à 15 FPS) en s'assurant toutefois de ne pas dépasser les limites imposées par le système. (Voir \ref{} sur le stockage des données)
+\bigskip
+
+\noindent\textbf{Aspect physique:}
+\begin{itemize}
+    \item Le capteur vidéo doit être assez petit pour pouvoir être intégré au système.
+    \item Les vidéos captées par l'appareil doivent disposer d'une résolution satisfaisante pour une analyse future.
+    \item Doit pouvoir communiquer et interagir avec un ordinateur moderne.
+\end{itemize}
+
+\noindent\textbf{Aspect économique:}
+\begin{itemize}
+    \item Le capteur doit être peut couteux.
+\end{itemize}
+
+\noindent\textbf{Aspect temporel:}
+\begin{itemize}
+    \item Les capteurs doivent être facile à se procurer
+\end{itemize}
+
+\noindent\textbf{Aspect socio-environnemental:}
+\begin{itemize}
+    \item Ne doit pas interférer avec la faune artique.
+\end{itemize}
+
+
+\subsubsection{GoPro Hero}
+\noindent\textbf{Description} La caméra Hero de la marque GoPro est une petite caméra très compacte et légère. (56,6 mm de large et 29,4 mm de hauteur) Elle peut enregistrer des vidéos jusqu'à une résolution de 4k à 30 FPS et dispose d'un port microSD pour pouvoir enregistrer les vidéos capturées. Au besoin, elle peut se connecter VIA Wifi, Bluetooth ou tout simplement à l'aide d'un câble USB-C pour communiquer et transférer ses données vers un ordinateur. La caméra Hero est robuste et étanche jusqu'à une profondeur de 5m. De plus, elle résiste généralement bien au froid, surtout si connectée à une source d'énergie externe. La caméra Hero peut s'acheter facilement sur le site de GoPro ou sur Amazon à un prix d'environ 280\$.
+
+\noindent\textbf{Décision} Rejetée
+
+\noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond à l'ensemble des critères préalablement fixés. Cette caméra est robuste, résiste bien au froid et permet de capturer des vidéos avec une excellente qualité et résolution. Cependant, le prix de cette caméra laisse beaucoup à désirer, puisqu'on sent ici que l'on paye pour des caractéristiques inutiles qui n'apporteraient pas de bénéfices réels au projet. C'est le cas par exemple, de la résolution maximale de 4K qui est inutile pour une analyse future des vidéos.
+
+\noindent\textbf{Références}
+\cite{Gopro1}
+\cite{Gopro2}
+
+\subsubsection{ArduCam IMX219}
+\noindent\textbf{Description} La module ArduCam IMX219 est principalement conçue pour permettre une intégration facile avec les ordinateurs Raspberry Pi. Avec son capteur de 8MP, il est possible de prendre des vidéos HD jusqu'à 47 images par seconde. Le module communique directement avec un ordinateur Raspberry Pi par l'intermédiaire de deux lignes MIPI CSI-2. Elle est très compacte et elle sera facile à installer dans la boîte avec les autres composants du système. De plus, puisque c'est seulement un module de caméra dédié uniquement à la prise de photos ou de vidéos, il consomme très peu d'énergie. Avec un prix de 30\$ dur le site de ArduCam ou 40\$ sur Amazon, cette caméra n'est pas dispendieuse et facile à se procurer.
+
+\noindent\textbf{Décision} Retenue
+
+\noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond aisément à tous les critères. Il n'est pas cher, occupe très peu d'espace et peut enregistrer des vidéos avec une résolution acceptable. Cependant, il est préférable d'utiliser un ordinateur Raspberry avec ce capteur ce qui facilitera son installation et sa mise en service.
+
+\noindent\textbf{Références} 
+\cite{ArduCam1}
+\cite{ArduCam2}
+
+\subsubsection{ESP32-CAM}
+\noindent\textbf{Description} L'ESP32-CAM est un petit module de caméra qui accepte une certaine variété de capteurs photo et vidéo. Combiné avec la caméra OV2640, il est possible d'enregistrer des vidéos allant jusqu'à une résolution maximale de 720p à 30 FPS. Le module est équipé d'un port micro-USB ce qui permet de connecter rapidement et facilement la caméra à un ordinateur pour le transfert de données. De plus, un flash est intégré au module, ce qui facilite la capture vidéo la nuit. La caméra ainsi que son module peuvent se trouver facilement en ligne sur des sites tels qu'Amazon à un prix d'environ 30\$.
+
+\noindent\textbf{Décision} Retenue
+
+\noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond à tous les critères préalablement fixés. Son intégration facile avec des ordinateurs compatibles ESP32 le rend très polyvalent. De plus, le flash intégré au module est parfait pour assurer la qualité des vidéos même la nuit.
+
+\noindent\textbf{Références} 
+\cite{ArduCam1}
+\cite{ArduCam2}
+
+\begin{table}[h]
+    \centering
+\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \centering
+    \textbf{Solutions} & \multicolumn{4}{c|}{Faisabilité} & \textbf{Décision} \\
+    \cline{2-5}
+    & Physique & Économique & Temporelle & Socio-env. & \\
+    \hline
+    GoPro Hero & Oui & Oui & Oui & Oui & Retenue \\
+    \hline
+    ArduCam IMX219 & Oui & Oui & Oui & Oui & Retenue \\
+    \hline
+    ESP32-CAM & Oui & Oui & Oui & Oui & Retenue \\
+    \hline
+\end{tabular}
+\caption{Analyse de faisabilité des solutions}
+\label{tab:faisabiliteVideo}
+\end{table}
