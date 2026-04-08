@@ -84,11 +84,11 @@ Puisqu'une installation et qu'un déploiement facile sont des éléments essenti
 La complexité qu'apporte l'installation provient majoritairement du volume de l'équipement à manipuler sur place.
 C'est pourquoi la taille du système doit, dans la mesure du possible, être réduite au minimum.
 Selon les contraintes, le volume ne peut pas être plus petite qu'un mètre cube.
-Alors, une solution comportant un volume inférieur à 1$m^3$ est rejetée, tandis qu'un de 10$m^3$ est considéré comme le maximum acceptable.
+Alors, une solution comportant un volume inférieur à 1$m^3$ est rejetée, tandis qu'un de 25$m^3$ est considéré comme le maximum acceptable.
 Le barème de cette section est décrit par la fonction suivante, où $G$ est le volume en mètres cubes du système :
 
 \begin{equation}
-    \frac{10-G}{9}
+    \frac{25-G}{24}
 \end{equation}
 
 \subsection{Résistance mécanique à la neige}
@@ -97,12 +97,13 @@ Le système pourrait être recouvert de neige sur une période pouvant aller jus
 Si la boîte cède, c’est l’entièreté du système qui est détruit.
 Il est donc important de protéger les équipements électroniques du poids de la neige pour une collecte continue.
 C'est pourquoi une pondération de 12\% sera attribuée à ce critère.
+La contrainte de deux mètres de neige est convertie en charge surfacique, car c'est cette charge qui détermine la résistance du boîtier.
 Le système doit résister à un poids minimal, mais l'intérêt à résister à un poids plus lourd diminue plus on s'en éloigne, alors on utilise une fonction racine carrée.
-Un système qui assure une protection minimale à la neige supporte 10 $kg/m^2$, tandis qu'un système optimal supporterait 154 $kg/m^2$.
+Un système qui assure une protection minimale à la neige supporte 200 $kg/m^2$, tandis qu'un système optimal supporterait 1000 $kg/m^2$.
 Le barème de cette section est donné par la formule suivante, où $H$ est la charge maximale supportée par le boîtier en $kg/m^2$ :
 
 \begin{equation}
-    \frac{\sqrt{H - 10}}{12}
+    \frac{\sqrt{H - 200}}{20\sqrt{2}}
 \end{equation}
 
 \section{Observation et gestion de données}
@@ -130,13 +131,13 @@ Le stockage de données permet tout d’abord le suivi à long terme des activit
 C’est pourquoi une pondération de 5\% est attribuée à cette section.
 Les vidéos sauvegardées doivent être de 5 secondes en 720p à 15 images par seconde avec un maximum d’un seul enregistrement par heure, pendant 12 mois.
 Le montant nécessaire varie en fonction de la résolution, de la fréquence et de la compression utilisée.
-Pour subvenir à ce besoin, on estime que le stockage doit pouvoir contenir au minimum 128 GB avec un maximum de 1024 GB.
+Pour subvenir à ce besoin, on estime que le stockage doit pouvoir contenir au minimum 10 Go avec un maximum de 128 Go.
 Toute solution qui est inférieure au minimum est rejetée.
 L’ajout d'espace est plus utile initialement, mais son effet devient progressivement moins significatif.
-La formule qui évalue ce critère est la suivante, où $S$ est la capacité en GB :
+La formule qui évalue ce critère est la suivante, où $S$ est la capacité en Go :
 
 \begin{equation}
-    \frac{\log(S-127)}{\log(897)}
+    \frac{\log(S-9)}{\log(119)}
 \end{equation}
 
 \subsection{Performance de communication distante}
@@ -210,10 +211,12 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
     \frac{5000-c}{4000}
 \end{equation}
 
+\renewcommand{\arraystretch}{1.6}
 \begin{table}[htp]
     \centering
     \caption{Tableau du cahier des charges}
     \label{Tableau cahier des charges}
+    \begin{adjustbox}{max width=\textwidth}
     \begin{tabular}{|l|c|c|c|c|}
         \hline\hline
         \cellulemultiligne{\emph{Critères d'évaluation}}
@@ -224,38 +227,39 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
 
         \\\hline
         \ref{Autonomie} Fonctionnement autonome du système & 30\% &  &  &  \\
-        \ref{robutesse_autonomie} Marge de l'état d'autonomie & 10\% & $\frac{\log(A-11)}{\log(4)} \: A \in [12;15]$ & 12 mois & \\
-        \ref{consommation_electrique} Consommation énergétique & 8\% & $\frac{25-P}{22} \: P \in [3,25]$ & & \\
+        \ref{robutesse_autonomie} Marge de l'état d'autonomie [mois] & 10\% & $\frac{\log(A-11)}{\log(4)} \: A \in [12;15]$ & 12 mois & \\
+        \ref{consommation_electrique} Consommation énergétique [W] & 8\% & $\frac{25-P}{22} \: P \in [3,25]$ & & \\
         \ref{resilience_systeme} Proportion des fonctions protégées & 6\% & $\frac{n}{5}$ Barème \ref{resilience_systeme} & & \\
 
         \hline
         \ref{Robustesse} Résistance et entretien du système & 30\% & & &  \\
-        \ref{conditions_climatiques} Plage opérationnelle de température & 10\% & $\frac{-20 -T_{sys}}{10} \: T_{sys} \in [-30,-20]$ & -20°C & \\
-        \ref{installation_deploiement} Encombrement et complexité d’installation & 8\% & $\frac{10-G}{9} \: G \in [1,10]$ & 1$m^3$ & \\
-        \ref{resistance_neige} Résistance mécanique à la neige & 12\% & $\frac{\sqrt{H - 10}}{12} \: H \in [10,154]$ & & \\
+        \ref{conditions_climatiques} Plage opérationnelle de température [°C] & 10\% & $\frac{-20 -T_{sys}}{10} \: T_{sys} \in [-30,-20]$ & & -20°C \\
+        \ref{installation_deploiement} Encombrement et complexité d’installation [$m^3$] & 8\% & $\frac{25-G}{24} \: G \in [1,25]$ & 1$m^3$ & \\
+        \ref{resistance_neige} Résistance mécanique à la neige [$kg/m^2$] & 12\% & $\frac{\sqrt{H - 200}}{20\sqrt{2}} \: H \in [200,1000]$ & & \\
         
         \hline
         \ref{donnees} Observation et gestion de données & & &  &  \\
-        \ref{detection_mammiferes} Couverture de la zone d’observation & 9\% & $\frac{Z}{100} \: Z \in [1,100]$ &  & \\
-        \ref{conservation_donnees} Capacité de stockage & 5\% & $\frac{\log(S-127)}{\log(897)} \: S \in [128,1024]$ & & \\
-        \ref{performance_communication} Performance de communication distante & 6\% & $\frac{p-2000}{2000} \: p \in [2000,4000]$ & 2000km & \\
-        \ref{exploitation_scientifique} Qualité scientifique des données & 5\% & $\frac{f-15}{45} \: f \in [15,60]$ & 15fps & \\
+        \ref{detection_mammiferes} Couverture de la zone d’observation [\%] & 9\% & $\frac{Z}{100} \: Z \in [1,100]$ &  & \\
+        \ref{conservation_donnees} Capacité de stockage [Go] & 5\% & $\frac{\log(S-9)}{\log(119)} \: S \in [10,128]$ & & \\
+        \ref{performance_communication} Performance de communication distante [km] & 6\% & $\frac{p-2000}{2000} \: p \in [2000,4000]$ & 2000km & \\
+        \ref{exploitation_scientifique} Qualité scientifique des données [fps] & 5\% & $\frac{f-15}{45} \: f \in [15,60]$ & 15fps & \\
 
         \hline
         \ref{impacts_couts} Réduire impacts et coûts & 15\% & &  &  \\
-        \ref{impact_lumineux} Impact lumineux sur la faune & 3\% & $\frac{\lambda - 650}{290} \: \lambda \in [650,940]$ & & \\
+        \ref{impact_lumineux} Impact lumineux sur la faune [nm] & 3\% & $\frac{\lambda - 650}{290} \: \lambda \in [650,940]$ & & \\
         \ref{impact_environnemental} Impact environnemental & 2\% & $\frac{4-b}{4} \: b \in [0,4]$ & & \\
-        \ref{couts_transport} Coûts d'installation et de transport & 4\% & $\frac{5000-c}{4000} \: c \in [1000,5000]$ & & \\
-        \ref{couts_entretien} Coûts d'opération et d’entretien & 3\% & $\frac{2500-c}{2200} \: c \in [300,2500]$ & & \\
-        \ref{couts_fabrication} Coûts de fabrication & 3\% & $\frac{5000-c}{4000} \: c \in [1000,5000]$ & & \\
+        \ref{couts_transport} Coûts d'installation et de transport [\$] & 4\% & $\frac{5000-c}{4000} \: c \in [1000,5000]$ & & \\
+        \ref{couts_entretien} Coûts d'opération et d’entretien [\$] & 3\% & $\frac{2500-c}{2200} \: c \in [300,2500]$ & & \\
+        \ref{couts_fabrication} Coûts de fabrication [\$] & 3\% & $\frac{5000-c}{4000} \: c \in [1000,5000]$ & & \\
         \hline\hline
     \end{tabular}
+    \end{adjustbox}
 \end{table}
 
 \begin{figure}[p]
     \centering
     \makebox[\textwidth]{%
-        \includegraphics[width=1.2\textwidth]{fig/MQ_V2.png}
+        \includegraphics[width=1.2\textwidth]{fig/MQ_V3.png}
     }
     \caption{Maison de la qualité}
     \label{maison_de_qualite}
