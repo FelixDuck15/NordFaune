@@ -131,13 +131,13 @@ Le stockage de données permet tout d’abord le suivi à long terme des activit
 C’est pourquoi une pondération de 5\% est attribuée à cette section.
 Les vidéos sauvegardées doivent être de 5 secondes en 720p à 15 images par seconde avec un maximum d’un seul enregistrement par heure, pendant 12 mois.
 Le montant nécessaire varie en fonction de la résolution, de la fréquence et de la compression utilisée.
-Pour subvenir à ce besoin, on estime que le stockage doit pouvoir contenir au minimum 10 Go avec un maximum de 128 Go.
+Pour subvenir à ce besoin, on estime que le stockage doit pouvoir contenir au minimum 8 Go avec un maximum de 128 Go.
 Toute solution qui est inférieure au minimum est rejetée.
 L’ajout d'espace est plus utile initialement, mais son effet devient progressivement moins significatif.
 La formule qui évalue ce critère est la suivante, où $S$ est la capacité en Go :
 
 \begin{equation}
-    \frac{\log(S-9)}{\log(119)}
+    \frac{\log(S-7)}{\log(121)}
 \end{equation}
 
 \subsection{Performance de communication distante}
@@ -240,7 +240,7 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
         \hline
         \ref{donnees} Observation et gestion de données & & &  &  \\
         \ref{detection_mammiferes} Couverture de la zone d’observation [\%] & 9\% & $\frac{Z}{100} \: Z \in [1,100]$ &  & \\
-        \ref{conservation_donnees} Capacité de stockage [Go] & 5\% & $\frac{\log(S-9)}{\log(119)} \: S \in [10,128]$ & & \\
+        \ref{conservation_donnees} Capacité de stockage [Go] & 5\% & $\frac{\log(S-7)}{\log(121)} \: S \in [8,128]$ & & \\
         \ref{performance_communication} Performance de communication distante [km] & 6\% & $\frac{p-2000}{2000} \: p \in [2000,4000]$ & 2000km & \\
         \ref{exploitation_scientifique} Qualité scientifique des données [fps] & 5\% & $\frac{f-15}{45} \: f \in [15,60]$ & 15fps & \\
 
