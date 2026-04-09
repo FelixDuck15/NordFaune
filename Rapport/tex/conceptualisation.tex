@@ -26,6 +26,7 @@ Pour s'assurer de bien répondre aux demandes du client, nous devons tenir compt
 
 \section{Conceptualisation des solutions}
 \subsection{Capturer une vidéo}
+\label{CapturerUneVidéo}
 La prise de vidéo est un concept capital du projet NordFaune, puisque les vidéos captées seront utilisées à des fins statistiques par la suite. Il est donc important d'assurer une qualité constante de chaque vidéo. (résolution de 720p à 15 FPS)
 \bigskip
 
@@ -53,6 +54,7 @@ La prise de vidéo est un concept capital du projet NordFaune, puisque les vidé
 
 
 \subsubsection{GoPro Hero}
+\label{sec:gopro}
 \noindent\textbf{Description} La caméra Hero de la marque GoPro est une petite caméra très compacte et légère. (56,6 mm de large et 29,4 mm de hauteur) Elle peut enregistrer des vidéos jusqu'à une résolution de 4k à 30 FPS et dispose d'un port microSD pour pouvoir enregistrer les vidéos capturées. Au besoin, elle peut se connecter VIA Wifi, Bluetooth ou tout simplement à l'aide d'un câble USB-C pour communiquer et transférer ses données vers un ordinateur. 
 \\
 
@@ -73,6 +75,7 @@ Cependant, le prix de cette caméra laisse beaucoup à désirer, puisqu'on sent 
 \cite{Gopro2}
 
 \subsubsection{ArduCam IMX219}
+\label{sec:arduc}
 \noindent\textbf{Description} La module ArduCam IMX219 est principalement conçue pour permettre une intégration facile avec les ordinateurs Raspberry Pi. Avec son capteur de 8MP, il est possible de prendre des vidéos HD jusqu'à 47 images par seconde. Le module communique directement avec un ordinateur Raspberry Pi par l'intermédiaire de deux lignes MIPI CSI-2. Étant très est très compacte et il sera facile à installer dans la boîte avec les autres composants du système. 
 \\
 
@@ -90,6 +93,7 @@ De plus, puisque c'est seulement un module de caméra dédié uniquement à la p
 \cite{ArduCam2}
 
 \subsubsection{ESP32-CAM}
+\label{sec:esp32}
 \noindent\textbf{Description} L'ESP32-CAM est un petit module de caméra qui accepte une certaine variété de capteurs photo et vidéo. Combiné avec la caméra OV2640, il est possible d'enregistrer des vidéos allant jusqu'à une résolution maximale de 720p à 30 FPS. Le module est équipé d'un port micro-USB ce qui permet de connecter rapidement et facilement la caméra à un ordinateur pour le transfert de données. 
 \\
 
@@ -130,6 +134,7 @@ De plus, un flash est intégré au module, ce qui facilite la capture vidéo la 
 % Section sur la détection de mouvement
 %-------------------------------%
 \subsection{Détecter le mouvement}
+\label{DétecterLeMouvement}
 La détection de mouvement est un aspect essentiel du projet NordFaune. En effet, les mouvements de l’animal seront l’élément déclencheur de plusieurs autres actions qui sont tout aussi importantes les unes que les autres. Il est donc important d’assurer un fonctionnement en s'assurant toutefois de ne pas dépasser les limites imposées par le système.
 \bigskip
 
@@ -172,6 +177,7 @@ Avec son prix de 42\$ pour 2 détecteurs, cela n’est pas trop cher. Pour finir
 \cite{Zigbee1}
 
 \subsubsection{Capteur infrarouge 333179}
+\label{sec:capte}
 \noindent\textbf{Description} Le Capteur infrarouge 333179 est fait pour des systèmes embarqués. Il mesure 2x2x1 cm et son poids de 10g.  La distance de détection est ajustable de 3m à 5m. Il est fonctionnel avec tout type de système. Il a un capteur d’angle de plus de 100° (angle de cône) et fonctionne dans des températures entre -20 °C et 60 °C. Il est aussi peu énergivore et facile d’installation. 
 \\
 
@@ -188,6 +194,7 @@ Avec son prix de 16.13\$ chaque capteur, nous pouvons en acheter plusieurs pour 
 \cite{infrarouge1}
 
 \subsubsection{Plaques piézoélectriques}
+\label{sec:plaque}
 \noindent\textbf{Description} Les plaques piézoélectriques sont des cercles de 1mm à 3mm d’épaisseur à 15mm de diamètre qui ne détecte pas le mouvement, mais les vibrations ou le toucher de quelqu’un. Ils sont faciles à installer et à utiliser. De plus de son prix médiocre de 2.42\$ pour un sac, il peut être utilisé dans n’importe quel système parce qu’il consomme peu d’énergie. Il est aussi étanche, donc la neige ou l’eau ne va pas détruire ce capteur.
 \smallskip
 
@@ -226,6 +233,7 @@ Avec son prix de 16.13\$ chaque capteur, nous pouvons en acheter plusieurs pour 
 %-------------------------------%
 
 \subsection{Contrôler l'accès}
+\label{ContrôlerLAccès}
 Le système se doit d’être en mesure de fournir un accès sécurisé à distance à la centrale pour trois personnes. L’objectif est de permettre un accès sécuritaire aux données et aux fonctionnalités du système via une application mobile fournissant un accès à la console locale de la centrale.\bigskip
 
 \noindent\textbf{Aspect physique:}
@@ -251,6 +259,7 @@ Le système se doit d’être en mesure de fournir un accès sécurisé à dista
 
 
 \subsubsection{Microsoft Authenticator}
+\label{sec:micro}
 \noindent\textbf{Description} Les applications d’authentifications à deux facteurs, tels que Microsoft Authenticator, permettent d’améliorer la sécurité d’accès à un système. Cette application utilise un protocole appelé TOTP (time based one time password). Dans ce protocole le serveur (Microsoft Azure) et le client (l’application mobile) s’échangent une clef secrète composée d’une chaine de caractères généré aléatoirement, après cet échange, la clef n’est plus jamais partagée. 
 \\
 
@@ -274,6 +283,7 @@ Au niveau de la complexité de l’implémentation, Microsoft fournit une librai
 
 
 \subsubsection{AES-256}
+\label{sec:aes25}
 \noindent\textbf{Description} Le cryptage de données de type symétrique tel que AES-256 est une manière simple d’assurer un accès sécurisé aux données d’une application. AES-256 utilise un chiffrement aux clefs symétriques, il y a donc une clef du côté client et une clef du côté serveur. Ces clefs permettent de chiffrer et déchiffrer les données cryptées qui sont partagées entre l’application mobile et la console de la centrale. \\
 
 Cette solution utilise une architecture PSK (pre-shared key) pour laquelle la clef est archivée dans l’enclave de l’appareil mobile, ce qui permet au client (application mobile) de déchiffrer les données du serveur (console de la centrale).
@@ -291,6 +301,7 @@ Cette solution utilise une architecture PSK (pre-shared key) pour laquelle la cl
 \cite{AES2563}
 
 \subsubsection{Tunnel Cloudflare}
+\label{sec:tunne}
 \noindent\textbf{Description} L’un des concepts principaux de la cybersécurité est la surface d’attaque. Réduire cette surface est un moyen simple et efficace d’améliorer la sécurité d’un système. Dans un modèle client-serveur classique, le serveur se doit de posséder une adresse IP publique. Cette adresse IP constitue une surface d’attaque puisque n’importe qui peut faire une requête au serveur. 
 \\
 
@@ -336,6 +347,7 @@ De plus, les tunnels Cloudflare, un des services de l’écosystème Cloudflare 
 %-------------------------------%
 
 \subsection{Enregistrer des données}
+\label{EnregistrerDesDonnées}
 
 Le système de stockage des vidéos prises dans le Grand Nord doit archiver celles-ci pendant une durée d’au moins un an selon les contraintes du client. Les concepts retenus doivent donc être fiables et durables considérant les conditions environnementales. 
 \\
@@ -388,7 +400,7 @@ Ainsi, pour des vidéos de 5 secondes prises aux heures pendant 24 heures sur un
 
 
 \subsubsection{Carte microSD(HC) industrielle}
-
+\label{sec:cartesd}
 \noindent\textbf{Description} Les cartes SD (Secure Digital) sont des cartes mémoire qui utilisent la mémoire flash pour stocker des données. Elles sont compactes, petites et légères, les rendant faciles à transporter et à intégrer à une variété d’appareils comme des caméras, téléphones ou ordinateurs. 
 \\
 
@@ -411,7 +423,7 @@ Pour notre projet, une carte microSDHC de grade industriel est préférable dûe
 
 
 \subsubsection{Disque SSD SATA III}
-
+\label{sec:ssd}
 \noindent\textbf{Description} Les disques SSD (Solide State Drive) utilisent une mémoire flash, non volatile et à base de semi-conducteurs. Cela permet un accès aux données et des vitesses de transfert plus rapides. Ces types de disques ne possèdent pas de pièces mobiles les rendant plus durables et moins sensibles à la perte de données causée par les chocs physiques ce qui est important pour ce projet considérant la présence de mammifères dans l’environnement du Grand Nord. 
 \\
 
@@ -431,7 +443,7 @@ Les SSD sont également plus rapides et consomment moins d’énergie que d’au
 
 
 \subsubsection{Stockage infonuagique Azure avec accès Starlink}
-
+\label{sec:azsta}
 \noindent\textbf{Description} Le stockage infonuagique (Cloud) permet de déléguer la conservation des données à des entreprises spécialisées. Cependant, cette méthode de conservation de données nécessite une connexion internet pour transmettre les données jusqu’au Cloud. Ainsi, en combinant le stockage infonuagique avec une antenne et la constellation de satellites Starlink, les données du projet peuvent être enregistrées par voie satellite. 
 \\
 
@@ -481,6 +493,7 @@ L'antenne capte le signal de la caméra prenant les vidéos pour le relayer aux 
 % Section sur les événements
 %-------------------------------%
 \subsection{Détecter un événement et l'état du système}
+\label{DétecterUnÉnévement}
 L’analyse des événements et de l’état du système constitue une fonction centrale du projet NordFaune. En effet, le système doit être capable de traiter différents intrants provenant de ses capteurs afin d’identifier la nature des événements détectés. Ces événements peuvent être liés à l’activité faunique comme la détection de mouvement par caméra ou à des défaillances internes. L’objectif est donc de convertir ces intrants en informations exploitables, permettant une classification fiable des événements ainsi qu’un suivi de l’état du système.
 \bigskip
 
@@ -510,6 +523,7 @@ L’analyse des événements et de l’état du système constitue une fonction 
 
 
 \subsubsection{Microncontrôleur embarqué -STM32}
+\label{sec:stm32}
 \noindent\textbf{Description} Ce concept repose sur un microcontrôleur STM32 exécutant un traitement embarqué en C/C++. L’analyse des événements est réalisée à l’aide d’algorithmes simples tels que la détection de seuil, l’analyse logique des capteurs et une classification binaire des événements.
 \\
 
@@ -532,6 +546,7 @@ Son coût est très faible, de l’ordre de 5 à 15 \$ CAD. L’installation est
 \cite{STM323}
 
 \subsubsection{Micro-ordinateur -Raspberry Pi}
+\label{sec:raspb}
 \noindent\textbf{Description} Ce concept utilise un micro-ordinateur Raspberry Pi fonctionnant sous Linux. L’analyse des événements est réalisée à l’aide de bibliothèques logicielles pour la détection de mouvement et pour la classification d’images.
 \\
 
@@ -553,6 +568,7 @@ Le coût total du système est compris entre 80 et 150 \$ CAD. L’installation 
 \cite{Rapsberry3}
 
 \subsubsection{Ordinateur embarqué haute performance – NVIDIA Jetson Nano}
+\label{sec:nano}
 \noindent\textbf{Description} Ce concept repose sur une plateforme NVIDIA Jetson Nano permettant l’exécution d’algorithmes pour la reconnaissance avancée d’objets et la classification des événements.
 Le Jetson Nano intègre un processeur graphique (GPU) avec 128 cœurs CUDA, permettant des performances élevées en intelligence artificielle. Il dispose d’une mémoire RAM de 4 GB et consomme entre 5 et 10 W selon l’utilisation. Sa capacité de calcul est nettement supérieure pour une classification précise des espèces animales.
 \\
@@ -597,6 +613,7 @@ l’installation est plus complexe, nécessitant la configuration d’environnem
 %-------------------------------%
 
 \subsection{Résister aux conditions climatiques}
+\label{RésisterAuxConditions}
 La robustesse et la solidité du système conceptuel Nord Faune est un concept clé, puisqu'il est primordial d'assurer la protection de l'équipement informatique utilisé contre les conditions météorologiques. Entre autres, le design conceptuel devra résister au poids de deux mètres de neige ainsi qu'à des écarts de température de 40°C tout au long de l'année.
 \bigskip
 
@@ -624,6 +641,7 @@ La robustesse et la solidité du système conceptuel Nord Faune est un concept c
 
 
 \subsubsection{Boîtier en bois de cèdre}
+\label{sec:bois}
 \noindent\textbf{Description} Le bois de cèdre peut être un matériau intéressant à utiliser. C'est un type de bois qui est reconnu pour résister à l'humidité et qui ne pourri pas. De plus, c'est un matériau durable et résistant tout en étant léger. Avec une résistance à la flexion entre 750-850 $Kg/cm^2$, il est donc capable de supporter le poids de deux mètres de neige \cite{Neige}. Il est d'ailleurs très utilisé pour des applications extérieures diverses par exemple pour les planchers des patios extérieurs. 
 \\
 
@@ -641,6 +659,7 @@ La robustesse et la solidité du système conceptuel Nord Faune est un concept c
 \cite{Bois2}
 
 \subsubsection{Boîtier en aluminium}
+\label{sec:alumi}
 \noindent\textbf{Description} L'aluminium est reconnu pour être un matériau solide, mais aussi très léger. Très résistant à la corrosion, il nécessite un entretien minimal et résisterait donc bien aux conditions météorologiques de l'arctique Québécois. 
 \\
 
@@ -658,6 +677,7 @@ De plus, en utilisant l'aluminium sous forme d'alliage, on peut grandement augme
 \cite{Aluminium2}
 
 \subsubsection{Plastique}
+\label{sec:plast}
 \noindent\textbf{Description} Un boîtier en plastique pourrait être considéré afin de s'assurer que la boîte protégeant les équipements reste le plus léger possible. De plus, le plastique est peu couteux et facile à se procurer. De plus, certains types de plastiques comme le PC (polycarbonate) ont à la fois une grande résistance mécanique et supportent bien les grands écarts de température. 
 \\
 
@@ -698,6 +718,7 @@ Cependant, comme tout type de plastique, ils peuvent souffrir de dégradation ce
 %-------------------------------%
 
 \subsection{Gérer l'énergie}
+\label{GérerLÉnergie}
 Le système de gestion de l’énergie est crucial pour le projet, car il convertit, stocker et distribue l’énergie nécessaire a toutes les autres fonctions, de la détection de mouvement à la transmission des alertes. Aussi cette fonction doit alimenter un système capable de filmer en 720p et de communiquer chaque semaine avec une centrale situé à 2000km, le tout sans intervention humaine pendant 12 mois
 
 \bigskip
@@ -740,6 +761,7 @@ Toutefois, l’utilisation de méthanol, bien qu’inflammable, peut simplifier 
 \cite{PileCombustibe1}
 
 \subsubsection{Bloc de batteries primaire (Non-rechargeables) Lithium-thionyl chloride($Je - SOCl_2$)}
+\label{sec:bloc}
 \noindent\textbf{Description} Le système utilise un grand banc de piles industrielles non rechargeables à très haute densité énergétique. Il offre une performance exceptionnelle en conditions de grand froid, pouvant fonctionner jusqu’à -40 °C, tout en restant très compact par rapport à la quantité d’énergie stockée. 
 \\
 
@@ -756,6 +778,7 @@ Son coût demeure modéré, aux alentours de 400\$ pour la capacité requise, et
 \cite{BlocBatterie1}
 
 \subsubsection{Solution Hybride ($Li-SOCl_2 + HLC$)}
+\label{sec:hybri}
 \noindent\textbf{Description} L’implémentation d’un système hybride couplant des batteries au Lithium-Thionyl Chloride ($Li-SOCl_2$) à des condensateurs hybrides au lithium (HLC) constitue la solution la plus robuste pour ce contexte arctique. Cette configuration offre une fiabilité déterministe puisqu'elle ne dépend aucunement des conditions météorologiques. 
 \\
 
@@ -798,6 +821,7 @@ Sur le plan électrochimique, l'ajout du HLC permet de gérer les appels de puis
 %-------------------------------%
 
 \subsection{Communiquer avec l'extérieur}
+\label{CommuniquerAvecExt}
 La communication avec l’extérieur depuis le système situé dans le Grand Nord est un aspect essentiel du projet NordFaune. En effet, le système doit être en mesure d’assurer une communication hebdomadaire avec la centrale située à plus de 2000 km. L'objectif est de transmettre le nombre d'événements répertorié et l'état du système à la centrale.
 \bigskip
 
@@ -825,6 +849,7 @@ La communication avec l’extérieur depuis le système situé dans le Grand Nor
 
 
 \subsubsection{Communiquer satellite -Iridium SBD 9603}
+\label{sec:iridi}
 \noindent\textbf{Description} Le module satellite Iridium 9603 SBD permet la transmission de données via la constellation de satellites Iridium Next. Ce module est très utile pour les communications en environnement isolé, où aucun réseau terrestre n’est disponible. Le module fonctionne avec le service SBD (Short Burst Data), adapté à l’envoi de messages de faible volume. 
 \\
 
@@ -848,6 +873,7 @@ Le module a une consommation énergétique relativement faible, ce qui permet de
 \cite{Satellite4}
 
 \subsubsection{Communication satellite - Starlink Performance Kit}
+\label{sec:starl}
 \noindent\textbf{Description} Le système Starlink Performance Kit permet la transmission de données via la constellation de satellites de la société SpaceX. Ce système fournit un accès Internet haut débit, permettant l’envoi de grandes quantités de données en temps réel. Le Starlink Performance Kit comprend une antenne directionnelle motorisée, un routeur et les câbles nécessaires à l’installation. \\
 
 Ce système a une consommation énergétique assez importante (de l’ordre de 110 à 150 W). Il est conçu pour fonctionner en conditions extérieures difficiles et peut résister à des températures allant jusqu’à -30 °C. Le Starlink Performance Kit dispose aussi d’un système de chauffage intégré pour faire fondre la neige. Le coût du Starlink Performance Kit est d’environ 1400\$ auquel il faut ajouter un abonnement mensuel d’environ 100\$.
@@ -867,6 +893,7 @@ Malgré sa consommation énergétique et son coût plus élevés, ces inconvéni
 \cite{Starlink3}
 
 \subsubsection{Routeur cellulaire industriel – Teltonika RUT951}
+\label{sec:route}
 \noindent\textbf{Description} Le Teltonika RUT951 est un routeur qui fonctionne avec une carte SIM utilisant la communication par réseau cellulaire. Il permet donc d’envoyer des données via réseau mobile 2G/3G/4G si une couverture réseau existe. Le système envoie les informations à une antenne relais située à proximité, qui les transmet ensuite via Internet jusqu’à la centrale. \\
 
 L’installation du routeur est simple, il suffit de connecter le routeur à l’alimentation, d’insérer une carte SIM et de brancher une antenne. Une fois configuré, le routeur envoie les données sans intervention humaine.

@@ -122,66 +122,73 @@ Le tableau \ref{tab:plan_etude} présente en détail la procédure d'évaluation
 \end{longtable}
 
 
-\renewcommand{\arraystretch}{1.4}
+\renewcommand{\arraystretch}{1.5}
 
 \begin{table}[htp]
 \centering
 \caption{Les trois concepts pour le projet NordFaune}
 \label{tab:concepts_nordfaune}
 
-\begin{tabular}{|L{4cm}|L{3cm}|L{3cm}|L{3cm}|}
+\begin{tabular}{|L{6cm}|L{3cm}|L{3cm}|L{3cm}|}
 \hline
 \textbf{Fonctions} & \textbf{Concept 1} & \textbf{Concept 2} & \textbf{Concept 3} \\
 \hline
 
 % ------------- LIGNES -------------
 
-\ref{}
-    &
-    &
-    &
+\ref{CapturerUneVidéo} Capturer une vidéo
+    & \hyperref[sec:arduc]{ArduCam IMX219}
+    & \hyperref[sec:gopro]{GoPro Hero}
+    & \hyperref[sec:esp32]{ESP32-CAM}
 \\
+\hline
 
-\ref{}
-    &
-    &
-    &
+\ref{DétecterLeMouvement} Détecter le mouvement
+    & \hyperref[sec:plaque]{Plaque piézoélectriques}
+    & \hyperref[sec:capte]{Capteur infrarouge}
+    & \hyperref[sec:capte]{Capteur infrarouge}
 \\
+\hline
 
-\ref{}
-    &
-    &
-    &
+\ref{ContrôlerLAccès} Contrôler l'accès
+    & \hyperref[sec:tunne]{Tunnel Cloudflare}
+    & \hyperref[sec:micro]{Microsoft Authentificator}
+    & \hyperref[sec:tunne]{Tunnel Cloudflare}
 \\
+\hline
 
-\ref{}
-    &
-    &
-    &
+\ref{EnregistrerDesDonnées} Enregistrer des données
+    & \hyperref[sec:cartesd]{MicroSD(HC)}
+    & \hyperref[sec:ssd]{SSD SATA III}
+    & \hyperref[sec:azsta]{Azure et Starlink}
 \\
+\hline
 
-\ref{}
-    &
-    &
-    &
+\ref{DétecterUnÉnévement} Détecter un événement et l'état du système
+    & \hyperref[sec:raspb]{Raspberry Pi}
+    & \hyperref[sec:nano]{Nvidia Jetson Nano}
+    & \hyperref[sec:raspb]{Raspberry Pi}
 \\
+\hline
 
-\ref{}
-    &
-    &
-    &
+\ref{RésisterAuxConditions} Résister aux conditions climatiques
+    & \hyperref[sec:bois]{Bois de cèdre}
+    & \hyperref[sec:alumi]{Aluminium}
+    & \hyperref[sec:alumi]{Aluminium}
 \\
+\hline
 
-\ref{}
-    &
-    &
-    &
+\ref{GérerLÉnergie} Gérer l'énergie
+    & \hyperref[sec:bloc]{Bloc de batteries}
+    & \hyperref[sec:hybri]{Solution hybride}
+    & \hyperref[sec:bloc]{Bloc de batteries}
 \\
+\hline
 
-\ref{}
-    &
-    &
-    &
+\ref{CommuniquerAvecExt} Communiquer avec l'extérieur
+    & \hyperref[sec:iridi]{Iridium 9603 SBD}
+    & \hyperref[sec:starl]{Starlink Performance}
+    & \hyperref[sec:iridi]{Iridium 9603 SBD}
 \\
 
 \hline
@@ -195,12 +202,21 @@ Le tableau \ref{tab:plan_etude} présente en détail la procédure d'évaluation
 
 \subsection{Concept \#1 : Équilibre global}
 
-Pour... 
+Pour ce concept, les composantes ont été choisies de façon à garder un bon équilibre dans l'ensemble des fonctions du système, sans trop dépenser.
 
 \subsubsection{Fonctionnement autonome du système}
 
 \paragraph{Marge de l'état d'autonomie :}
-Texte
+Étant donné que ce concept utilise un contrôleur Raspberry Pi, une caméra ArduCam IMX219 et un module Iridium 9603 SBD, la consommation du système demeure modérée.
+Le système se repose complètement sur les blocs de batteries non rechargeables, qui vont s’épuiser avant la durée de vie des composants électroniques.
+
+\bigskip
+La contrainte du client exige une autonomie minimale de douze mois.
+Il est entièrement possible d’atteindre cette attente avec une quantité de batteries proportionnelle à la consommation.
+Le facteur limitant est donc la capacité totale des batteries embarquées.
+Alors, avec un dimensionnement optimisé (Voir \hyperref[par:encombrement]{Encombrement}), l’autonomie maximale du concept est estimée à environ 12,5 mois.
+D’après le barème de la section \ref{robutesse_autonomie}, cette solution obtient une note de 0,29 pour ce concept, soit 2,9\% avec pondération.
+
 
 \paragraph{Consommation énergétique :}
 Texte
@@ -215,6 +231,7 @@ Texte
 Texte
 
 \paragraph{Encombrement et complexité d'installation :}
+\label{par:encombrement}
 Texte
 
 \paragraph{Résistance mécanique à la neige :}
@@ -257,12 +274,21 @@ Texte
 
 \subsection{Concept \#2 : Performance maximale}
 
-Pour... 
+Pour ce concept, les options les plus performantes ont été privilégiées pour garantir la meilleure performance, peu importe le coût.
 
 \subsubsection{Fonctionnement autonome du système}
 
 \paragraph{Marge de l'état d'autonomie :}
-Texte
+L’obtention d’une performance maximale apporte des composants très énergivores.
+Une GoPro, un Nvidia Jetson Nano et un système Starlink ont une demande énergétique trop grande pour dépendre sur un système énergétique standard.
+Alors, le concept exige la solution hybride combinant des batteries au Lithium-Thionyl Chloride et des condensateurs hybrides au lithium.
+\bigskip
+
+Le facteur limitant devient la durée maximale de vie planifiée lors de la conception des batteries $\mathrm{Li{-}SOCl_2}$.
+Dans un circuit soumis à une très forte utilisation, elles sont capables d’atteindre une durée de 12 mois.
+Nous estimons que, pour notre système qui utilise moins d’énergie que la valeur nominale, l’autonomie peut être assurée jusqu’ à 14 mois indépendamment des conditions externes.
+Selon l’équation \ref{robutesse_autonomie}, le concept obtient donc une note de 0,79, ce qui correspond à un pourcentage de 7,9\%.
+
 
 \paragraph{Consommation énergétique :}
 Texte
@@ -319,12 +345,19 @@ Texte
 
 \subsection{Concept \#3 : Durabilité à long terme}
 
-Pour... 
+Pour ce concept, les solutions les plus durables ont été sélectionnées afin d'assurer un bon fonctionnement à long terme.
 
 \subsubsection{Fonctionnement autonome du système}
 
 \paragraph{Marge de l'état d'autonomie :}
-Texte
+Étant donné que le concept est composé d’une ESP32-CAM, d’un Raspberry Pi et d’un module Iridium 9603 SBD, la demande énergétique du système est fortement réduite.
+L’alimentation est assurée par un bloc de batteries optimisé.
+\bigskip
+
+Dans ce cas, le facteur limitant est plutôt la durée de vie maximale des composants électroniques, notamment le module ESP32-CAM et le module Iridium, qui ont une fiabilité réduite lors d’une utilisation sur une longue période dans des conditions extrêmes.
+L’autonomie est estimée comme étant assurée pendant 18 mois.
+Cette durée lui donne une note de 1 selon l’équation \ref{robutesse_autonomie}, ce qui correspond à un pourcentage de 10\%.
+
 
 \paragraph{Consommation énergétique :}
 Texte
