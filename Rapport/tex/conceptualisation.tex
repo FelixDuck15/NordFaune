@@ -6,12 +6,12 @@
 % Introduction 
 %-------------------------------%
 
-\chapter{Conceptualisation}
+\chapter{Conceptualisation et analyse de faisabilité}
 \label{s:conceptualisation}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{fig/diagramme_fonctionnel.png}
+    \includegraphics[width=1\textwidth]{fig/DiagrammeFonctionnel_V2}
     \caption{Diagramme fonctionnel du projet NordFaune}
     \label{diagramme_fonctionnel}
 \end{figure}
@@ -25,8 +25,8 @@ Pour s'assurer de bien répondre aux demandes du client, nous devons tenir compt
 %-------------------------------%
 
 \section{Conceptualisation des solutions}
-\subsection{Prendre une vidéo}
-La prise de vidéo est un concept capital du projet NordFaune, puisque les vidéos captées seront utilisées à des fins statiques par la suite. Il est donc important d'assurer une qualité constante de chaque vidéo. (résolution de 720p à 15 FPS)
+\subsection{Capturer une vidéo}
+La prise de vidéo est un concept capital du projet NordFaune, puisque les vidéos captées seront utilisées à des fins statistiques par la suite. Il est donc important d'assurer une qualité constante de chaque vidéo. (résolution de 720p à 15 FPS)
 \bigskip
 
 \noindent\textbf{Aspect physique:}
@@ -225,7 +225,7 @@ Avec son prix de 16.13\$ chaque capteur, nous pouvons en acheter plusieurs pour 
 % Section sur le contrôle d'accès
 %-------------------------------%
 
-\subsection{Contrôle l'accès}
+\subsection{Contrôler l'accès}
 Le système se doit d’être en mesure de fournir un accès sécurisé à distance à la centrale pour trois personnes. L’objectif est de permettre un accès sécuritaire aux données et aux fonctionnalités du système via une application mobile fournissant un accès à la console locale de la centrale.\bigskip
 
 \noindent\textbf{Aspect physique:}
@@ -251,7 +251,7 @@ Le système se doit d’être en mesure de fournir un accès sécurisé à dista
 
 
 \subsubsection{Microsoft Authenticator}
-\noindent\textbf{Description} Les applications d’authentifications à deux facteurs, tels que Microsoft Authenticator, permettent d’améliorer la sécurité d’accès à un système. Cette application utilise un protocole appelé TOTP (time based one time password). Dans ce protocole le serveur (Microsoft Azure) et le client (l’application mobile) s’échangent une clef secrète composée d’une chaine de caractère généré aléatoirement, après cet échange, la clef n’est plus jamais partagée. 
+\noindent\textbf{Description} Les applications d’authentifications à deux facteurs, tels que Microsoft Authenticator, permettent d’améliorer la sécurité d’accès à un système. Cette application utilise un protocole appelé TOTP (time based one time password). Dans ce protocole le serveur (Microsoft Azure) et le client (l’application mobile) s’échangent une clef secrète composée d’une chaine de caractères généré aléatoirement, après cet échange, la clef n’est plus jamais partagée. 
 \\
 
 Pour permettre l’accès à une application, le protocole génère un code à 6 chiffres en utilisant une fonction cryptographique HMAC prenant comme entrée la clef secrète et le temps UNIX arrondi à 30 secondes près. Puisque l’application et le serveur ont la même clef secrète, le même temps UNIX et utilisent la même fonction mathématique, il arrive au même code à 6 chiffres sans échange supplémentaire d’information.
@@ -335,7 +335,7 @@ De plus, les tunnels Cloudflare, un des services de l’écosystème Cloudflare 
 % Section sur le stockage de vidéos 
 %-------------------------------%
 
-\subsection{Enregistrer les données}
+\subsection{Enregistrer des données}
 
 Le système de stockage des vidéos prises dans le Grand Nord doit archiver celles-ci pendant une durée d’au moins un an selon les contraintes du client. Les concepts retenus doivent donc être fiables et durables considérant les conditions environnementales. 
 \\
@@ -480,7 +480,7 @@ L'antenne capte le signal de la caméra prenant les vidéos pour le relayer aux 
 %-------------------------------%
 % Section sur les événements
 %-------------------------------%
-\subsection{Analyser les événements et l'état du système}
+\subsection{Détecter un événement et l'état du système}
 L’analyse des événements et de l’état du système constitue une fonction centrale du projet NordFaune. En effet, le système doit être capable de traiter différents intrants provenant de ses capteurs afin d’identifier la nature des événements détectés. Ces événements peuvent être liés à l’activité faunique comme la détection de mouvement par caméra ou à des défaillances internes. L’objectif est donc de convertir ces intrants en informations exploitables, permettant une classification fiable des événements ainsi qu’un suivi de l’état du système.
 \bigskip
 
@@ -510,16 +510,20 @@ L’analyse des événements et de l’état du système constitue une fonction 
 
 
 \subsubsection{Microncontrôleur embarqué -STM32}
-\noindent\textbf{Description} Le microcontrôleur STM32 est une solution embarquée largement utilisée pour le traitement de données en temps réel. Il permet d’exécuter des algorithmes simples de détection et de classification à partir de signaux provenant de capteurs.
+\noindent\textbf{Description} Ce concept repose sur un microcontrôleur STM32 exécutant un traitement embarqué en C/C++. L’analyse des événements est réalisée à l’aide d’algorithmes simples tels que la détection de seuil, l’analyse logique des capteurs et une classification binaire des événements.
 \\
 
-Grâce à sa faible consommation énergétique, il est particulièrement adapté aux systèmes autonomes. Il peut être programmé pour analyser des détections de mouvement et surveiller l’état des composantes. Toutefois, sa capacité de calcul reste limitée, ce qui restreint l’utilisation d’algorithmes complexes.
+Le microcontrôleur STM32 présente une consommation très faible, typiquement comprise entre 10 et 100 mW, ce qui en fait une solution idéale pour les systèmes autonomes. Sa fréquence de calcul varie généralement entre 80 et 200 MHz avec une mémoire RAM de 64 à 512 KB. Toutefois, sa capacité de traitement est limitée et ne permet pas l’exécution d’algorithmes avancés de vision par ordinateur.
+\\
+
+Son coût est très faible, de l’ordre de 5 à 15 \$ CAD. L’installation est simple puisqu’il peut être directement intégré sur un PCB, réduisant ainsi la complexité matérielle et les risques de défaillance.
 \smallskip
 
-\noindent\textbf{Décision} Retenue
+
+\noindent\textbf{Décision} Rejetée
 \smallskip
 
-\noindent\textbf{Justification} Le microcontrôleur STM32 répond bien aux contraintes énergétiques et environnementales. Cependant, sa petite puissance de calcul serait insuffisante pour pemettre de gérer la prise et l'enregistrement de vidéos. Étant donné les exigences de qualité scientifique des données, cette limitation est critique.
+\noindent\textbf{Justification} Cette solution est optimale du point de vue énergétique et économique. Toutefois, elle ne permet pas d’atteindre les exigences liées à la qualité scientifique des données, notamment pour la classification fiable des événements fauniques. Le manque de capacité de calcul empêche l’analyse avancée des images, ce qui compromet directement l’objectif principal du système.
 \smallskip
 
 \noindent\textbf{Références}
@@ -528,16 +532,19 @@ Grâce à sa faible consommation énergétique, il est particulièrement adapté
 \cite{STM323}
 
 \subsubsection{Micro-ordinateur -Raspberry Pi}
-\noindent\textbf{Description} Le Raspberry Pi est un micro-ordinateur compact capable d’exécuter un système d’exploitation complet comme Linux. Il permet l’implémentation d’algorithmes plus complexes, incluant la vision par ordinateur et l’intelligence artificielle légère. 
+\noindent\textbf{Description} Ce concept utilise un micro-ordinateur Raspberry Pi fonctionnant sous Linux. L’analyse des événements est réalisée à l’aide de bibliothèques logicielles pour la détection de mouvement et pour la classification d’images.
 \\
 
-Il peut traiter des images provenant de la caméra afin de distinguer différents types d’événements comme la présence animale, le bruit et les erreurs système. Sa consommation énergétique est modérée (environ 2 à 6 W selon le modèle), ce qui reste compatible avec une alimentation autonome. Il supporte également de nombreux capteurs et interfaces.
+Le Raspberry Pi possède un processeur à quatre cœurs cadencés à environ 1.5 GHz avec une mémoire RAM variant de 2 à 8 GB. Sa consommation énergétique se situe entre 2 et 6 W selon la charge de calcul. Cette plateforme permet l’exécution d’algorithmes de vision par ordinateur de complexité intermédiaire, suffisants pour distinguer différents types d’événements.
+\\
+
+Le coût total du système est compris entre 80 et 150 \$ CAD. L’installation est modérément complexe, nécessitant l’installation d’un système d’exploitation, la configuration des bibliothèques logicielles et l’intégration avec les capteurs.
 \smallskip
 
 \noindent\textbf{Décision} Retenue
 \smallskip
 
-\noindent\textbf{Justification} Le Raspberry Pi offre un bon compromis entre puissance de calcul et consommation énergétique. Il permet une analyse avancée des événements, essentielle pour garantir la qualité scientifique des données. Sa flexibilité logicielle permet également d’intégrer des mécanismes de détection de défaillances internes. De plus, son coût est raisonnable et son intégration est relativement simple.
+\noindent\textbf{Justification} Ce concept permet une bonne précision dans l’analyse des événements tout en maintenant une consommation énergétique compatible avec un système autonome optimisé. Le Raspberry Pi constitue un compromis efficace entre puissance de calcul, consommation énergétique et coût. Il répond adéquatement aux exigences du projet.
 \smallskip
 
 \noindent\textbf{Références} 
@@ -546,16 +553,18 @@ Il peut traiter des images provenant de la caméra afin de distinguer différent
 \cite{Rapsberry3}
 
 \subsubsection{Ordinateur embarqué haute performance – NVIDIA Jetson Nano}
-\noindent\textbf{Description} Le NVIDIA Jetson Nano est une plateforme embarquée spécialisée dans l’intelligence artificielle. Il permet l’exécution d’algorithmes de deep learning pour l’analyse d’images en temps réel. Cette solution est particulièrement performante pour la reconnaissance avancée d’objets et la classification précise des événements. 
+\noindent\textbf{Description} Ce concept repose sur une plateforme NVIDIA Jetson Nano permettant l’exécution d’algorithmes pour la reconnaissance avancée d’objets et la classification des événements.
+Le Jetson Nano intègre un processeur graphique (GPU) avec 128 cœurs CUDA, permettant des performances élevées en intelligence artificielle. Il dispose d’une mémoire RAM de 4 GB et consomme entre 5 et 10 W selon l’utilisation. Sa capacité de calcul est nettement supérieure pour une classification précise des espèces animales.
 \\
 
-Toutefois, sa consommation énergétique est plus élevée (5 à 10 W), ce qui peut représenter un défi pour un système autonome. De plus, son coût est supérieur à celui d’un Raspberry Pi.
+Le coût est compris entre 150 et 250 \$ CAD, et
+l’installation est plus complexe, nécessitant la configuration d’environnements logiciels spécialisés ainsi qu’une optimisation des modèles
 \smallskip
 
-\noindent\textbf{Décision} Rejetée
+\noindent\textbf{Décision} Retenue
 \smallskip
 
-\noindent\textbf{Justification} Malgré sa bonne performance, cette solution dépasse les besoins réels du projet. La complexité et la consommation énergétique élevée nuisent à l’autonomie du système. De plus, le volume de données et la fréquence d’analyse ne justifient pas l’utilisation d’une solution aussi avancée.
+\noindent\textbf{Justification} Cette solution permet d’obtenir une très grande précision dans l’analyse des événements, ce qui améliore significativement la qualité scientifique des données. Toutefois, elle entraîne une augmentation de la consommation énergétique et de la complexité du système. Cette solution permet d’obtenir une très grande précision dans l’analyse des événements, ce qui améliore significativement la qualité scientifique des données. Toutefois, elle entraîne une augmentation de la consommation énergétique et de la complexité du système.
 \smallskip
 
 \noindent\textbf{Références} 
@@ -572,11 +581,11 @@ Toutefois, sa consommation énergétique est plus élevée (5 à 10 W), ce qui p
     \cline{2-5}
     & Physique & Économique & Temporelle & Socio-env. & \\
     \hline
-    Bois de cèdre & Oui & Oui & Oui & Oui & Rejetée \\
+    STM32 & Non & Oui & Oui & Oui & Rejetée \\
     \hline
-    Aluminium & Oui & Oui & Oui & Oui & Retenue \\
+    Raspberry Pi & Oui & Oui & Oui & Oui & Retenue \\
     \hline
-    Plastique & Oui & Non & Oui & Non & Rejetée \\
+    Jetson Nano & Oui & Oui & Oui & Oui & Retenue \\
     \hline
 \end{tabular}
 \caption{Analyse de faisabilité des solutions pour l'analyse des événements et l'état du système.}
@@ -587,7 +596,7 @@ Toutefois, sa consommation énergétique est plus élevée (5 à 10 W), ce qui p
 % Section sur la prise de matériaux
 %-------------------------------%
 
-\subsection{Supporter 2 mètres de neige et les écarts de température}
+\subsection{Résister aux conditions climatiques}
 La robustesse et la solidité du système conceptuel Nord Faune est un concept clé, puisqu'il est primordial d'assurer la protection de l'équipement informatique utilisé contre les conditions météorologiques. Entre autres, le design conceptuel devra résister au poids de deux mètres de neige ainsi qu'à des écarts de température de 40°C tout au long de l'année.
 \bigskip
 
@@ -688,7 +697,7 @@ Cependant, comme tout type de plastique, ils peuvent souffrir de dégradation ce
 % Section sur la prise de vidéos
 %-------------------------------%
 
-\subsection{Gestion énergie}
+\subsection{Gérer l'énergie}
 Le système de gestion de l’énergie est crucial pour le projet, car il convertit, stocker et distribue l’énergie nécessaire a toutes les autres fonctions, de la détection de mouvement à la transmission des alertes. Aussi cette fonction doit alimenter un système capable de filmer en 720p et de communiquer chaque semaine avec une centrale situé à 2000km, le tout sans intervention humaine pendant 12 mois
 
 \bigskip
