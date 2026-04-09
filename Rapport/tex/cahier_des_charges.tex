@@ -98,12 +98,7 @@ Si la boîte cède, c’est l’entièreté du système qui est détruit.
 Il est donc important de protéger les équipements électroniques du poids de la neige pour une collecte continue.
 C'est pourquoi une pondération de 12\% sera attribuée à ce critère.
 Le système doit résister à un poids minimal, mais l'intérêt à résister à un poids plus lourd diminue plus on s'en éloigne, alors on utilise une fonction racine carrée.
-Un système qui assure une protection minimale à la neige supporte 10 $kg/m^2$, tandis qu'un système optimal supporterait 154 $kg/m^2$.
-Le barème de cette section est donné par la formule suivante, où $H$ est la charge maximale supportée par le boîtier en $kg/m^2$ :
-
-\begin{equation}
-    \frac{\sqrt{H - 10}}{12}
-\end{equation}
+Le système doit assurer une protection minimale au poids de la neige en résistant minimalement à un poids de 1200Kg, qui équivaut au poids de 2m de neige compactée sur une boîte avec une surface de $1m^2$. On pourrait stipuler qu'un système idéal serait en mesure de supporter jusqu'à deux fois ce poids pour un total de 3400Kg. Étant donnée que la majorité des matériaux peuvent supporter sans problème le poids de la neige, nous allons attributer une note de 1 aux matériaux qui ont une résisante à la compression plus que satisfaisante pour supporter le poids de 2m de neige et 0 autrement.
 
 \section{Observation et gestion de données}
 \label{donnees}
@@ -232,7 +227,7 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
         \ref{Robustesse} Résistance et entretien du système & 30\% & & &  \\
         \ref{conditions_climatiques} Plage opérationnelle de température & 10\% & $\frac{-20 -T_{sys}}{10} \: T_{sys} \in [-30,-20]$ & -20°C & \\
         \ref{installation_deploiement} Encombrement et complexité d’installation & 8\% & $\frac{10-G}{9} \: G \in [1,10]$ & 1$m^3$ & \\
-        \ref{resistance_neige} Résistance mécanique à la neige & 12\% & $\frac{\sqrt{H - 10}}{12} \: H \in [10,154]$ & & \\
+        \ref{resistance_neige} Résistance mécanique à la neige & 12\% & $\frac{{H - 20}}{40} * 100 \: H \in [10,154]$ & & \\
         
         \hline
         \ref{donnees} Observation et gestion de données & & &  &  \\
