@@ -198,6 +198,7 @@ Le tableau \ref{tab:plan_etude} présente en détail la procédure d'évaluation
 
 \section{Élaboration et évaluation des concepts de solution}
 
+% ----------- Textes à copier ----------
 % ------------- Concept #1 -------------
 
 \subsection{Concept \#1 : Équilibre global}
@@ -219,10 +220,32 @@ D’après le barème de la section \ref{robutesse_autonomie}, cette solution ob
 
 
 \paragraph{Consommation énergétique :}
-Texte
+\label{consommation_concept1}
+Pour évaluer ce critère, nous devons additionner la consommation énergétique des principales composantes du système soit le micro-ordinateur,
+la caméra et le système de communication.
+
+\bigskip
+Pour le concept 1, le Raspberry Pi est utilisé comme micro-ordinateur, le module satellite Iridium 9603 SBD comme moyen de communication longue distance et finalement l'ArduCam 
+IMX219 comme caméra. Elles seront toutes alimentées par le bloc de batteries primaire lithium-chlorure de thionyle. Elles ont été choisies puisqu'elles proposent un rapport 
+qualité/prix intéressant.
+
+\bigskip
+Ces composantes consomment respectivement 10W, 0.8W et 0.5W de puissance électrique. La consommation énergétique totale du système peut donc être estimée à 11.3 W. 
+Selon le critère de la section \ref{consommation_electrique}, ce concept se voit attribuer une note de 0,62 ce qui équivaut à un pourcentage de 5\% sur les 8\% attribué à ce critère.
+
 
 \paragraph{Proportion des fonctions protégées :}
-Texte
+Peu importe la performance ou le coût du design conceptuel, il est important d'assurer la protection des fonctions critiques du système. 
+Le bois de cèdre qui sera utilisé pour la construction du boîtier qui assurera la protection des équipements scientifiques est 
+résistant et durable tel qu'expliqué plus en détail à la section \ref{resistance_mecanique1}. 
+
+\bigskip
+Quant à lui, le bloc de batteries primaire au lithium-chlorure de thionyle assurera que le système dispose de suffisamment d'énergie pour fonctionner sur une période 
+d'au moins 12 mois, et ce malgré les températures froides de l'arctique Québécois.
+
+\bigskip
+Pour évaluer ce critère, on doit compter le nombre de fonctions critiques qui resteront fonctionnelles tout au long de la durée de vie du design conceptuel. 
+Puisqu'ici, le concept choisi assure le fonctionnement de l'ensemble des fonctions critiques, il se voit attribuer une note de 1, ce qui équivaut à une pondération de 6\%.
 
 
 \subsubsection{Résistance et entretien du système}
@@ -235,7 +258,17 @@ Texte
 Texte
 
 \paragraph{Résistance mécanique à la neige :}
-Texte
+\label{resistance_mecanique1}
+Un boîtier construit en bois de cèdre semble intéressant afin de garder les coûts de production le plus bas possible tout en assurant une bonne protection 
+aux équipements scientifiques à l'intérieur.
+
+\bigskip
+En effet, avec une résistance à la flexion d'environ $700 Kg/cm^2$, il n'y a aucun doute que le bois de cèdre sera en mesure de supporter le poids de 2m de neige.
+De plus, le bois de cèdre n'est pas cher, ce qui en fait le matériau avec le meilleur rapport qualité prix.
+
+\bigskip
+Pour évaluer ce critère, on utilise le barème donné à la section \ref{resistance_neige}. On constante ici que le bois de cèdre dépasse largement les attentes fixées par le barème. 
+Le concept se voit donc attribuer une note de 1 et obtient une pondération de 12\%.
 
 
 \subsubsection{Observation et gestion de données}
@@ -291,10 +324,35 @@ Selon l’équation \ref{robutesse_autonomie}, le concept obtient donc une note 
 
 
 \paragraph{Consommation énergétique :}
-Texte
+Comme à la section \ref{consommation_concept1}, afin d'évaluer ce critère, nous devons additionner la consommation énergétique des principales composantes du système. 
+Pour le concept \#2, on choisit le Jetson Nano de NVDIA comme micro-ordinateur, le Starlink Performance Kit comme dispositif de communication, puis la caméra GoPro Hero. 
+
+\bigskip
+Le Jetson Nano offrira des performances accrues, grâce à sa puissance de calcul nettement supérieure comparé aux autres micro-ordinateurs. Le Starlink performance Kit 
+permettra d'assurer une connexion haute vitesse et robuste pendant les 12 mois de services du système. Finalement, la caméra GoPro permettra de capturer des images 
+d'une qualité sans compromis, et ce même dans le noir grâce à son capteur plus gros et performant.
+
+\bigskip
+Ces composants consomment respectivement 10W au maximum, 150W et 7W lors de la capture vidéo. Au total, la consommation énergétique de ce concept s'élèverait à 167W, 
+ce qui est une quantité considérable de puissance à demander à un système devant fonctionner avec des réserves d'énergie limitées pour une période de 12 mois.
+
+\bigskip
+Donc, selon le barème de la section \ref{consommation_electrique}, ce concept se voit attribuer la note de 0 et n'obtient aucun des 6 points de pourcentage attribués à 
+cette section.
+
 
 \paragraph{Proportion des fonctions protégées :}
-Texte
+Pour le concept \#2 c'est l'aluminium qui sera utilisé pour la conception du boîtier qui devra protéger les équipements scientifiques. L'aluminium est certes dispendieux, 
+mais il garantira une protection sans faille aux composants clés du système.
+
+\bigskip
+La légèreté ainsi que la capacité de stockage d'un système hybride couplant des batteries au lithium-chlorure de thionyle à des condensateurs hybrides au lithium est 
+sans doute ce qu'il y a de mieux pour assurer une source d'énergie fiable tout au long de la durée de service de design conceptuel.
+
+\bigskip
+Pour évaluer ce critère, on doit compter le nombre de fonctions critiques qui resteront fonctionnelles tout au long de la durée de vie du design conceptuel.
+Ici aussi, le concept assurera le fonctionnement de l'ensemble des fonctions critiques du système. Une note de 1 lui sera attribuée ce qui correspond aux 6 
+points de pourcentage attribués à cette section.
 
 
 \subsubsection{Résistance et entretien du système}
@@ -306,7 +364,16 @@ Texte
 Texte
 
 \paragraph{Résistance mécanique à la neige :}
-Texte
+L'aluminium sera utilisé au concept \#2 pour la conception du boîtier. Léger, abondant et résistant, il ne laisse aucun compris si ce n'est que son prix un peu dispendieux.
+
+\bigskip
+Sa résistance mécanique à la flexion pouvant aller jusqu'à $3000Kg/cm^2$ pour certaines classes/séries d'aluminium ne laisse aucun doute quant à sa capacité à pouvoir 
+supporter 2m de neige.
+
+\bigskip
+Pour évaluer ce critère, on utilise le barème de la section \ref{resistance_neige}. On constate ici que l'aluminium dépasse largement les attentes fixées par le barème. 
+Ce concept se voit donc attribuer une note de 1 et obtient une pondération de 12\%.
+
 
 
 \subsubsection{Observation et gestion de données}
@@ -354,16 +421,37 @@ Pour ce concept, les solutions les plus durables ont été sélectionnées afin 
 L’alimentation est assurée par un bloc de batteries optimisé.
 \bigskip
 
-Dans ce cas, le facteur limitant est plutôt la durée de vie maximale des composants électroniques, notamment le module ESP32-CAM et le module Iridium, qui ont une fiabilité réduite lors d’une utilisation sur une longue période dans des conditions extrêmes.
-L’autonomie est estimée comme étant assurée pendant 18 mois.
+Dans ce cas, le facteur limitant est plutôt la durée de vie maximale des composants électroniques, notamment le module ESP32-CAM et le module Iridium, qui ont une 
+fiabilité réduite lors d’une utilisation sur une longue période dans des conditions extrêmes. L’autonomie est estimée comme étant assurée pendant 18 mois.
 Cette durée lui donne une note de 1 selon l’équation \ref{robutesse_autonomie}, ce qui correspond à un pourcentage de 10\%.
 
 
 \paragraph{Consommation énergétique :}
-Texte
+Pour le concept \#3, on choisit le Raspberry Pi comme micro-ordinateur, l'IRIDIUM 9603 SBD comme dispositif de communication et L'ESP32-CAM comme caméra. 
+Ces composantes ont été choisies ici, puisqu'elles sont durables et qu'elles consomment peu de puissance, ce qui assurera leur fonctionnement à long terme.
+
+\bigskip
+De plus, comme énoncé dans l'analyse du concept \#1, le Raspberry Pi et l'IRIDIUM 9603 SBD ont une consommation de 10W et 0.8W respectivement. 
+L'ESP32-CAM quant à lui à une consommation moyenne maximale d'environ 2.5W légèrement plus que la caméra utilisée au concept \#1, mais son flash intégré 
+rend la capture de nuit possible.
+
+\bigskip
+Selon le critère de la section \ref{consommation_electrique}, ce concept se voit donc attribuer une note de 0.53, ce qui équivaut à un pourcentage de 4.25\% sur les 8\% attribué à ce critère.
+
 
 \paragraph{Proportion des fonctions protégées :}
-Texte
+L'utilisation de pièces durables et résistantes permettra d'assurer la protection des fonctions critiques du système. L'aluminium qui sera utilisé pour la 
+construction du boîtier et robuste et surtout très léger. Il assurera que les équipements du système soient bien protégés. De plus, il est possible d'appliquer 
+une couche protectrice sur l'aluminium afin de mieux le protéger de l'abrasion ce qui lui permettra de garder ses propriétés mécaniques à long terme.
+
+\bigskip
+Comme pour le concept \#1, le bloc de batterie primaire au lithium-chlorure de thionyle assurera que le système dispose de suffisamment d'énergie pour fonctionner 
+sur une période de 12 mois.
+
+\bigskip
+Selon le critère \ref{resilience_systeme}, puisque ce concept assurera le fonctionnement de l'ensemble des fonctions, il se voit attribuer une note de 1, ce qui équivaut à 
+une pondération de 6\%.
+
 
 
 \subsubsection{Résistance et entretien du système}
@@ -375,7 +463,17 @@ Texte
 Texte
 
 \paragraph{Résistance mécanique à la neige :}
-Texte
+L'aluminium sera utilisé au concept \#3 pour la réalisation du boîtier. C'est un matériau résistant, mais surtout léger ce qui facilitera le transport et 
+l'installation de la boîte dans le l'arctique Québécois.
+
+\bigskip
+Tel qu'abordé au concept \#2, l'aluminium a une grande résistance mécanique à la flexion, ce qui lui permettra de supporter sans problème le poids de 2m de neige. 
+De plus, c'est un matériau facilement recyclable et peut être protégé par un revêtement qui peut être appliqué directement à sa surface. Cette couche protectrice 
+assurera que l'aluminium conserve ses propriétés mécaniques sur le long terme en évitant que la corrosion prenne le dessus.
+
+\bigskip
+C'est donc en raison de son aspect durable que l'aluminium a été choisi pour ce concept. Puisqu'il dépasse largement les attentes fixées par le barème, il 
+se voit attribuer une note de 1 et obtient une pondération de 12\%.
 
 
 \subsubsection{Observation et gestion de données}
