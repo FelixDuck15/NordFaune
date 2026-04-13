@@ -255,8 +255,15 @@ Texte
 
 \paragraph{Encombrement et complexité d'installation :}
 \label{par:encombrement}
-Texte
+Le concept 1 utilise des composantes compactes (Raspberry Pi, ArduCam 1IMX219, Iridium 9603 SBD), ce qui permet de réduire l’encombrement général du système. De plus, ça permet de faciliter leur intégration dans un boitier. 
 
+\bigskip
+Le boitier en bois de cèdre est simple à assembler et ne requiert aucun outil spécialisé. Ceci rend l’installation accessible à des utilisateurs non expérimentés. L’utilisation d’un bloc de batteries primaire simplifie également le déploiement en éliminant les systèmes de recharge complexes. 
+
+\bigskip
+ Le volume du système est estimé inférieur à 1 m³, respectant ainsi les exigences du cahier des charges. Selon le barème, une note de 0,85 est attribuée, soit 6,8 %. 
+
+ 
 \paragraph{Résistance mécanique à la neige :}
 \label{resistance_mecanique1}
 Un boîtier construit en bois de cèdre semble intéressant afin de garder les coûts de production le plus bas possible tout en assurant une bonne protection 
@@ -292,10 +299,17 @@ une note de 100 est attribuée à ce critère et donc une note parfaite de 9\% p
 Texte
 
 \paragraph{Performance de communication distante :}
-Texte
+Le concept 1 utilise le module Iridium 9603 SBD pour assurer une communication fiable sur de longues distances, répondant aux exigences du cahier des charges en environnement isolé. L’intégration du Cloudflare Tunnel permet de sécuriser l’accès distant, bien que la bande passante limitée impose une transmission de données optimisée.
+
+/bigskip
+Ce compromis favorise un bon équilibre entre fiabilité, consommation énergétique et coût. Le système offre ainsi une communication robuste et adaptée au contexte arctique. Une note estimée de 0,85 est attribuée, soit 5,1 % 
+
 
 \paragraph{Qualité scientifique des données :}
-Texte
+Le concept 1 utilise la caméra ArduCam IMX219, capable de capturer des vidéos en résolution HD répondant aux exigences minimales du cahier des charges. Combinée à une détection par plaque piézoélectrique, la prise de données est déclenchée de manière pertinente, assurant une collecte représentative de l’activité animale. Le stockage sur carte microSD(HC) permet de conserver les données de façon fiable sur une longue période.
+
+/bigskip
+Toutefois, la qualité demeure limitée par les performances de la caméra et l’absence de traitement avancé. Ce compromis assure un bon équilibre entre qualité, consommation énergétique et coût. Une note estimée de 0,75 est attribuée, soit 3,75 %
 
 
 \subsubsection{Réduire impacts et coûts}
@@ -373,7 +387,14 @@ points de pourcentage attribués à cette section.
 Texte
 
 \paragraph{Encombrement et complexité d'installation :}
-Texte
+Le concept 2 repose sur des composantes généralement plus volumineuses, notamment la caméra GoPro, le module Starlink Performance Kit et l’ordinateur embarqué NVIDIA Jetson Nano. Ces dernières composantes augmentent l’encombrement global du système.
+
+/bigskip
+L’utilisation d’un boîtier en aluminium nécessite des procédés de fabrication plus complexes. Ceci rend l’assemblage moins accessible pour des utilisateurs non spécialisés. De plus, la solution énergétique hybride implique une gestion plus complexe des connexions et de l’intégration des différentes sources d’énergie. L’installation du système de communication Starlink demande également un positionnement précis et un déploiement plus exigeant que des solutions plus simples.  
+
+/bigskip
+Toutefois, les composantes demeurent intégrables dans un volume conforme aux exigences minimales. Ainsi, bien que fonctionnel, ce concept présente une complexité d’installation plus élevée. Une note estimée de 0,6 lui est attribuée, soit 4,8 %.
+
 
 \paragraph{Résistance mécanique à la neige :}
 L'aluminium sera utilisé au concept \#2 pour la conception du boîtier. Léger, abondant et résistant, il ne laisse aucun compris si ce n'est que son prix un peu dispendieux.
@@ -472,7 +493,14 @@ une pondération de 6\%.
 Texte
 
 \paragraph{Encombrement et complexité d'installation :}
-Texte
+Le concept 3 privilégie des composantes relativement compactes permettant de limiter l’encombrement global du système tout en facilitant leur intégration. L’utilisation d’un boîtier en aluminium, choisi pour sa légèreté et sa résistance à la corrosion, favorise une durabilité accrue dans le temps. 
+
+/bigskip
+ De plus, l’intégration d’un bloc de batteries et d’un module Iridium 9603 SBD assure un fonctionnement fiable à long terme avec peu d’interventions. Toutefois, la présence combinée de solutions de communication augmente la complexité d’installation et nécessite une configuration initiale plus rigoureuse.
+
+/bigskip
+ Malgré cela, le système demeure installable par deux personnes sans expertise avancée. Le volume est estimé conforme aux exigences du cahier des charges. Une note de 0,75 est attribuée, soit 6,0 %. 
+
 
 \paragraph{Résistance mécanique à la neige :}
 L'aluminium sera utilisé au concept \#3 pour la réalisation du boîtier. C'est un matériau résistant, mais surtout léger ce qui facilitera le transport et 
