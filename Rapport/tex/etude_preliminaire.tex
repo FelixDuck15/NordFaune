@@ -251,7 +251,14 @@ Puisqu'ici, le concept choisi assure le fonctionnement de l'ensemble des fonctio
 \subsubsection{Résistance et entretien du système}
 
 \paragraph{Plage opérationnelle de température :}
-Texte
+\label{plage_operationelle}
+Nous devons déterminer la température minimale de fonctionnement (Tsys) du concept. Cette limite est dictée par la composante la plus sensible au froid de l'ensemble du système. 
+
+\bigskip
+Tout d'abord, en choisissant le Raspberry Pi, celui-ci garantit un bon fonctionnement jusqu'à -40°C. Ensuite, l'alimentation utilisant un Bloc de batteries primaire certifie une opération jusqu'à -60°C. Par la suite, la caméra ArduCam IMX219 peut atteindre une température de -20°C. Finalement, en intégrant les plaques piézoélectriques, la limite de tolérance au froid est de -40°C.
+
+\bigskip
+La température de fonctionnement minimale du système complet (Tsys) est donc plafonnée par la caméra à -20°C. Selon le barème de la section 4.2.1, en appliquant la formule, ce concept se voit attribuer une note de 0, ce qui équivaut à un pourcentage de 0\% sur 10\% à ce critère. 
 
 \paragraph{Encombrement et complexité d'installation :}
 \label{par:encombrement}
@@ -387,7 +394,13 @@ points de pourcentage attribués à cette section.
 \subsubsection{Résistance et entretien du système}
 
 \paragraph{Plage opérationnelle de température :}
-Texte
+Afin de maximiser les capacités d'acquisition, de traitement et de transmission de données, ce concept intègre des composantes de pointe axées sur la haute performance.
+
+\bigskip
+Le stockage et la détection thermique sont assurés par un SSD SATA III et un capteur infrarouge 333179, tous deux dotés d'une résilience allant jusqu'à -40°C. La connectivité satellitaire à haut débit est garantie par un Starlink Performance Kit, certifié pour opérer jusqu'à -30°C.De plus, la puissance de calcul embarquée est propulsée par un micro-ordinateur Nvidia Jetson Nano, capable de maintenir ses performances jusqu'à -25°C. 
+
+\bigskip
+La GoPro Hero, fixe la tolérance thermique minimale de la captation vidéo à -20°C. Selon le barème de la section 4.2.1, en appliquant la formule, ce concept se voit attribuer une note de 0, ce qui équivaut à un pourcentage de 0\% sur les 10\% attribués à ce critère, atteignant tout juste l'exigence minimale de survie du système. 
 
 \paragraph{Encombrement et complexité d'installation :}
 Le concept 2 repose sur des composantes généralement plus volumineuses, notamment la caméra GoPro, le module Starlink Performance Kit et l’ordinateur embarqué NVIDIA Jetson Nano. Ces dernières composantes augmentent l’encombrement global du système.
@@ -499,7 +512,13 @@ une pondération de 6\%.
 \subsubsection{Résistance et entretien du système}
 
 \paragraph{Plage opérationnelle de température :}
-Texte
+Pour évaluer ce critère dans une optique de durabilité à long terme et de résilience face aux hivers nordiques extrêmes, le système a été pensée pour garantir un fonctionnement ininterrompu, en minimisant les risques de défaillance matérielle liés au gel. 
+
+/bigskip
+Le cœur du système est composé d'équipements industriels extrêmement robustes : le micro-ordinateur Raspberry Pi, le module de communication satellite Iridium 9603 SBD, la caméra ESP32-CAM ainsi que le capteur infrarouge 333179 certifient tous une opérabilité jusqu'à -40°C.La contrainte thermique principale de ce design repose sur l'infrastructure réseau combinant Azure et l'antenne Starlink, dont la limite opérationnelle sécuritaire est documentée à -30°C. 
+
+/bigskip
+La température de fonctionnement minimale du système s'établit donc à -30°C. Cette valeur correspond très exactement à la cible idéale fixée par les exigences pour assurer la pérennité du déploiement. Selon le barème de la section 4.2.1, en appliquant la formule, ce concept se voit attribuer la note parfaite de 1, ce qui équivaut à un pourcentage de 10\% sur les 10\% attribués à ce critère. 
 
 \paragraph{Encombrement et complexité d'installation :}
 Le concept 3 privilégie des composantes relativement compactes permettant de limiter l’encombrement global du système tout en facilitant leur intégration. L’utilisation d’un boîtier en aluminium, choisi pour sa légèreté et sa résistance à la corrosion, favorise une durabilité accrue dans le temps. 
