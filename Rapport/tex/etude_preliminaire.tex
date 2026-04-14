@@ -472,7 +472,7 @@ Une note de 100 est donc attribuée à cette solution pour ce critère et donc u
 L’évaluation de la capacité de stockage dépend de l’outil de stockage utilisé. Pour ce concept, l’utilisation d’un disque SSD SATA III est adéquate en raison de sa haute vitesse d’écriture et sa durabilité. Le disque SSD de 128 Go dépasse l’estimation minimale de stockage nécessaire pour ce projet permettant donc de conserver les enregistrements de lemmings du Grand Nord pendant une période de plus d’un an.
 
 \bigskip
-Lorsqu’on applique la formule de la section 4.3.2 nous obtenons un résultat de 0,98 pour ce critère et donc une pondération de 4,9\%.
+Lorsqu’on applique la formule de la section 4.3.2 nous obtenons un résultat de 1 pour ce critère et donc une pondération de 5\%.
 
 \paragraph{Performance de communication distante :}
 Texte
@@ -484,19 +484,40 @@ Texte
 \subsubsection{Réduire impacts et coûts}
 
 \paragraph{Longueur d'onde de l'éclairage :}
-Texte
+Ce critère évalue la capacité du système à observer les lemmings sans perturber leur comportement.
+Une caméra GoPro combinée à un capteur infrarouge permet une captation en faible luminosité.
+Une source IR de 850 nm est utilisée pour limiter la visibilité par les animaux.
+Bien que légèrement perceptible, elle réduit les risques de perturbation.
+L’application de la formule \ref{impact_lumineux} donne une note 0.69 et un pourcentage de 2.07\%.
 
 \paragraph{Nombre de remplacements de batterie par an :}
-Texte
+L’impact environnemental dépend des matériaux et de la consommation énergétique.
+Le boîtier en aluminium est durable et recyclable, ce qui constitue un avantage.
+Toutefois, les composantes électroniques (Jetson Nano, SSD, Iridium) augmentent l’empreinte environnementale.
+La communication satellite consomme également plus d’énergie.
+Une valeur de b = 2 est retenue.
+La formule \ref{impact_environnemental} donne une note de 0.50 et un pourcentage de 1\%, indiquant un impact modéré. 
 
 \paragraph{Coûts d'installation et de transport :}
-Texte
+Ce critère évalue les coûts de mise en place et de transport. Le système, léger (6–7 kg), est facilement transportable.
+L’installation nécessite environ 4 heures par deux personnes, pour un coût de 400 \$.
+Les frais de transport vers une zone isolée sont estimés à 1600 \$.
+Le coût total est donc de 2000 \$.
+La formule \ref{couts_transport} donne une note de  0.75 et ainsi un pourcentage de 3\%. 
 
 \paragraph{Coûts d'opération et d'entretien :}
-Texte
+Les coûts annuels incluent la communication satellite (1000 \$), principale dépense.
+L’alimentation du système est estimée à 300 \$ par an.
+La maintenance (mises à jour et inspections) ajoute 200 \$.
+Le coût total annuel est donc de 1500 \$.
+La formule \ref{couts_entretien} donne une note  de 0.45 et ainsi un pourcentage de 1.35\%.
 
 \paragraph{Coûts de fabrication :}
-Texte
+Les coûts incluent une GoPro (400 \$), un Jetson Nano (150 \$), un capteur IR et un SSD (100 \$ chacun).
+Le module Iridium est estimé à 300 \$, et le boîtier à 250 \$.
+La main-d’œuvre pour l’assemblage est évaluée à 200 \$.
+Le coût total de fabrication est de 1500 \$.
+La formule \ref{couts_fabrication} donne une note de 0.875 et ainsi un pourcentage de  2.625 \%.
 
 % ------------- Concept #3 -------------
 
@@ -604,19 +625,45 @@ Texte
 \subsubsection{Réduire impacts et coûts}
 
 \paragraph{Longueur d'onde de l'éclairage :}
-Texte
+Le concept utilise une caméra ESP32-CAM combinée à un capteur infrarouge (333179) pour une captation en faible luminosité.
+Une source infrarouge est employée afin de limiter la visibilité pour la faune.
+Cette solution réduit les risques de perturbation, bien que la longueur d’onde ne soit pas totalement invisible.
+L’application de la formule \ref{impact_lumineux} permet d’estimer une note de 0.72 et donc un pourcentage de 2.16\%.
 
 \paragraph{Nombre de remplacements de batterie par an :}
-Texte
+Comme le système repose sur un bloc de batteries primaires $Li-SOCl_2$ non rechargeables, il est impossible d’atteindre l’objectif idéal de zéro remplacement.
+Cependant, grâce à l'utilisation de la plaque piézoélectrique qui limite le déclenchement de la caméra aux moments de passage des lemmings, la consommation est optimisée pour durer toute une saison.
+Nous estimons qu'un seul bloc de batteries (b=1) doit être remplacé lors de la visite annuelle de maintenance en juin. 
+En appliquant la formule \ref{impact_environnemental} du cahier des charges, on obtient une note de 0.75 et donc un pourcentage de 1.5\%.
+
 
 \paragraph{Coûts d'installation et de transport :}
-Texte
+Le système demeure relativement léger grâce à l’utilisation d’aluminium et de composantes compactes.
+L'installation prendrait environ 5 heures pour deux personnes moins expérimentées en raison de plusieurs modules (réseau, cloud, satellite).
+À un taux de 50\$/h, cela représente un coût de 500 \$.
+Les frais de transport vers la zone isolée sont estimés a 1700\$, Le coût total est donc de 2200 \$.
+La formule \ref{couts_transport} donne une note de 0.70 et donc un pourcentage de 2.8\%.
 
 \paragraph{Coûts d'opération et d'entretien :}
-Texte
+Les coûts annuels incluent principalement la communication satellite et Internet.
+L’utilisation combinée de Starlink et Iridium est estimée à 1200 \$ par année.
+La consommation énergétique du Raspberry Pi, de l’ESP32-CAM et des autres modules est évaluée à 350 \$.
+La maintenance (mises à jour et inspections) ajoute environ 250 \$.
+Le coût total annuel est donc de 1800 \$.
+La formule \ref{couts_entretien} donne une note de  0.40 et donc un pourcentage de 1.2\%.
 
 \paragraph{Coûts de fabrication :}
-Texte
+Le micro-ordinateur Raspberry Pi coûte environ 110\$.
+Pour la détection de mouvement, nous pouvons acheter plusieurs capteurs infrarouges 333179 pour ne pas avoir de fausses détections.
+Nous achetons 3 capteurs avec un prix unitaire de 16.13\$ soit 48.39\$ en tout.
+Le stockage infonuagique Azure avec accès Starlink représente un coût d’environ 850\$.
+La caméra ESP32-CAM représente 30 \$.
+
+\bigskip
+Le prix du module satellite Iridium 9603 SBD est estimé à 465 \$, indispensable pour la communication en zone isolée.
+Pour le reste, le boîtier en aluminium coûte environ 2,19\$/kg, c’est-à-dire pour un boitier de 7kg le prix sera de 15.33\$, enfin le bloc de batteries primaires revient à 400 \$.
+Finalement, nous avons inclus 250 \$ de main-d’œuvre pour l'assemblage manuel et les tests de validation en atelier (environ 5 heures à 50 \$/h).
+Le coût de fabrication total s’élève donc à 2168.72\$. En appliquant ce montant à la formule \ref{couts_fabrication}, on obtient une note de 0.708 et ainsi un pourcentage de 2.124\%.
 
 
 
@@ -637,32 +684,32 @@ Ces valeurs permettent ensuite de calculer la note obtenue à l'aide des barème
 \textbf{\ref{Autonomie} Fonctionnement autonome du système} & & &  \\
 \hline
 \ref{robutesse_autonomie} Marge de l'état d'autonomie [mois] & 12,5 & 14 & 18 \\
-\ref{consommation_electrique} Consommation énergétique [W] & 11,3 & & \\
-\ref{resilience_systeme} Proportion des fonctions protégées & 5 & & \\
+\ref{consommation_electrique} Consommation énergétique [W] & 11,3 & 167 & ?? \\
+\ref{resilience_systeme} Proportion des fonctions protégées & 5 & 5 & 5 \\
 \hline
 
 \textbf{\ref{Robustesse} Résistance et entretien du système} & & &  \\
 \hline
-\ref{conditions_climatiques} Plage opérationnelle de température [°C] & -20 & & \\
-\ref{installation_deploiement} Encombrement et complexité d’installation [$m^3$] & 1 & & \\
-\ref{resistance_neige} Résistance mécanique à la neige [$kg/m^2$] & 7E6 & & \\
+\ref{conditions_climatiques} Plage opérationnelle de température [°C] & -20 & -20 & -30 \\
+\ref{installation_deploiement} Encombrement et complexité d’installation [$m^3$] & 1 & ?? & ?? \\
+\ref{resistance_neige} Résistance mécanique à la neige [$kg/m^2$] & 7E6 & 3E7 & ?? \\
 \hline
 
 \textbf{\ref{donnees} Observation et gestion de données} & & & \\
 \hline
-\ref{detection_mammiferes} Couverture de la zone d’observation [\%] & 100 & & \\
-\ref{conservation_donnees} Capacité de stockage [Go] & 8 & & \\
-\ref{performance_communication} Performance de communication distante [km] & ?? & & \\
-\ref{exploitation_scientifique} Qualité scientifique des données [fps] & ?? & & \\
+\ref{detection_mammiferes} Couverture de la zone d’observation [\%] & 100 & 100 & 93 \\
+\ref{conservation_donnees} Capacité de stockage [Go] & 8 & 128 & 134 \\
+\ref{performance_communication} Performance de communication distante [km] & ?? & ?? & ?? \\
+\ref{exploitation_scientifique} Qualité scientifique des données [fps] & ?? & ?? & ?? \\
 \hline
 
 \textbf{\ref{impacts_couts} Réduire impacts et coûts} & & &  \\
 \hline
-\ref{impact_lumineux} Longueur d'onde de l'éclairage [nm] & 940 & & \\
-\ref{impact_environnemental} Nombre de remplacements de batterie par an & 1 & & \\
-\ref{couts_transport} Coûts d'installation et de transport [\$] & 1900 & & \\
-\ref{couts_entretien} Coûts d'opération et d’entretien [\$] & 1050 & & \\
-\ref{couts_fabrication} Coûts de fabrication [\$] & 1565 & & \\
+\ref{impact_lumineux} Longueur d'onde de l'éclairage [nm] & 940 & 850 & ?? \\
+\ref{impact_environnemental} Nombre de remplacements de batterie par an & 1 & 2 & 1 \\
+\ref{couts_transport} Coûts d'installation et de transport [\$] & 1900 & 2000 & 2200 \\
+\ref{couts_entretien} Coûts d'opération et d’entretien [\$] & 1050 & 1500 & 1800 \\
+\ref{couts_fabrication} Coûts de fabrication [\$] & 1565 & 1500 & 2169 \\
 \hline
 
 \end{tabularx}
