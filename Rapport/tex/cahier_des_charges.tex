@@ -84,11 +84,11 @@ Puisqu'une installation et qu'un déploiement facile sont des éléments essenti
 La complexité qu'apporte l'installation provient majoritairement du volume de l'équipement à manipuler sur place.
 C'est pourquoi la taille du système doit, dans la mesure du possible, être réduite au minimum.
 Selon les contraintes, le volume ne peut pas être plus petite qu'un mètre cube.
-Alors, une solution comportant un volume inférieur à 1$m^3$ est rejetée, tandis qu'un de 25$m^3$ est considéré comme le maximum acceptable.
+Alors, une solution comportant un volume inférieur à 1$m^3$ est rejetée, tandis qu'un de 12$m^3$ est considéré comme le maximum acceptable.
 Le barème de cette section est décrit par la fonction suivante, où $G$ est le volume en mètres cubes du système :
 
 \begin{equation}
-    \frac{25-G}{24}
+    \frac{12-G}{11}
 \end{equation}
 
 \subsection{Résistance mécanique à la neige}
@@ -178,9 +178,9 @@ Le système doit éclairer l'intérieur de la zone d'observation pour capturer d
     \frac{\lambda - 650}{290}
 \end{equation}
 
-\subsection{Nombre de batteries remplacées par an}
+\subsection{Nombre de remplacements de batterie par an}
 \label{impact_environnemental}
-Nous accordons une pondération de 2\% à l’objectif de limiter l’impact environnemental, car bien que cet aspect soit essentiel d'un point de vue éthique, il représente une part moins complexe du projet. Nous évaluons la durabilité par la gestion des déchets dangereux (les batteries) sur le site. Un système idéal ne nécessite aucun remplacement de batterie durant son cycle de vie (par exemple grâce à la recharge solaire), alors que la limite est fixée à 4 batteries de remplacement par an. La note suivante permet d'évaluer de manière rigoureuse la capacité du système à limiter son empreinte écologique, où b est le nombre de batteries à remplacer annuellement :
+Nous accordons une pondération de 2\% à l’objectif de limiter l’impact environnemental, car bien que cet aspect soit essentiel d'un point de vue éthique, il représente une part moins complexe du projet. Nous évaluons la durabilité par la gestion des déchets dangereux (les batteries) sur le site. Un système idéal ne nécessite aucun remplacement de batterie durant son cycle de vie (par exemple grâce à la recharge solaire), alors que la limite est fixée à 4 remplacements de batteries par an (tout remplacement de batterie est comptabilisé, y compris les remplacements internes d’une batterie secondaire). La note suivante permet d'évaluer de manière rigoureuse la capacité du système à limiter son empreinte écologique, où b est le nombre de remplacements annuels des batteries :
 
 \begin{equation}
     \frac{4-b}{4}
@@ -188,7 +188,10 @@ Nous accordons une pondération de 2\% à l’objectif de limiter l’impact env
 
 \subsection{Coûts d'installation et de transport}
 \label{couts_transport}
-Les coûts d'installation et de transport sont déterminés par la masse du système et la facilité de son déploiement. Selon les contraintes du projet, le site n'est accessible que 2 semaines en juin et l'installation doit pouvoir être réalisée par deux personnes ne possédant pas de compétences en ingénierie. Par conséquent, le système doit être conçu pour une implantation intuitive, évitant les erreurs coûteuses et réduisant le temps d’installation. Compte tenu des contraintes de simplicité et d'accès, le critère des coûts de transport représente 4\% de la pondération. Les coûts d’installation et de transport dépendent également de la masse du système. Pour un système léger (moins de 10 kg) présentant une complexité d’implantation minimale, un coût d’environ 1000 \$ est estimé. En revanche, un coût de 5000 \$ est prévu pour un système lourd et/ou complexe à installer. Une cote de 0 à 1 est attribuée en fonction de ces frais. Voici le barème déterminant la cote, où $c$ est le coût total d’installation et de transport en dollars :
+Les coûts d'installation et de transport sont déterminés par la masse du système et la facilité de son déploiement. Selon les contraintes du projet, le site n'est accessible que 2 semaines en juin et l'installation doit pouvoir être réalisée par deux personnes ne possédant pas de compétences en ingénierie. Par conséquent, le système doit être conçu pour une implantation intuitive, évitant les erreurs coûteuses et réduisant le temps d’installation.
+
+\bigskip
+Compte tenu des contraintes de simplicité et d'accès, le critère des coûts de transport représente 4\% de la pondération. Les coûts d’installation et de transport dépendent également de la masse du système. Pour un système léger (moins de 10 kg) présentant une complexité d’implantation minimale, un coût d’environ 1000 \$ est estimé. En revanche, un coût de 5000 \$ est prévu pour un système lourd et/ou complexe à installer. Une cote de 0 à 1 est attribuée en fonction de ces frais. Voici le barème déterminant la cote, où $c$ est le coût total d’installation et de transport en dollars :
 
 \begin{equation}
     \frac{5000 - c}{4000}
@@ -234,7 +237,7 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
         \hline
         \ref{Robustesse} Résistance et entretien du système & 30\% & & &  \\
         \ref{conditions_climatiques} Plage opérationnelle de température [°C] & 10\% & $\frac{-20 -T_{sys}}{10} \: T_{sys} \in [-30,-20]$ & & -20°C \\
-        \ref{installation_deploiement} Encombrement et complexité d’installation [$m^3$] & 8\% & $\frac{25-G}{24} \: G \in [1,25]$ & 1$m^3$ & \\
+        \ref{installation_deploiement} Encombrement et complexité d’installation [$m^3$] & 8\% & $\frac{12-G}{11} \: G \in [1,12]$ & 1$m^3$ & \\
         \ref{resistance_neige} Résistance mécanique à la neige [$kg/m^2$] & 12\% & $\frac{\sqrt{H - 200}}{20\sqrt{2}} \: H \in [200,1000]$ & & \\
         
         \hline
@@ -246,8 +249,8 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
 
         \hline
         \ref{impacts_couts} Réduire impacts et coûts & 15\% & &  &  \\
-        \ref{impact_lumineux} Impact lumineux sur la faune [nm] & 3\% & $\frac{\lambda - 650}{290} \: \lambda \in [650,940]$ & & \\
-        \ref{impact_environnemental} Impact environnemental & 2\% & $\frac{4-b}{4} \: b \in [0,4]$ & & \\
+        \ref{impact_lumineux} Longueur d'onde de l'éclairage [nm] & 3\% & $\frac{\lambda - 650}{290} \: \lambda \in [650,940]$ & & \\
+        \ref{impact_environnemental} Nombre de remplacements de batterie par an & 2\% & $\frac{4-b}{4} \: b \in [0,4]$ & & \\
         \ref{couts_transport} Coûts d'installation et de transport [\$] & 4\% & $\frac{5000-c}{4000} \: c \in [1000,5000]$ & & \\
         \ref{couts_entretien} Coûts d'opération et d’entretien [\$] & 3\% & $\frac{2500-c}{2200} \: c \in [300,2500]$ & & \\
         \ref{couts_fabrication} Coûts de fabrication [\$] & 3\% & $\frac{5000-c}{4000} \: c \in [1000,5000]$ & & \\
@@ -259,7 +262,7 @@ Par conséquent, on estime que la fabrication d'une unité coûte au maximum 500
 \begin{figure}[p]
     \centering
     \makebox[\textwidth]{%
-        \includegraphics[width=1.2\textwidth]{fig/MQ_V3.png}
+        \includegraphics[width=1.2\textwidth]{fig/MQ_V4.png}
     }
     \caption{Maison de la qualité}
     \label{maison_de_qualite}

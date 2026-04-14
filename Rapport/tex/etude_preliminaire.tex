@@ -89,13 +89,13 @@ Le tableau \ref{tab:plan_etude} présente en détail la procédure d'évaluation
 \\
 \hline
 
-\ref{impact_lumineux} Impact lumineux sur la faune
+\ref{impact_lumineux} Longueur d'onde de l'éclairage
     & Évaluer avec la longueur d'onde de la lumière visible produite.
     & Les lemmings ne sont sensibles qu'à la lumière dans la plage définie.
 \\
 \hline
 
-\ref{impact_environnemental} Impact environnemental
+\ref{impact_environnemental} Nombre de remplacements de batterie par an
     & Évaluer le nombre de batteries consommées annuellement selon le fournisseur.
     & Chaque batterie a une autonomie prévisible.
 \\
@@ -255,7 +255,7 @@ Puisqu'ici, le concept choisi assure le fonctionnement de l'ensemble des fonctio
 Nous devons déterminer la température minimale de fonctionnement (Tsys) du concept. Cette limite est dictée par la composante la plus sensible au froid de l'ensemble du système. 
 
 \bigskip
-Tout d'abord, en choisissant le Raspberry Pi, celui-ci garantit un bon fonctionnement jusqu'à -40°C. Ensuite, l'alimentation utilisant un Bloc de batteries primaire certifie une opération jusqu'à -60°C. Par la suite, la caméra ArduCam IMX219 peut atteindre une température de -20°C. Finalement, en intégrant les plaques piézoélectriques, la limite de tolérance au froid est de -40°C.
+Tout d'abord, en choisissant le Raspberry Pi, celui-ci garantit un bon fonctionnement jusqu'à -40°C. Ensuite, l'alimentation utilisant un bloc de batteries primaire certifie une opération jusqu'à -60°C. Par la suite, la caméra ArduCam IMX219 peut atteindre une température de -20°C. Finalement, en intégrant les plaques piézoélectriques, la limite de tolérance au froid est de -40°C.
 
 \bigskip
 La température de fonctionnement minimale du système complet (Tsys) est donc plafonnée par la caméra à -20°C. Selon le barème de la section 4.2.1, en appliquant la formule, ce concept se voit attribuer une note de 0, ce qui équivaut à un pourcentage de 0\% sur 10\% à ce critère. 
@@ -268,7 +268,7 @@ Le concept 1 utilise des composantes compactes (Raspberry Pi, ArduCam 1IMX219, I
 Le boitier en bois de cèdre est simple à assembler et ne requiert aucun outil spécialisé. Ceci rend l’installation accessible à des utilisateurs non expérimentés. L’utilisation d’un bloc de batteries primaire simplifie également le déploiement en éliminant les systèmes de recharge complexes. 
 
 \bigskip
- Le volume du système est estimé inférieur à 1 m³, respectant ainsi les exigences du cahier des charges. Selon le barème, une note de 0,85 est attribuée, soit 6,8 %. 
+ Le volume du système est estimé inférieur à 1 m³, respectant ainsi les exigences du cahier des charges. Selon le barème, une note de 1 est attribuée, soit 8 \%. 
 
  
 \paragraph{Résistance mécanique à la neige :}
@@ -312,7 +312,7 @@ La carte microSD de classe 10 de 8 Go respecte l’estimation minimale de 8 Go p
 Le concept 1 utilise le module Iridium 9603 SBD pour assurer une communication fiable sur de longues distances, répondant aux exigences du cahier des charges en environnement isolé. L’intégration du Cloudflare Tunnel permet de sécuriser l’accès distant, bien que la bande passante limitée impose une transmission de données optimisée.
 
 \bigskip
-Ce compromis favorise un bon équilibre entre fiabilité, consommation énergétique et coût. Le système offre ainsi une communication robuste et adaptée au contexte arctique. Une note estimée de 0,85 est attribuée, soit 5,1 % 
+Ce compromis favorise un bon équilibre entre fiabilité, consommation énergétique et coût. Le système offre ainsi une communication robuste et adaptée au contexte arctique. Une note estimée de 0,85 est attribuée, soit 5,1 \%. 
 
 
 \paragraph{Qualité scientifique des données :}
@@ -324,20 +324,55 @@ Toutefois, la qualité demeure limitée par les performances de la caméra et l�
 
 \subsubsection{Réduire impacts et coûts}
 
-\paragraph{Impact lumineux sur la faune :}
-Texte
+\paragraph{Longueur d'onde de l'éclairage :}
+L'évaluation de ce critère repose sur la capacité du système à éclairer la zone d'observation sans perturber les lemmings. 
+Pour ce premier concept, on utilise le module ArduCam IMX219, qui est sensible au proche infrarouge.
 
-\paragraph{Impact environnemental :}
-Texte
+\bigskip
+Afin d'atteindre l'objectif de performance défini comme idéal dans le cahier des charges, le système est configuré pour utiliser une source lumineuse de 940 nm. Cette longueur d'onde étant totalement invisible pour la faune, elle permet d'éviter tout éblouissement. 
+En appliquant la valeur $\lambda$=940 nm au barème de la formule \ref{impact_lumineux}, le concept obtient une note de 1, c'est-à-dire un pourcentage de 3\%.
+
+
+\paragraph{Nombre de remplacements de batterie par an :}
+L’évaluation de l’impact environnemental du concept 1 est lié à la gestion des déchets énergétiques.
+Comme le système repose sur un bloc de batteries primaires non rechargeables, il est impossible d’atteindre l’objectif idéal de zéro remplacement.
+
+\bigskip
+Cependant, grâce à l'utilisation de la plaque piézoélectrique qui limite le déclenchement de la caméra aux moments de passage des lemmings, la consommation est optimisée pour durer toute une saison.
+Nous estimons qu'un seul bloc de batteries doit être remplacé lors de la visite annuelle de maintenance en juin. 
+En appliquant la formule \ref{impact_environnemental} du cahier des charges, on obtient une note de 0.75 et donc un pourcentage de 1.5\%.
+
 
 \paragraph{Coûts d'installation et de transport :}
-Texte
+Pour évaluer ce critère, nous avons d'abord estimé la masse totale du système.
+Le boîtier étant construit en bois de cèdre de 11/16 po d'épaisseur, la structure est relativement légère.
+En additionnant la masse des autres composants comme celle du micro-ordinateur Raspberry Pi, de la caméra ArduCam, du Iridium 9603 SBD et du bloc de batteries, la masse totale du dispositif atteint environ 8,5 kg, ce qui facilite son transport.
+
+\bigskip
+Par ailleurs, l’installation est prévue pour être intuitive, mais elle peut tout de même prendre du temps. Nous estimons qu'une équipe de deux personnes consacrera environ 4 heures pour l'ancrage au sol, le montage électronique et les tests de démarrage. À un taux horaire de 50 \$/h par personne, cela représente un coût de 400 \$ pour l’installation du système.
+Finalement, les frais de transport par avion sont estimés à 1500 \$. Ce montant s'explique par l'éloignement du site, mais il est limité par la masse faible du système. 
+Le coût d’installation et de transport total est donc de 1900 \$, ce qui donne une note de de 0.775 selon la formule \ref{couts_transport} et donc un pourcentage de 3.1\%.
+
 
 \paragraph{Coûts d'opération et d'entretien :}
-Texte
+L’évaluation des frais annuels évalue toutes les dépenses nécessaires pour maintenir le système en état de marche, incluant notamment l'énergie et la communication. 
+Pour ce concept, nous utilisons le module Iridium 9603 SBD afin de communiquer avec l’extérieur.
+Ce choix implique des frais de base de télécommunication par satellite que nous estimons à 350 \$ par année. 
 
-\paragraph{Coûts de fabrication :}
-Texte
+\bigskip
+En ce qui concerne l'énergie, le système fonctionne avec un bloc de batteries primaires.
+Comme ces batteries ne sont pas rechargeables, il faut prévoir un coût de remplacement et de transport annuel que nous estimons à 500 \$.
+Enfin, nous ajoutons environ 200 \$ pour la maintenance logicielle à distance et l'inspection physique du boîtier en cèdre lors de la visite sur le terrain.
+Le coût total d'opération et d'entretien s’élève donc à 1050 \$ par année. En appliquant la formule \ref{couts_entretien}, on obtient une note de 0.66 et un pourcentage de 1.97 \%.
+
+
+\paragraph{Coûts de fabrication :}  
+Le micro-ordinateur Raspberry Pi, avec la plaque piézoélectrique pour la détection de mouvement et une carte microSD industrielle, possèdent un coût d’environ 200 \$.
+La caméra ArduCam IMX219 et l'éclairage infrarouge à 940 nm représente 50 \$. Le composant le plus coûteux est le module satellite Iridium 9603 SBD estimé à 465 \$, indispensable pour la communication en zone isolée.
+Pour le reste, le boîtier en cèdre rouge avec ses joints d'étanchéité coûte 200 \$, tandis que le bloc de batteries revient à 400 \$. 
+Enfin, nous avons inclus 250 \$ de main-d’œuvre pour l'assemblage manuel et les tests de validation en atelier (environ 5 heures à 50 \$/h). 
+Le coût de fabrication total s’élève donc à 1565 \$. En appliquant ce montant à la formule \ref{couts_fabrication}, le concept obtient une note de 0.86 et donc un pourcentage de 2.58 \%.
+
 
 % ------------- Concept #2 -------------
 
@@ -448,10 +483,10 @@ Texte
 
 \subsubsection{Réduire impacts et coûts}
 
-\paragraph{Impact lumineux sur la faune :}
+\paragraph{Longueur d'onde de l'éclairage :}
 Texte
 
-\paragraph{Impact environnemental :}
+\paragraph{Nombre de remplacements de batterie par an :}
 Texte
 
 \paragraph{Coûts d'installation et de transport :}
@@ -568,10 +603,10 @@ Texte
 
 \subsubsection{Réduire impacts et coûts}
 
-\paragraph{Impact lumineux sur la faune :}
+\paragraph{Longueur d'onde de l'éclairage :}
 Texte
 
-\paragraph{Impact environnemental :}
+\paragraph{Nombre de remplacements de batterie par an :}
 Texte
 
 \paragraph{Coûts d'installation et de transport :}
@@ -602,32 +637,32 @@ Ces valeurs permettent ensuite de calculer la note obtenue à l'aide des barème
 \textbf{\ref{Autonomie} Fonctionnement autonome du système} & & &  \\
 \hline
 \ref{robutesse_autonomie} Marge de l'état d'autonomie [mois] & 12,5 & 14 & 18 \\
-\ref{consommation_electrique} Consommation énergétique [W] & & & \\
-\ref{resilience_systeme} Proportion des fonctions protégées & & & \\
+\ref{consommation_electrique} Consommation énergétique [W] & 11,3 & & \\
+\ref{resilience_systeme} Proportion des fonctions protégées & 5 & & \\
 \hline
 
 \textbf{\ref{Robustesse} Résistance et entretien du système} & & &  \\
 \hline
-\ref{conditions_climatiques} Plage opérationnelle de température [°C] & & & \\
-\ref{installation_deploiement} Encombrement et complexité d’installation [$m^3$] & & & \\
-\ref{resistance_neige} Résistance mécanique à la neige [$kg/m^2$] & & & \\
+\ref{conditions_climatiques} Plage opérationnelle de température [°C] & -20 & & \\
+\ref{installation_deploiement} Encombrement et complexité d’installation [$m^3$] & 1 & & \\
+\ref{resistance_neige} Résistance mécanique à la neige [$kg/m^2$] & 7E6 & & \\
 \hline
 
 \textbf{\ref{donnees} Observation et gestion de données} & & & \\
 \hline
-\ref{detection_mammiferes} Couverture de la zone d’observation [\%] & & & \\
-\ref{conservation_donnees} Capacité de stockage [Go] & & & \\
-\ref{performance_communication} Performance de communication distante [km] & & & \\
-\ref{exploitation_scientifique} Qualité scientifique des données [fps] & & & \\
+\ref{detection_mammiferes} Couverture de la zone d’observation [\%] & 100 & & \\
+\ref{conservation_donnees} Capacité de stockage [Go] & 8 & & \\
+\ref{performance_communication} Performance de communication distante [km] & ?? & & \\
+\ref{exploitation_scientifique} Qualité scientifique des données [fps] & ?? & & \\
 \hline
 
 \textbf{\ref{impacts_couts} Réduire impacts et coûts} & & &  \\
 \hline
-\ref{impact_lumineux} Impact lumineux sur la faune [nm] & & & \\
-\ref{impact_environnemental} Impact environnemental & & & \\
-\ref{couts_transport} Coûts d'installation et de transport [\$] & & & \\
-\ref{couts_entretien} Coûts d'opération et d’entretien [\$] & & & \\
-\ref{couts_fabrication} Coûts de fabrication [\$] & & & \\
+\ref{impact_lumineux} Longueur d'onde de l'éclairage [nm] & 940 & & \\
+\ref{impact_environnemental} Nombre de remplacements de batterie par an & 1 & & \\
+\ref{couts_transport} Coûts d'installation et de transport [\$] & 1900 & & \\
+\ref{couts_entretien} Coûts d'opération et d’entretien [\$] & 1050 & & \\
+\ref{couts_fabrication} Coûts de fabrication [\$] & 1565 & & \\
 \hline
 
 \end{tabularx}
