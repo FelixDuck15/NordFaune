@@ -161,7 +161,7 @@ La détection de mouvement est un aspect essentiel du projet NordFaune. En effet
 
 
 \subsubsection{Détecteurs de mouvement Zigbee}
-\noindent\textbf{Description} Le détecteur de mouvement de THIRDREALITY détient le protocole de communication sans fil Zigbee, il est peu énergivore. L’avantage de ce système c’est qu’il utilise un réseau maillé pour la communication entre eux, donc plus sécuritaire. De plus, il peut envoyer des commandes pour le système avec une latence minimale. Ils garantissent la protection de données. Il peut se connecter avec plusieurs appareils de domotique. Il détecte jusqu’à 30 pieds. 
+\noindent\textbf{Description} Le détecteur de mouvement de THIRDREALITY détient le protocole de communication sans fil Zigbee, il est peu énergivore avec environ 0,15 mAh par jour si on fait 50 détections par jours. L’avantage de ce système c’est qu’il utilise un réseau maillé pour la communication entre eux, donc plus sécuritaire. De plus, il peut envoyer des commandes pour le système avec une latence minimale, d’environ de 1 à 2 secondes. Ils garantissent la protection de données. Il peut se connecter avec plusieurs appareils de domotique. Il détecte jusqu’à 30 pieds. 
 \\
 
 Avec son prix de 42\$ pour 2 détecteurs, cela n’est pas trop cher. Pour finir, cette méthode est écoresponsable pour les animaux qui vont entrer dans le système.
@@ -170,15 +170,16 @@ Avec son prix de 42\$ pour 2 détecteurs, cela n’est pas trop cher. Pour finir
 \noindent\textbf{Décision} Rejetée
 \smallskip
 
-\noindent\textbf{Justification} Ce concept a été rejeté, pour le meilleur fonctionnement de cet appareil, il nous en faudrait plus qui ont la même communication Zigbee. De plus, le capteur est trop gros pour le système.  
+\noindent\textbf{Justification} Ce concept a été rejeté, pour le meilleur fonctionnement de cet appareil, il nous en faudrait plus qui ont la même communication Zigbee. De plus, le capteur est trop gros pour le système avec c’est 27 x 20 x 90 mm.  
 \smallskip
+
 
 \noindent\textbf{Références}
 \cite{Zigbee1}
 
 \subsubsection{Capteur infrarouge 333179}
 \label{sec:capte}
-\noindent\textbf{Description} Le Capteur infrarouge 333179 est fait pour des systèmes embarqués. Il mesure 2x2x1 cm et son poids de 10g.  La distance de détection est ajustable de 3m à 5m. Il est fonctionnel avec tout type de système. Il a un capteur d’angle de plus de 100° (angle de cône) et fonctionne dans des températures entre -20 °C et 60 °C. Il est aussi peu énergivore et facile d’installation. 
+\noindent\textbf{Description} Le Capteur infrarouge 333179 de Soldered Electronics est fait pour des systèmes embarqués. Il mesure 2x2x1 cm et son poids de 10g.  La distance de détection est ajustable de 3m à 5m. Il est fonctionnel avec tout type de système. Il a un capteur d’angle de plus de 100° (angle de cône) et fonctionne dans des températures entre -20 °C et 60 °C. Il est aussi un peu énergivore avec environ 2.4mAh et facile d’installation. 
 \\
 
 Avec son prix de 16.13\$ chaque capteur, nous pouvons en acheter plusieurs pour ne pas avoir de fausses détections. Pour finir, les animaux ne seront pas affectés par ce capteur, car il va seulement détecter s’il y a une chaleur d’un corps vivant qui passe devant.
@@ -190,19 +191,21 @@ Avec son prix de 16.13\$ chaque capteur, nous pouvons en acheter plusieurs pour 
 \noindent\textbf{Justification} Ce concept est retenu, puisqu'il répond à tous les critères préalablement fixés. Il est facile d’utilisation pour les autres composantes du système, il est de petit format, ne consomme pas beaucoup et il est écoresponsable pour les animaux qui vont entrer dans le système.
 \smallskip
 
+
 \noindent\textbf{Références} 
 \cite{infrarouge1}
 
 \subsubsection{Plaques piézoélectriques}
 \label{sec:plaque}
-\noindent\textbf{Description} Les plaques piézoélectriques sont des cercles de 1mm à 3mm d’épaisseur à 15mm de diamètre qui ne détecte pas le mouvement, mais les vibrations ou le toucher de quelqu’un. Ils sont faciles à installer et à utiliser. De plus de son prix médiocre de 2.42\$ pour un sac, il peut être utilisé dans n’importe quel système parce qu’il consomme peu d’énergie. Il est aussi étanche, donc la neige ou l’eau ne va pas détruire ce capteur.
+\noindent\textbf{Description} Les plaques piézoélectriques de Same Sky sont des cercles de 1mm à 3mm d’épaisseur à 15mm de diamètre qui ne détecte pas le mouvement, mais les vibrations ou le toucher de quelqu’un. Ils sont faciles à installer et à utiliser. De plus de son prix médiocre de 2.42\$ pour un sac, il peut être utilisé dans n’importe quel système parce qu’il consomme 0,0083 mAh. Il est aussi étanche, donc la neige ou l’eau ne va pas détruire ce capteur.
 \smallskip
 
 \noindent\textbf{Décision} Retenue
 \smallskip
 
-\noindent\textbf{Justification} Ce concept a été retenu, puisqu’il est très peu énergivore et se met en mode veille quand il détecte rien. Cependant, il dépendant d’un contact physique, l’animal peut être trop léger pour déclencher le capteur. De plus, s’il y a de la neige ou de la glace qui heurte notre système et qu’il fait vibrer la boite, le capteur pourrait se déclencher à tort.
+\noindent\textbf{Justification} Ce concept a été retenu, puisqu’il est très peu énergivore et se met en mode veille quand il ne détecte rien. Cependant, il dépendant d’un contact physique, l’animal peut être trop léger pour déclencher le capteur. De plus, s’il y a de la neige ou de la glace qui heurte notre système et qu’il fait vibrer la boite, le capteur pourrait se déclencher à tort.
 \smallskip
+
 
 \noindent\textbf{Références} 
 \cite{Piézoélectrique1}
