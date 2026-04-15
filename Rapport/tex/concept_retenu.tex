@@ -21,33 +21,33 @@ Critères d'évaluation & Pond. & Concept 1 & Concept 2 & Concept 3 \\
 \hline\hline
 \textbf{\ref{Autonomie} Fonctionnement autonome du système} & \textbf{30\%} & & &  \\
 \hline
-\ref{robutesse_autonomie} Marge de l'état d'autonomie & 10\% & 12,5 & 14 & 18 \\
-\ref{consommation_electrique} Consommation énergétique & 8\% & 11,3 & 167 & ?? \\
-\ref{resilience_systeme} Proportion des fonctions protégées & 6\% & 5 & 5 & 5 \\
+\ref{robutesse_autonomie} Marge de l'état d'autonomie & 10\% & 2,9\% & 7,9\% & 10\% \\
+\ref{consommation_electrique} Consommation énergétique & 8\% & 5\% & 0\% & 4,25\% \\
+\ref{resilience_systeme} Proportion des fonctions protégées & 6\% & 3,6\% & 2,4\% & 4,8\% \\
 \hline
 
 \textbf{\ref{Robustesse} Résistance et entretien du système} & \textbf{30\%} & & &  \\
 \hline
-\ref{conditions_climatiques} Plage opérationnelle de température & 10\% & -20 & -20 & -30 \\
-\ref{installation_deploiement} Encombrement et complexité d'installation & 8\% & 1 & ?? & ?? \\
-\ref{resistance_neige} Résistance mécanique à la neige & 12\% & 7E6 & 3E7 & ?? \\
+\ref{conditions_climatiques} Plage opérationnelle de température & 10\% & 0\% & 0\% & -30 \\
+\ref{installation_deploiement} Encombrement et complexité d'installation & 6\% & 4,8\% & ?? & ?? \\
+\ref{resistance_neige} Résistance mécanique à la neige & 12\% & 12\% & 12\% & 12\% \\
 \hline
 
 \textbf{\ref{donnees} Observation et gestion de données} & \textbf{25\%} & & & \\
 \hline
-\ref{detection_mammiferes} Couverture de la zone d'observation & 9\% & 100 & 100 & 93 \\
-\ref{conservation_donnees} Capacité de stockage & 5\% & 8 & 128 & 134 \\
-\ref{performance_communication} Performance de communication distante & 6\% & ?? & ?? & ?? \\
-\ref{exploitation_scientifique} Qualité scientifique des données & 5\% & ?? & ?? & ?? \\
+\ref{detection_mammiferes} Couverture de la zone d'observation & 9\% & 9\% & 9\% & 93 \\
+\ref{conservation_donnees} Capacité de stockage & 5\% & 0\% & 5\% & 134 \\
+\ref{performance_communication} Performance de communication distante & 6\% & 5,1\% & ?? & ?? \\
+\ref{exploitation_scientifique} Qualité scientifique des données & 5\% & 3,75\% & ?? & ?? \\
 \hline
 
 \textbf{\ref{impacts_couts} Réduire impacts et coûts} & \textbf{15\%} & & &  \\
 \hline
-\ref{impact_lumineux} Longueur d'onde de l'éclairage & 3\% & 940 & 850 & ?? \\
-\ref{impact_environnemental} Nombre de remplacements de batterie par an & 2\% & 1 & 2 & 1 \\
-\ref{couts_transport} Coûts d'installation et de transport & 4\% & 1900 & 2000 & 2200 \\
-\ref{couts_entretien} Coûts d'opération et d'entretien & 3\% & 1050 & 1500 & 1800 \\
-\ref{couts_fabrication} Coûts de fabrication & 3\% & 1565 & 1500 & 2169 \\
+\ref{impact_lumineux} Longueur d'onde de l'éclairage & 3\% & 3\% & 2,07\% & ?? \\
+\ref{impact_environnemental} Nombre de remplacements de batterie par an & 2\% & 1,5\% & 2 & 1 \\
+\ref{couts_transport} Coûts d'installation et de transport & 4\% & 3,1\% & 2000 & 2200 \\
+\ref{couts_entretien} Coûts d'opération et d'entretien & 3\% & 1,97\% & 1500 & 1800 \\
+\ref{couts_fabrication} Coûts de fabrication & 3\% & 2,58\% & 1500 & 2169 \\
 \hline\hline
 
 \textbf{Total} & \textbf{100\%} & & & \\
@@ -56,7 +56,38 @@ Critères d'évaluation & Pond. & Concept 1 & Concept 2 & Concept 3 \\
 \end{table}
 
 \section{Description du concept retenu}
-Texte
+\textbf{Sopporter les conditions métérologiques}
+\begin{itemize}
+    \item Protection du système avec un boitier en bois
+\end{itemize}
+
+\textbf{Détection d'un mouvement et enregistrement de vidéos}
+\begin{itemize}
+    \item La détection de mouvement sera assurée par des plaques piézoélectriques
+    \item Les vidéos seront capturées par l'ArduCam IMX219
+    \item Les données seront enregistrées sur une carte MicroSD(HC)
+\end{itemize}
+
+\textbf{Interface utilisateur}
+\begin{itemize}
+    \item Le système pourra être accédé par l'intermédiare du Tunnel Cloudflare
+    \item La communication entre le système et l'extérieur sera assurée par l'Iridium 9603 SBD
+\end{itemize}
+
+\textbf{Gestion de l'énergie}
+\begin{itemize}
+    \item Le système sera alimenté par un blocs de batteries au Lithium-thionyl chloride
+\end{itemize}
+
+\subsection{Gestion de l'énergie}
+L'entièreté du système sera alimenté par le bloc de batteries au Lithium-thionyl chloride.
+Ces batteries hautes densistés combinées avec un système qui consomme au maximum 11.3 Watts pour
+de très courtes pédiodes lors d'enregistrement vidéos, assurera une autonomie d'au moins 12 mois
+pour le système.
+
+Si l'on programme un système qui s'active uniquement lorsqu'un signal est envoyé par la plaque 
+de pression, on peut estimer une consommation maximale en veille de 0,1 W, l'on garde la 
+plaque piézoélectrique active. Avec une consommation 
 
 \section{Conclusion}
 Texte
