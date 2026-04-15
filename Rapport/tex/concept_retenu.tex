@@ -28,50 +28,50 @@ Critères d'évaluation & Pond. & Concept 1 & Concept 2 & Concept 3 \\
 
 \textbf{\ref{Robustesse} Résistance et entretien du système} & \textbf{30\%} & & &  \\
 \hline
-\ref{conditions_climatiques} Plage opérationnelle de température & 10\% & 0\% & 0\% & -30 \\
-\ref{installation_deploiement} Encombrement et complexité d'installation & 6\% & 4,8\% & ?? & ?? \\
+\ref{conditions_climatiques} Plage opérationnelle de température & 10\% & 0\% & 0\% & 10\% \\
+\ref{installation_deploiement} Encombrement et complexité d'installation & 6\% & 4,8\% & 4,8\% & 4,5\% \\
 \ref{resistance_neige} Résistance mécanique à la neige & 12\% & 12\% & 12\% & 12\% \\
 \hline
 
 \textbf{\ref{donnees} Observation et gestion de données} & \textbf{25\%} & & & \\
 \hline
-\ref{detection_mammiferes} Couverture de la zone d'observation & 9\% & 9\% & 9\% & 93 \\
-\ref{conservation_donnees} Capacité de stockage & 5\% & 0\% & 5\% & 134 \\
+\ref{detection_mammiferes} Couverture de la zone d'observation & 9\% & 9\% & 9\% & 8,5\% \\
+\ref{conservation_donnees} Capacité de stockage & 5\% & 0\% & 5\% & 5\% \\
 \ref{performance_communication} Performance de communication distante & 6\% & 5,1\% & ?? & ?? \\
 \ref{exploitation_scientifique} Qualité scientifique des données & 5\% & 3,75\% & ?? & ?? \\
 \hline
 
 \textbf{\ref{impacts_couts} Réduire impacts et coûts} & \textbf{15\%} & & &  \\
 \hline
-\ref{impact_lumineux} Longueur d'onde de l'éclairage & 3\% & 3\% & 2,07\% & ?? \\
-\ref{impact_environnemental} Nombre de remplacements de batterie par an & 2\% & 1,5\% & 2 & 1 \\
-\ref{couts_transport} Coûts d'installation et de transport & 4\% & 3,1\% & 2000 & 2200 \\
-\ref{couts_entretien} Coûts d'opération et d'entretien & 3\% & 1,97\% & 1500 & 1800 \\
-\ref{couts_fabrication} Coûts de fabrication & 3\% & 2,58\% & 1500 & 2169 \\
+\ref{impact_lumineux} Longueur d'onde de l'éclairage & 3\% & 3\% & 2,07\% & 2,16\% \\
+\ref{impact_environnemental} Nombre de remplacements de batterie par an & 2\% & 1,5\% & 1\% & 1,5\% \\
+\ref{couts_transport} Coûts d'installation et de transport & 4\% & 3,1\% & 3\% & 2,8\% \\
+\ref{couts_entretien} Coûts d'opération et d'entretien & 3\% & 1,97\% & 1,35\% & 1,2\% \\
+\ref{couts_fabrication} Coûts de fabrication & 3\% & 2,58\% & 2,625\% & 2,12\% \\
 \hline\hline
 
-\textbf{Total} & \textbf{100\%} & & & \\
+\textbf{Total} & \textbf{100\%} & \textbf{58,3\%} & & \\
 \hline
 \end{tabular}
 \end{table}
 
 \section{Description du concept retenu}
-\textbf{Sopporter les conditions métérologiques}
+\textbf{Supporter les conditions météorologique}
 \begin{itemize}
-    \item Protection du système avec un boitier en bois
+    \item Protection du système avec un boitier en aluminium
 \end{itemize}
 
 \textbf{Détection d'un mouvement et enregistrement de vidéos}
 \begin{itemize}
-    \item La détection de mouvement sera assurée par des plaques piézoélectriques
-    \item Les vidéos seront capturées par l'ArduCam IMX219
-    \item Les données seront enregistrées sur une carte MicroSD(HC)
+    \item La détection de mouvement sera assurée par le capteur infrarouge 333179 de soldered Electronics.
+    \item Les vidéos seront capturées par l'ESP32-CAM.
+    \item Les données seront enregistrées sur l'espace infonuagique d'azure.
 \end{itemize}
 
 \textbf{Interface utilisateur}
 \begin{itemize}
     \item Le système pourra être accédé par l'intermédiare du Tunnel Cloudflare
-    \item La communication entre le système et l'extérieur sera assurée par l'Iridium 9603 SBD
+    \item La communication entre le système et la centrale sera assurée par l'Iridium 9603 SBD
 \end{itemize}
 
 \textbf{Gestion de l'énergie}
@@ -79,15 +79,20 @@ Critères d'évaluation & Pond. & Concept 1 & Concept 2 & Concept 3 \\
     \item Le système sera alimenté par un blocs de batteries au Lithium-thionyl chloride
 \end{itemize}
 
+\subsection{Supporter les conditions météorologique}
+La protection des équipements informatiques et scientifiques du système sera assruré par le boitier construit avec de l'aluminium. Ce matériau est très résistant et durable.
+Avec une résistance à la flexion de $700 Kg/cm^2$, il supportera sans problème le poids de deux mètres de neige. De plus, puisque c'est un matériau très légé avec une
+masse volumique de seulement $2,7Kg/cm^3$, la boîte pourra être transportée et installée facilement et sans effort.
+
+\bigskip
+Finalement, nous nous sommes donnés des critères stricts quant au choix des composantes informatiques et scientifiques. Entre autres elles devront toutes supporter des températures
+descendre en dessous de -20°C. Il ne fait donc aucun doute que ce système sera prêt à affronter les conditions météorologique inhospitalière de l'arctique québécois.
+
 \subsection{Gestion de l'énergie}
 L'entièreté du système sera alimenté par le bloc de batteries au Lithium-thionyl chloride.
-Ces batteries hautes densistés combinées avec un système qui consomme au maximum 11.3 Watts pour
-de très courtes pédiodes lors d'enregistrement vidéos, assurera une autonomie d'au moins 12 mois
-pour le système.
-
-Si l'on programme un système qui s'active uniquement lorsqu'un signal est envoyé par la plaque 
-de pression, on peut estimer une consommation maximale en veille de 0,1 W, l'on garde la 
-plaque piézoélectrique active. Avec une consommation 
+En programmant un système qui s'active uniquement lorsqu'un signal est envoyé par le capteur infrarouge, 
+on peut estimer une consommation maximale en veille de 0,01 W/h. Donc ces batteries hautes densistés combinées avec un système qui 
+consomme au très peu d'énergie lorsqu'il est en veille assurera une autonomie que le système soient alimenté en continue sur une période de 12 mois.
 
 \section{Conclusion}
 Texte
