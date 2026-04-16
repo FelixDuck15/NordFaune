@@ -643,8 +643,8 @@ Ce système répond très bien aux exigences du client tout en limitant l’impa
 \subsubsection{Réduire impacts et coûts}
 
 \paragraph{Longueur d'onde de l'éclairage :}
-Le concept utilise une caméra ESP32-CAM combinée à un capteur infrarouge (333179) pour une captation en faible luminosité.
-Une source infrarouge est employée afin de limiter la visibilité pour la faune.
+Le concept utilise une caméra ESP32-CAM combinée à un capteur infrarouge (333179) pour une captation en faible luminosité. 
+Une source infrarouge émettant à 850 nm est employée afin de limiter la visibilité pour la faune.
 Cette solution réduit les risques de perturbation, bien que la longueur d’onde ne soit pas totalement invisible.
 L’application de la formule \ref{impact_lumineux} permet d’estimer une note de 0.72 et donc un pourcentage de 2.16\%.
 
@@ -724,7 +724,7 @@ Ces valeurs permettent ensuite de calculer la note obtenue à l'aide des barème
 
 \textbf{\ref{impacts_couts} Réduire impacts et coûts} & & &  \\
 \hline
-\ref{impact_lumineux} Longueur d'onde de l'éclairage [nm] & 940 & 850 & ?? \\
+\ref{impact_lumineux} Longueur d'onde de l'éclairage [nm] & 940 & 850 & 850 \\
 \ref{impact_environnemental} Nombre de remplacements de batterie par an & 1 & 2 & 1 \\
 \ref{couts_transport} Coûts d'installation et de transport [\$] & 1900 & 2000 & 2200 \\
 \ref{couts_entretien} Coûts d'opération et d’entretien [\$] & 1050 & 1500 & 1800 \\
