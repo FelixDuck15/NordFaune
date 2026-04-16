@@ -539,6 +539,7 @@ La formule \ref{couts_fabrication} donne une note de 0.875 et ainsi un pourcenta
 Pour ce concept, les solutions les plus durables ont été sélectionnées afin d'assurer un bon fonctionnement à long terme.
 
 \subsubsection{Fonctionnement autonome du système}
+\label{autonomie_concept_3}
 
 \paragraph{Marge de l'état d'autonomie :}
 Étant donné que le concept est composé d’une ESP32-CAM, d’un Raspberry Pi et d’un module Iridium 9603 SBD, la demande énergétique du système est fortement réduite.
@@ -592,10 +593,10 @@ La température de fonctionnement minimale du système s'établit donc à -30°C
 Le concept 3 privilégie des composantes relativement compactes permettant de limiter l’encombrement global du système tout en facilitant leur intégration. L’utilisation d’un boîtier en aluminium, choisi pour sa légèreté et sa résistance à la corrosion, favorise une durabilité accrue dans le temps. 
 
 \bigskip
- De plus, l’intégration d’un bloc de batteries et d’un module Iridium 9603 SBD assure un fonctionnement fiable à long terme avec peu d’interventions. Toutefois, la présence combinée de solutions de communication augmente la complexité d’installation et nécessite une configuration initiale plus rigoureuse.
+De plus, l’intégration d’un bloc de batteries et d’un module Iridium 9603 SBD assure un fonctionnement fiable à long terme avec peu d’interventions. Toutefois, la présence combinée de solutions de communication augmente la complexité d’installation et nécessite une configuration initiale plus rigoureuse.
 
 \bigskip
- Malgré cela, le système demeure installable par deux personnes sans expertise avancée. Le volume est estimé conforme aux exigences du cahier des charges. Une note de 0,75 est attribuée, soit 4,5\%. 
+ Malgré cela, le système demeure installable par deux personnes sans expertise avancée. Le volume est estimé conforme aux exigences du cahier des charges. Une note de 0,75 est attribuée, soit 4,5\%.
 
 
 \paragraph{Résistance mécanique à la neige :}
@@ -618,7 +619,7 @@ se voit attribuer une note de 1 et obtient une pondération de 12\%.
 L’évaluation de ce critère dépend encore une fois de la couverture minimale de la zone d’observation du matériel d’observation. Pour ce qui est du capteur, le capteur choisi est encore le capteur infrarouge 333179. Tel que mentionné plus tôt, installé à un mètre de haut, il couvre un rayon de 1,43m au sol. Cette zone, étant plus large de la base de $1 m^2$ du boîtier, montre que le capteur offre une couverture de 100\% de l’aire d’observation. Puis, la caméra ESP32-CAM quant à elle possède, un FOV horizontal d’environ 65° et un FOV vertical d’environ 50°. Lorsque placée à un mètre de hauteur, elle couvre 127,4 cm en largeur et 93,3 cm en longueur. 
 
 \bigskip
-Ainsi, seulement $0,933 m^2$ est couvert sur le $1 m^2$ à couvrir. Cette solution est donc attribuée une note de 93 pour ce critère et donc une note de 8,5%.
+Ainsi, seulement $0,933 m^2$ est couvert sur le $1 m^2$ à couvrir. Cette solution est donc attribuée une note de 93 pour ce critère et donc une note de 8,5\%.
 
 
 \paragraph{Capacité de stockage :}
@@ -628,7 +629,7 @@ Pour évaluer ce critère il faut encore une fois se baser sur l’outil de stoc
 En utilisant une capacité de 134 Go, ce critère se voit attribuer une note parfaite de 1 et donc 5\% pour sa pondération. 
 
 \paragraph{Performance de communication distante :}
-Le concept 3 utilise le module Iridium 9603 SBD pour assurer une communication fiable sur de longues distances, répondant aux exigences du cahier des charges en environnement isolé. L’utilisation du chiffrement Microsoft Autenticator permet de sécuriser l’accès sans limiter la bande passante. 
+Le concept \#3 utilise le module Iridium 9603 SBD pour assurer une communication fiable sur de longues distances, répondant aux exigences du cahier des charges en environnement isolé. L’utilisation du chiffrement Microsoft Autenticator permet de sécuriser l’accès sans limiter la bande passante. 
 
 \bigskip
 Le système offre ainsi une communication robuste et adaptée au contexte arctique. Ce concept consomme une faible quantité importante d’énergie et requiers un investissement financier raisonnable. Une note estimée de 0,95 est attribuée, soit 5,7\%.
