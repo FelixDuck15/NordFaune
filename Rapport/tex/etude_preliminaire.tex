@@ -272,7 +272,7 @@ Le concept 1 utilise des composantes compactes (Raspberry Pi, ArduCam 1IMX219, I
 Le boitier en bois de cèdre est simple à assembler et ne requiert aucun outil spécialisé. Ceci rend l’installation accessible à des utilisateurs non expérimentés. L’utilisation d’un bloc de batteries primaire simplifie également le déploiement en éliminant les systèmes de recharge complexes. 
 
 \bigskip
- Le volume du système est estimé inférieur à 1 m³, respectant ainsi les exigences du cahier des charges. Selon le barème, une note de 1 est attribuée, soit 8 \%. 
+ Le volume du système est estimé à 3 m³, respectant ainsi les exigences du cahier des charges. Selon le barème, une note de 0,81 est attribuée, soit 6,5 \%. 
 
  
 \paragraph{Résistance mécanique à la neige :}
@@ -451,7 +451,7 @@ Le concept 2 repose sur des composantes généralement plus volumineuses, notamm
 L’utilisation d’un boîtier en aluminium nécessite des procédés de fabrication plus complexes. Ceci rend l’assemblage moins accessible pour des utilisateurs non spécialisés. De plus, la solution énergétique hybride implique une gestion plus complexe des connexions et de l’intégration des différentes sources d’énergie. L’installation du système de communication Starlink demande également un positionnement précis et un déploiement plus exigeant que des solutions plus simples.  
 
 \bigskip
-Toutefois, les composantes demeurent intégrables dans un volume conforme aux exigences minimales. Ainsi, bien que fonctionnel, ce concept présente une complexité d’installation plus élevée. Une note estimée de 0,6 lui est attribuée, soit 4,8\%.
+Toutefois, les composantes demeurent intégrables dans un volume 2,5 m³ ce qui est conforme aux exigences minimales. Ainsi, bien que fonctionnel, ce concept présente une complexité d’installation plus élevée. Une note estimée de 0,86 lui est attribuée, soit 6,9\%.
 
 
 \paragraph{Résistance mécanique à la neige :}
@@ -558,7 +558,7 @@ Ces composantes ont été choisies ici, puisqu'elles sont durables et qu'elles c
 \bigskip
 De plus, comme énoncé dans l'analyse du concept \#1, le Raspberry Pi et l'IRIDIUM 9603 SBD ont une consommation de 10W et 0.8W respectivement. 
 L'ESP32-CAM quant à lui à une consommation moyenne maximale d'environ 2.5W légèrement plus que la caméra utilisée au concept \#1, mais son flash intégré 
-rend la capture de nuit possible.
+rend la capture de nuit possible. Le système consomme 13,3W au total.
 
 \bigskip
 Selon le critère de la section \ref{consommation_electrique}, ce concept se voit donc attribuer une note de 0.53, ce qui équivaut à un pourcentage de 4.25\% sur les 8\% attribué à ce critère.
@@ -596,7 +596,7 @@ Le concept 3 privilégie des composantes relativement compactes permettant de li
 De plus, l’intégration d’un bloc de batteries et d’un module Iridium 9603 SBD assure un fonctionnement fiable à long terme avec peu d’interventions. Toutefois, la présence combinée de solutions de communication augmente la complexité d’installation et nécessite une configuration initiale plus rigoureuse.
 
 \bigskip
- Malgré cela, le système demeure installable par deux personnes sans expertise avancée. Le volume est estimé conforme aux exigences du cahier des charges. Une note de 0,75 est attribuée, soit 4,5\%.
+ Malgré cela, le système demeure installable par deux personnes sans expertise avancée. Le volume est estimé est de 1,5 m³ ce qui est conforme aux exigences du cahier des charges. Une note de 0,95 est attribuée, soit 7,6\%. 
 
 
 \paragraph{Résistance mécanique à la neige :}
@@ -604,7 +604,7 @@ L'aluminium sera utilisé au concept \#3 pour la réalisation du boîtier. C'est
 l'installation de la boîte dans le l'arctique Québécois.
 
 \bigskip
-Tel qu'abordé au concept \#2, l'aluminium a une grande résistance mécanique à la flexion, ce qui lui permettra de supporter sans problème le poids de 2m de neige. 
+Tel qu'abordé au concept \#2, l'aluminium a une grande résistance mécanique à la flexion ($3000Kg/cm^2$), ce qui lui permettra de supporter sans problème le poids de 2m de neige. 
 De plus, c'est un matériau facilement recyclable et peut être protégé par un revêtement qui peut être appliqué directement à sa surface. Cette couche protectrice 
 assurera que l'aluminium conserve ses propriétés mécaniques sur le long terme en évitant que la corrosion prenne le dessus.
 
@@ -644,8 +644,8 @@ Ce système répond très bien aux exigences du client tout en limitant l’impa
 \subsubsection{Réduire impacts et coûts}
 
 \paragraph{Longueur d'onde de l'éclairage :}
-Le concept utilise une caméra ESP32-CAM combinée à un capteur infrarouge (333179) pour une captation en faible luminosité.
-Une source infrarouge est employée afin de limiter la visibilité pour la faune.
+Le concept utilise une caméra ESP32-CAM combinée à un capteur infrarouge (333179) pour une captation en faible luminosité. 
+Une source infrarouge émettant à 850 nm est employée afin de limiter la visibilité pour la faune.
 Cette solution réduit les risques de perturbation, bien que la longueur d’onde ne soit pas totalement invisible.
 L’application de la formule \ref{impact_lumineux} permet d’estimer une note de 0.72 et donc un pourcentage de 2.16\%.
 
@@ -704,15 +704,15 @@ Ces valeurs permettent ensuite de calculer la note obtenue à l'aide des barème
 \textbf{\ref{Autonomie} Fonctionnement autonome du système} & & &  \\
 \hline
 \ref{robutesse_autonomie} Marge de l'état d'autonomie [mois] & 12,5 & 14 & 18 \\
-\ref{consommation_electrique} Consommation énergétique [W] & 11,3 & 167 & ?? \\
-\ref{resilience_systeme} Proportion des fonctions protégées & 5 & 5 & 5 \\
+\ref{consommation_electrique} Consommation énergétique [W] & 11,3 & 167 & 13,3 \\
+\ref{resilience_systeme} Proportion des fonctions protégées & 3 & 2 & 4 \\
 \hline
 
 \textbf{\ref{Robustesse} Résistance et entretien du système} & & &  \\
 \hline
 \ref{conditions_climatiques} Plage opérationnelle de température [°C] & -20 & -20 & -30 \\
-\ref{installation_deploiement} Encombrement et complexité d’installation [$m^3$] & 1 & ?? & ?? \\
-\ref{resistance_neige} Résistance mécanique à la neige [$kg/m^2$] & 7E6 & 3E7 & ?? \\
+\ref{installation_deploiement} Encombrement et complexité d’installation [$m^3$] & 3 & 2,5 & 1,5 \\
+\ref{resistance_neige} Résistance mécanique à la neige [$kg/m^2$] & 7E6 & 3E7 & 3E7 \\
 \hline
 
 \textbf{\ref{donnees} Observation et gestion de données} & & & \\
@@ -725,7 +725,7 @@ Ces valeurs permettent ensuite de calculer la note obtenue à l'aide des barème
 
 \textbf{\ref{impacts_couts} Réduire impacts et coûts} & & &  \\
 \hline
-\ref{impact_lumineux} Longueur d'onde de l'éclairage [nm] & 940 & 850 & ?? \\
+\ref{impact_lumineux} Longueur d'onde de l'éclairage [nm] & 940 & 850 & 850 \\
 \ref{impact_environnemental} Nombre de remplacements de batterie par an & 1 & 2 & 1 \\
 \ref{couts_transport} Coûts d'installation et de transport [\$] & 1900 & 2000 & 2200 \\
 \ref{couts_entretien} Coûts d'opération et d’entretien [\$] & 1050 & 1500 & 1800 \\
