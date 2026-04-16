@@ -58,26 +58,26 @@ Critères d'évaluation & Pond. & Concept 1 & Concept 2 & Concept 3 \\
 \section{Description du concept retenu}
 \textbf{Supporter les conditions météorologiques}
 \begin{itemize}
-    \item Protection du système avec un boitier en aluminium
-    \item Composantes résistantes au froid
+    \item Protection du système avec un boitier en aluminium [\ref{sec:alumi}]
 \end{itemize}
 
 \textbf{Détection d'un mouvement et enregistrement de vidéos}
 \begin{itemize}
-    \item La détection de mouvement sera assurée par le capteur infrarouge 333179 de soldered Electronics.
-    \item Les vidéos seront capturées par l'ESP32-CAM.
-    \item Les données seront enregistrées sur l'espace infonuagique d'azure.
+    \item La détection de mouvement sera assurée par le capteur infrarouge 333179 de soldered Electronics. [\ref{sec:capte}]
+    \item Les vidéos seront capturées par l'ESP32-CAM. [\ref{sec:esp32}]
+    \item Les données seront enregistrées sur l'espace infonuagique d'azure. [\ref{sec:azsta}]
+    \item Le micro-ordinateur Raspberry Pi sera utilisé la gestion interne du système [\ref{sec:raspb}]
 \end{itemize}
 
 \textbf{Interface utilisateur}
 \begin{itemize}
-    \item Le système pourra être accédé par l'intermédiare du Tunnel Cloudflare
-    \item La communication entre le système et la centrale sera assurée par l'Iridium 9603 SBD
+    \item Le système pourra être accédé par l'intermédiare du Tunnel Cloudflare [\ref{sec:tunne}]
+    \item La communication entre le système et la centrale sera assurée par l'Iridium 9603 SBD [\ref{sec:iridi}]
 \end{itemize}
 
 \textbf{Gestion de l'énergie et autonomie du système}
 \begin{itemize}
-    \item Le système sera alimenté par un blocs de batteries au Lithium-thionyl chloride
+    \item Le système sera alimenté par un blocs de batteries au Lithium-thionyl chloride [\ref{sec:bloc}]
 \end{itemize}
 
 \subsection{Supporter les conditions météorologiques}
@@ -101,7 +101,7 @@ consomme au très peu d'énergie lorsqu'il est en veille assurera une autonomie 
 De plus, comme il en été discuté à la section \ref{autonomie_concept_3} les pièces choisies sont supposées rester fonctionnelles pour une période d'au moins 18 mois.
 Cela assurera que les composantes électroniques seront théoriquement fonctionnelles pour la durée totale de déploiement du système. Et si jamais une erreur logicielle devait
 se produire, le système est conçu pour envoyer une alerte à la centrale et se redémarrer automatiquement par la suite pour rester opérationnel. Ces mesures assureront donc que
-le système puisse fonctionner de manière complétement autonome ne nécessitant d'aucune intération humaine après sa mise en service initiale.
+le système puisse fonctionner de manière complètement autonome ne nécessitant d'aucune interation humaine après sa mise en service initiale.
 
 \section{Conclusion}
 Texte
