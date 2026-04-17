@@ -93,6 +93,23 @@ supporter des températures descendre en dessous de -20°C. C'est sans parler de
 accessibles même si une panne majeure du système devait arriver. Il ne fait donc aucun doute que ce système sera prêt à affronter les conditions 
 météorologiques inhospitalières de l'arctique québécois.
 
+\subsection{Détection d'un mouvement et enregistrement de vidéos}
+Afin de détecter l’activité des lemmings dans le Grand Nord, nous nous servons du capteur infrarouge 333179 de la compagnie Soldered Electronics. 
+Celui-ci, conçu pour un système embarqué, est de petit format et facile d'installation, faisant de cette option un choix judicieux pour l’installation de notre système dans le 
+Grand Nord. Détectant le rayonnement infrarouge émis par un corps, il permet également de capter la présence des lemmings de manière passive. De plus, lorsque placé à un mètre de 
+hauteur, il projette une zone de détection d’un rayon d’1,43 mètres offrant donc une couverture complète de la zone d’observation dans le boîtier.
+
+\bigskip
+Suite à une détection d’activité de mammifères par le système, le microcontrôleur ESP32-CAM effectuera la prise de vidéo. Combiné au capteur d’image OV2640, ce système permet 
+l’enregistrement de vidéos d’une résolution maximale de 720p à 30fps, respectant les demandes du client. Le port micro-USB présent dans le microcontrôleur permet par la suite 
+de connecter ce dernier à l’ordinateur Rasberry Pi qui effectuera le traitement des événements des lemmings.
+
+\bigskip
+Enfin, les vidéos prises par la ESP32-CAM seront ensuite téléversées vers la plateforme de stockage infonuagique Azure de Microsoft à l’aide d’une connexion Internet établie 
+par un mini kit Starlink. En plus d’être compact et robuste, idéal pour les conditions climatiques du Grand Nord, le mini kit est performant et permet un transfert de données 
+rapide. Quant au service de stockage Azure, celui-ci assure la conservation des vidéos enregistrées de manière sécuritaire, fiable et à distance pour une période de 12 mois, 
+ce qui est essentiel pour permettre leur utilisation à des fins statistiques.
+
 \subsection{Gestion de l'énergie et autonomie dy système}
 Le système sera alimenté par le bloc de batteries au Lithium-thionyl chloride.
 En programmant un système qui s'active uniquement lorsqu'un signal est envoyé par le capteur infrarouge, 
