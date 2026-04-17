@@ -5,6 +5,7 @@ Cours de design 1 de l'équipe NordFaune.
 
 ## Ce qui se trouve
 * Diagramme fonctionnel
+* Diagramme physique
 * Ordre du jours
 * Procès verbal
 * Rapport
