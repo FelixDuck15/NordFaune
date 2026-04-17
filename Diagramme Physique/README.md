@@ -1,1 +1,1 @@
-<img width="951" height="840" alt="diagramme_physique" src="https://github.com/user-attachments/assets/9cb8d2f5-ed0b-4a9d-90a7-42d25e11ab1c" />
+<img width="951" height="801" alt="diagramme_physique" src="https://github.com/user-attachments/assets/07cb5651-b2ee-4b26-9671-3989efc53291" />
