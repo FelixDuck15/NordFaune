@@ -116,7 +116,13 @@ par un mini kit Starlink. En plus d’être compact et robuste, idéal pour les 
 rapide. Quant au service de stockage Azure, celui-ci assure la conservation des vidéos enregistrées de manière sécuritaire, fiable et à distance pour une période de 12 mois, 
 ce qui est essentiel pour permettre leur utilisation à des fins statistiques.
 
-\subsection{Gestion de l'énergie et autonomie dy système}
+\subsection{Interface utilisateur}
+La communication entre le système et la centrale sera assuré via le module iridium 9603 SBD. Cette solution permet d’assuré une communication fiable pour des applications isolés. Elle est constituée d’un boitier iridium relié à une antenne Iridium Fixed Mast Antenna Pipe Mount.  Pour ce projet l’antenne sera en dehors de la boite principal sous un radôme en plastique disposé en hauteur afin de limiter l’atténuation du signal causé par la neige ou la glace. Le système requiert un investissement en capital d’environ 500\$ en plus des frais mensuels estimé à 30\$ par mois. 
+
+\bigskip
+L’accès sécurisé à distance à la centrale local est assuré par l’application mobile Microsoft Autenticator. Celle-ci est gratuite pour 3 utilisateurs distinct et viens avec une licence Azure qui permet d’accéder aux données de la console sur un appareil mobile par le cloud. L’investissement en capital pour mettre en place l’environnent Microsoft est estimé être en dessua de 100\$ et n’encours aucun frais mensuel. 
+
+\subsection{Gestion de l'énergie et autonomie du système}
 Le système sera alimenté par le bloc de batteries au Lithium-thionyl chloride.
 En programmant un système qui s'active uniquement lorsqu'un signal est envoyé par le capteur infrarouge, 
 on peut estimer une consommation maximale en veille de 0,01 W/h. Donc ces batteries hautes densistés combinées avec un système qui 
