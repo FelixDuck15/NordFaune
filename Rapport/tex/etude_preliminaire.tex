@@ -37,13 +37,13 @@ Le tableau \ref{tab:plan_etude} présente en détail la procédure d'évaluation
 
 \ref{consommation_electrique} Consommation énergétique
     & Évaluer la somme des consommation électrique selon les données du fournisseur.
-    & Le système fonctionne de manière continue sous conditions climatiques normales.
+    & 
 \\
 \hline
 
 \ref{resilience_systeme} Proportion des fonctions protégées
     & Évaluer le nombre de fonctions protégées par la redondance ou une mesure de protection.
-    & Chaque fonction critique peut être protégée indépendamment.
+    & 
 \\
 \hline
 
@@ -85,13 +85,13 @@ Le tableau \ref{tab:plan_etude} présente en détail la procédure d'évaluation
 
 \ref{exploitation_scientifique} Qualité scientifique des données
     & Évaluer la fréquence d'image que l'appareil de capture offre selon le fabricant.
-    & Les capteurs vidéo fonctionne à cadence régulière.
+    &
 \\
 \hline
 
 \ref{impact_lumineux} Longueur d'onde de l'éclairage
     & Évaluer avec la longueur d'onde de la lumière visible produite.
-    & Les lemmings ne sont sensibles qu'à la lumière dans la plage définie.
+    &
 \\
 \hline
 
@@ -109,13 +109,13 @@ Le tableau \ref{tab:plan_etude} présente en détail la procédure d'évaluation
 
 \ref{couts_entretien} Coûts d'opération et d'entretien
     & Évaluer selon le coûts du renouvellement des mesures de protection, les frais qu'apporte l'opération et d'autres coûts obligatoires.
-    & Les frais récurrents sont stables.
+    &
 \\
 \hline
 
 \ref{couts_fabrication} Coûts de fabrication
     & Évaluer avec la somme des coûts des composantes majeures à l'achat.
-    & Les prix des composants sont constants et correspondent aux prix affichés.
+    &
 \\
 \hline
 
@@ -222,10 +222,7 @@ D’après le barème de la section \ref{robutesse_autonomie}, cette solution ob
 \paragraph{Consommation énergétique :}
 \label{consommation_concept1}
 Pour évaluer ce critère, nous devons additionner la consommation énergétique des principales composantes du système soit le micro-ordinateur,
-la caméra et le système de communication.
-
-\bigskip
-Pour le concept 1, le Raspberry Pi est utilisé comme micro-ordinateur, le module satellite Iridium 9603 SBD comme moyen de communication longue distance et finalement l'ArduCam 
+la caméra et le système de communication. Pour le concept 1, le Raspberry Pi est utilisé comme micro-ordinateur, le module satellite Iridium 9603 SBD comme moyen de communication longue distance et finalement l'ArduCam 
 IMX219 comme caméra. Elles seront toutes alimentées par le bloc de batteries primaire lithium-chlorure de thionyle. Elles ont été choisies puisqu'elles proposent un rapport 
 qualité/prix intéressant.
 
@@ -237,17 +234,13 @@ Selon le critère de la section \ref{consommation_electrique}, ce concept se voi
 \paragraph{Proportion des fonctions protégées :}
 Peu importe la performance ou le coût du design conceptuel, il est important d'assurer la protection des fonctions critiques du système. La caméra, la plaque piézoélectrique ainsi
 que le module de communication peuvent tous être programmés pour se redémarrer automatiquement si des erreurs sont détectées.
-
-\bigskip
 Cependant, puisque nous utilisons seulement une source d'énergie, soit le bloc de batteries primaire, il n'y a donc aucune forme de redondance possible advenant une erreur critique. 
 Par exemple, si le bloc de batteries se décharge trop rapidement en raison du froid, le système au complet n'aura plus d'énergie pour fonctionner et accomplir ses tâches.
 
 \bigskip
 De plus, puisque pour ce concept on n'utilise qu'une seule carte microSD, il n'y a pas de copie de données. Donc si la carteSD cesse de fonctionner les vidéos capturées par la caméra 
 ne pourront plus être enregistrées ni être lues pour une future évaluation de celles-ci.
-
-\bigskip
-Pour évaluer ce critère, on doit compter le nombre de fonctions critiques qui resteront fonctionnelles tout au long de la durée de vie du design conceptuel. 
+Pour évaluer le critère \ref{resilience_systeme}, on doit compter le nombre de fonctions critiques qui resteront fonctionnelles tout au long de la durée de vie du design conceptuel. 
 Puisqu'ici, le concept choisi assure le fonctionnement de 3 fonctions critiques sur 5, il se voit attribuer une note de 0,6, ce qui équivaut à une pondération de 3,6\%.
 
 
@@ -257,34 +250,24 @@ Puisqu'ici, le concept choisi assure le fonctionnement de 3 fonctions critiques 
 \paragraph{Plage opérationnelle de température :}
 \label{plage_operationelle}
 Nous devons déterminer la température minimale de fonctionnement (Tsys) du concept. Cette limite est dictée par la composante la plus sensible au froid de l'ensemble du système. 
-
-\bigskip
 Tout d'abord, en choisissant le Raspberry Pi, celui-ci garantit un bon fonctionnement jusqu'à -40°C. Ensuite, l'alimentation utilisant un bloc de batteries primaire certifie une opération jusqu'à -60°C. Par la suite, la caméra ArduCam IMX219 peut atteindre une température de -20°C. Finalement, en intégrant les plaques piézoélectriques, la limite de tolérance au froid est de -40°C.
 
 \bigskip
-La température de fonctionnement minimale du système complet (Tsys) est donc plafonnée par la caméra à -20°C. Selon le barème de la section 4.2.1, en appliquant la formule, ce concept se voit attribuer une note de 0, ce qui équivaut à un pourcentage de 0\% sur 10\% à ce critère. 
+La température de fonctionnement minimale du système complet (Tsys) est donc plafonnée par la caméra à -20°C. Selon le barème de la section \ref{conditions_climatiques}, en appliquant la formule, ce concept se voit attribuer une note de 0, ce qui équivaut à un pourcentage de 0\% sur 10\% à ce critère. 
 
 \paragraph{Encombrement et complexité d'installation :}
 \label{par:encombrement}
 Le concept 1 utilise des composantes compactes (Raspberry Pi, ArduCam 1IMX219, Iridium 9603 SBD), ce qui permet de réduire l’encombrement général du système. De plus, ça permet de faciliter leur intégration dans un boitier. 
-
-\bigskip
 Le boitier en bois de cèdre est simple à assembler et ne requiert aucun outil spécialisé. Ceci rend l’installation accessible à des utilisateurs non expérimentés. L’utilisation d’un bloc de batteries primaire simplifie également le déploiement en éliminant les systèmes de recharge complexes. 
-
-\bigskip
- Le volume du système est estimé à 1,59 m³, respectant ainsi les exigences du cahier des charges. Selon le barème, une note de 1 est attribuée, soit 8 \%. 
+ Le volume du système est estimé à 3 m³, respectant ainsi les exigences du cahier des charges. Selon le barème \ref{installation_deploiement}, une note de 0,81 est attribuée, soit 6,5 \%. 
 
  
 \paragraph{Résistance mécanique à la neige :}
 \label{resistance_mecanique1}
 Un boîtier construit en bois de cèdre semble intéressant afin de garder les coûts de production le plus bas possible tout en assurant une bonne protection 
 aux équipements scientifiques à l'intérieur.
-
-\bigskip
 En effet, avec une résistance à la flexion d'environ $700 Kg/cm^2$, il n'y a aucun doute que le bois de cèdre sera en mesure de supporter le poids de 2m de neige.
 De plus, le bois de cèdre n'est pas cher, ce qui en fait le matériau avec le meilleur rapport qualité prix.
-
-\bigskip
 Pour évaluer ce critère, on utilise le barème donné à la section \ref{resistance_neige}. On constante ici que le bois de cèdre dépasse largement les attentes fixées par le barème. 
 Le concept se voit donc attribuer une note de 1 et obtient une pondération de 12\%.
 
@@ -293,13 +276,13 @@ Le concept se voit donc attribuer une note de 1 et obtient une pondération de 1
 
 \paragraph{Couverture de la zone d'observation :}
 \label{zone_observation1}
-Afin d’évaluer ce critère il faut évaluer la couverture minimale de la zone d’observation du matériel de détection. 
+Afin d’évaluer le critère \ref{detection_mammiferes}, il faut évaluer la couverture minimale de la zone d’observation du matériel de détection. 
 Pour ce concept, le capteur utilisé sont les plaques piézoélectriques et la prise de vidéo est effectuée par la caméra Arducam IMX219.  
 
 \bigskip
 Les plaques piézoélectriques d’un diamètre de 15mm peuvent couvrir la surface entière du sol à l’intérieur du boitier, offrant donc une couverture minimale de 100\% de l’aire de la zone d’observation. 
 Pour ce qui est de la caméra, son FOV (Field of Vision) horizontal de 75° et son FOV vertical de 60° permettent de calculer son cône de projection. Lorsque la caméra est placée à un mètre de hauteur, 
-pour un angle de 75° on obtient un étalement de la vision horizontale de 153,5 cm et de 115,5 cm sur l’axe vertical pour un angle de 60°, dépassant donc les contraintes de dimensions minimales du boitier de $1 m^2$. 
+pour un angle de 75° on obtient un étalement de la vision horizontale de 153,5 cm et de 115,5 cm sur l’axe vertical pour un angle de 60°, dépassant donc les contraintes de dimensions du boitier de $1 m^2$. 
 
 \bigskip
 Ainsi, l’Arducam IMX219 offre une couverture complète de la zone d’observation donnant donc une couverture minimale de 100\% de l’aire de la zone d’observation. Par conséquent, 
@@ -308,22 +291,22 @@ une note de 100 est attribuée à ce critère et donc une note parfaite de 9\% p
 
 \paragraph{Capacité de stockage :}
 L’évaluation de la capacité de stockage dépend évidemment de l’outil de stockage utilisé. Pour ce concept, l’utilisation d’une carte microSD(HC) industrielle est adéquate en raison de sa compatibilité avec le micro-ordinateur Rasberry pi et la caméra ArduCam IMX219 ainsi que son coût abordable.  
-
-\bigskip
-La carte microSD de classe 10 de 8 Go respecte l’estimation minimale de 8 Go permettant de conserver les enregistrements vidéo des lemmings sur une période d’au moins un an. En utilisant le barème de la section 4.3.2, nous arrivons à un résultat de 0\% pour ce concept puisque la capacité de stockage de la microSD(HC) industrielle correspond au seuil minimal de l’estimation. 
+La carte microSD de classe 10 de 8 Go respecte l’estimation minimale de 8 Go permettant de conserver les enregistrements vidéo des lemmings sur une période d’au moins un an. En utilisant le barème de la section \ref{conservation_donnees}, nous arrivons à un résultat de 0\% pour ce concept puisque la capacité de stockage de la microSD(HC) industrielle correspond au seuil minimal de l’estimation. 
 
 \paragraph{Performance de communication distante :}
-Le concept 1 utilise le module Iridium 9603 SBD pour assurer une communication fiable sur de longues distances, répondant aux exigences du cahier des charges en environnement isolé. L’intégration du Cloudflare Tunnel permet de sécuriser l’accès distant, bien que la bande passante limitée impose une transmission de données optimisée.
-
-\bigskip
-Ce compromis favorise un bon équilibre entre fiabilité, consommation énergétique et coût. Le système offre ainsi une communication robuste et adaptée au contexte arctique. Une note estimée de 0,85 est attribuée, soit 5,1 \%. 
+Le concept 1 utilise le module Iridium 9603 SBD pour assurer une communication fiable sur de longues distances, répondant aux exigences du cahier des charges en environnement isolé.
+L’intégration du Cloudflare Tunnel permet de sécuriser l’accès distant, bien que la bande passante limitée impose une transmission de données optimisée.
+Ce compromis favorise un bon équilibre entre fiabilité, consommation énergétique et permet une communication jusqu'à 3700 km.
+Le système offre ainsi une communication robuste et adaptée au contexte arctique. Le barème \ref{performance_communication} lui donne une note de 0,85, soit 5,1 \%. 
 
 
 \paragraph{Qualité scientifique des données :}
-Le concept 1 utilise la caméra ArduCam IMX219, capable de capturer des vidéos en résolution HD répondant aux exigences minimales du cahier des charges. Combinée à une détection par plaque piézoélectrique, la prise de données est déclenchée de manière pertinente, assurant une collecte représentative de l’activité animale. Le stockage sur carte microSD(HC) permet de conserver les données de façon fiable sur une longue période.
-
-\bigskip
-Toutefois, la qualité demeure limitée par les performances de la caméra et l’absence de traitement avancé. Ce compromis assure un bon équilibre entre qualité, consommation énergétique et coût. Une note estimée de 0,75 est attribuée, soit 3,75 %
+Le concept 1 utilise la caméra ArduCam IMX219, capable de capturer des vidéos en résolution HD répondant aux exigences minimales du cahier des charges.
+Combinée à une détection par plaque piézoélectrique, la prise de données est déclenchée de manière pertinente, assurant une collecte représentative de l’activité animale.
+Le stockage sur carte microSD(HC) permet de conserver les données de façon fiable sur une longue période.
+Toutefois, la qualité demeure limitée par les performances de la caméra et l’absence de traitement avancé.
+Ce compromis assure un bon équilibre, et peut atteindre une fréquence d'image stable proche de 50 fps.
+Le barème \ref{exploitation_scientifique} lui donne 0,78 comme note, soit 3,89\%.
 
 
 \subsubsection{Réduire impacts et coûts}
@@ -331,8 +314,6 @@ Toutefois, la qualité demeure limitée par les performances de la caméra et l�
 \paragraph{Longueur d'onde de l'éclairage :}
 L'évaluation de ce critère repose sur la capacité du système à éclairer la zone d'observation sans perturber les lemmings. 
 Pour ce premier concept, on utilise le module ArduCam IMX219, qui est sensible au proche infrarouge.
-
-\bigskip
 Afin d'atteindre l'objectif de performance défini comme idéal dans le cahier des charges, le système est configuré pour utiliser une source lumineuse de 940 nm. Cette longueur d'onde étant totalement invisible pour la faune, elle permet d'éviter tout éblouissement. 
 En appliquant la valeur $\lambda$=940 nm au barème de la formule \ref{impact_lumineux}, le concept obtient une note de 1, c'est-à-dire un pourcentage de 3\%.
 
@@ -340,8 +321,6 @@ En appliquant la valeur $\lambda$=940 nm au barème de la formule \ref{impact_lu
 \paragraph{Nombre de remplacements de batterie par an :}
 L’évaluation de l’impact environnemental du concept 1 est lié à la gestion des déchets énergétiques.
 Comme le système repose sur un bloc de batteries primaires non rechargeables, il est impossible d’atteindre l’objectif idéal de zéro remplacement.
-
-\bigskip
 Cependant, grâce à l'utilisation de la plaque piézoélectrique qui limite le déclenchement de la caméra aux moments de passage des lemmings, la consommation est optimisée pour durer toute une saison.
 Nous estimons qu'un seul bloc de batteries doit être remplacé lors de la visite annuelle de maintenance en juin. 
 En appliquant la formule \ref{impact_environnemental} du cahier des charges, on obtient une note de 0.75 et donc un pourcentage de 1.5\%.
@@ -374,7 +353,9 @@ Le coût total d'opération et d'entretien s’élève donc à 1050 \$ par anné
 Le micro-ordinateur Raspberry Pi, avec la plaque piézoélectrique pour la détection de mouvement et une carte microSD industrielle, possèdent un coût d’environ 200 \$.
 La caméra ArduCam IMX219 et l'éclairage infrarouge à 940 nm représente 50 \$. Le composant le plus coûteux est le module satellite Iridium 9603 SBD estimé à 465 \$, indispensable pour la communication en zone isolée.
 Pour le reste, le boîtier en cèdre rouge avec ses joints d'étanchéité coûte 200 \$, tandis que le bloc de batteries revient à 400 \$. 
-Enfin, nous avons inclus 250 \$ de main-d’œuvre pour l'assemblage manuel et les tests de validation en atelier (environ 5 heures à 50 \$/h). 
+Enfin, nous avons inclus 250 \$ de main-d’œuvre pour l'assemblage manuel et les tests de validation en atelier (environ 5 heures à 50 \$/h).
+
+\bigskip
 Le coût de fabrication total s’élève donc à 1565 \$. En appliquant ce montant à la formule \ref{couts_fabrication}, le concept obtient une note de 0.86 et donc un pourcentage de 2.58 \%.
 
 
@@ -401,8 +382,6 @@ Selon l’équation \ref{robutesse_autonomie}, le concept obtient donc une note 
 \paragraph{Consommation énergétique :}
 Comme à la section \ref{consommation_concept1}, afin d'évaluer ce critère, nous devons additionner la consommation énergétique des principales composantes du système. 
 Pour le concept \#2, on choisit le Jetson Nano de NVDIA comme micro-ordinateur, le Starlink Performance Kit comme dispositif de communication, puis la caméra GoPro Hero. 
-
-\bigskip
 Le Jetson Nano offrira des performances accrues, grâce à sa puissance de calcul nettement supérieure comparé aux autres micro-ordinateurs. Le Starlink performance Kit 
 permettra d'assurer une connexion haute vitesse et robuste pendant les 12 mois de services du système. Finalement, la caméra GoPro permettra de capturer des images 
 d'une qualité sans compromis, et ce même dans le noir grâce à son capteur plus gros et performant.
@@ -410,26 +389,20 @@ d'une qualité sans compromis, et ce même dans le noir grâce à son capteur pl
 \bigskip
 Ces composants consomment respectivement 10W au maximum, 150W et 7W lors de la capture vidéo. Au total, la consommation énergétique de ce concept s'élèverait à 167W, 
 ce qui est une quantité considérable de puissance à demander à un système devant fonctionner avec des réserves d'énergie limitées pour une période de 12 mois.
-
-\bigskip
 Donc, selon le barème de la section \ref{consommation_electrique}, ce concept se voit attribuer la note de 0 et n'obtient aucun des 6 points de pourcentage attribués à 
 cette section.
 
 
 \paragraph{Proportion des fonctions protégées :}
 Comme au concept \#1, la fonction de détection de mouvements sera protégée par un redémarrage du capteur infrarouge si des erreurs devaient subvenir.
-
-\bigskip
 En revanche, puisque la GoPro Hero ainsi que le Starlink performance kit utilise des logiciels de type plus propriétaire, il peut être difficile 
 d'obtenir un registre de toutes les erreurs matérielles et de planifier un redémarrage le cas échéant.
 
 \bigskip
 De plus, comme au concept \#1, il n'y a aucune redondance au niveau de l'énergie, puisque seulement une source d'énergie sera utilisée, soit celle 
 composée des batteries au lithium et condensateurs hybrides au lithium.
-
-\bigskip
-Pour évaluer ce critère, on doit compter le nombre de fonctions critiques qui resteront fonctionnelles tout au long de la durée de vie du 
-design conceptuel. Puisqu'ici, le concept n'a aucune forme de redondance pour 3 fonctions critiques, une note de 0,4 lui sera attribuée ce qui correspond à 2,4\%.
+Pour évaluer le critère \ref{resilience_systeme}, on doit compter le nombre de fonctions critiques qui resteront fonctionnelles tout au long de la durée de vie du design conceptuel.
+Puisqu'ici, le concept a une forme de redondance pour 2 fonctions critiques, une note de 0,4 lui sera attribuée ce qui correspond à 2,4\%.
 
 
 
@@ -437,31 +410,23 @@ design conceptuel. Puisqu'ici, le concept n'a aucune forme de redondance pour 3 
 
 \paragraph{Plage opérationnelle de température :}
 Afin de maximiser les capacités d'acquisition, de traitement et de transmission de données, ce concept intègre des composantes de pointe axées sur la haute performance.
-
-\bigskip
 Le stockage et la détection thermique sont assurés par un SSD SATA III et un capteur infrarouge 333179, tous deux dotés d'une résilience allant jusqu'à -40°C. La connectivité satellitaire à haut débit est garantie par un Starlink Performance Kit, certifié pour opérer jusqu'à -30°C.De plus, la puissance de calcul embarquée est propulsée par un micro-ordinateur Nvidia Jetson Nano, capable de maintenir ses performances jusqu'à -25°C. 
 
 \bigskip
-La GoPro Hero, fixe la tolérance thermique minimale de la captation vidéo à -20°C. Selon le barème de la section 4.2.1, en appliquant la formule, ce concept se voit attribuer une note de 0, ce qui équivaut à un pourcentage de 0\% sur les 10\% attribués à ce critère, atteignant tout juste l'exigence minimale de survie du système. 
+La GoPro Hero, fixe la tolérance thermique minimale de la captation vidéo à -20°C. Selon le barème de la section \ref{conditions_climatiques}, en appliquant la formule, ce concept se voit attribuer une note de 0, ce qui équivaut à un pourcentage de 0\% sur les 10\% attribués à ce critère, atteignant tout juste l'exigence minimale de survie du système. 
 
 \paragraph{Encombrement et complexité d'installation :}
 Le concept 2 repose sur des composantes généralement plus volumineuses, notamment la caméra GoPro, le module Starlink Performance Kit et l’ordinateur embarqué NVIDIA Jetson Nano. Ces dernières composantes augmentent l’encombrement global du système.
 
 \bigskip
 L’utilisation d’un boîtier en aluminium nécessite des procédés de fabrication plus complexes. Ceci rend l’assemblage moins accessible pour des utilisateurs non spécialisés. De plus, la solution énergétique hybride implique une gestion plus complexe des connexions et de l’intégration des différentes sources d’énergie. L’installation du système de communication Starlink demande également un positionnement précis et un déploiement plus exigeant que des solutions plus simples.  
-
-\bigskip
-Toutefois, les composantes demeurent intégrables dans un volume 1,95 m³ ce qui est conforme aux exigences minimales. Ainsi, bien que fonctionnel, ce concept présente une complexité d’installation plus élevée. Une note estimée de 0,6 lui est attribuée, soit 4,8\%.
+Toutefois, les composantes demeurent intégrables dans un volume 2,5 m³ ce qui est conforme aux exigences minimales. Ainsi, bien que fonctionnel, ce concept présente une complexité d’installation plus élevée. Le barème \ref{installation_deploiement} lui donne une note estimée de 0,86, soit 6,9\%.
 
 
 \paragraph{Résistance mécanique à la neige :}
 L'aluminium sera utilisé au concept \#2 pour la conception du boîtier. Léger, abondant et résistant, il ne laisse aucun compris si ce n'est que son prix un peu dispendieux.
-
-\bigskip
 Sa résistance mécanique à la flexion pouvant aller jusqu'à $3000Kg/cm^2$ pour certaines classes/séries d'aluminium ne laisse aucun doute quant à sa capacité à pouvoir 
 supporter 2m de neige.
-
-\bigskip
 Pour évaluer ce critère, on utilise le barème de la section \ref{resistance_neige}. On constate ici que l'aluminium dépasse largement les attentes fixées par le barème. 
 Ce concept se voit donc attribuer une note de 1 et obtient une pondération de 12\%.
 
@@ -470,28 +435,30 @@ Ce concept se voit donc attribuer une note de 1 et obtient une pondération de 1
 \subsubsection{Observation et gestion de données}
 
 \paragraph{Couverture de la zone d'observation :}
-Pour évaluer ce critère il faut évaluer la couverture minimale de la zone d’observation du matériel d’observation. Pour ce qui est du capteur infrarouge 333179, il possède un angle d’ouverture de 110° et lorsque placé à un mètre de hauteur il projette une zone de détection d’un rayon de 1,43m dépassant donc l’aire minimale de la base du boîtier de $1 m^2$. Il couvre donc 100\% de la zone d’observation. En ce qui concerne la caméra choisie pour ce concept, la GoPro Hero avec son FOV horizontal de 122° et son FOV vertical de 94° offre une projection au sol de 360,8 cm par 214,5 cm surpassant l’aire minimale de la base du boîtier. 
-
-\bigskip
-Une note de 100 est donc attribuée à cette solution pour ce critère et donc une note parfaite de 9\% de la pondération. 
+Pour évaluer ce critère il faut évaluer la couverture minimale de la zone d’observation du matériel d’observation.
+Pour ce qui est du capteur infrarouge 333179, il possède un angle d’ouverture de 110° et lorsque placé à un mètre de hauteur il projette une zone de détection d’un rayon de 1,43m dépassant donc l’aire minimale de la base du boîtier.
+Il couvre donc 100\% de la zone d’observation.
+En ce qui concerne la caméra choisie pour ce concept, la GoPro Hero avec son FOV horizontal de 122° et son FOV vertical de 94° offre une projection au sol de 360,8 cm par 214,5 cm surpassant l’aire minimale de la base du boîtier. 
+Une note de 1 est donc attribuée à cette solution pour le critère \ref{detection_mammiferes}, 9\% avec la pondération. 
 
 \paragraph{Capacité de stockage :}
-L’évaluation de la capacité de stockage dépend de l’outil de stockage utilisé. Pour ce concept, l’utilisation d’un disque SSD SATA III est adéquate en raison de sa haute vitesse d’écriture et sa durabilité. Le disque SSD de 128 Go dépasse l’estimation minimale de stockage nécessaire pour ce projet permettant donc de conserver les enregistrements de lemmings du Grand Nord pendant une période de plus d’un an.
-
-\bigskip
-Lorsqu’on applique la formule de la section 4.3.2 nous obtenons un résultat de 1 pour ce critère et donc une pondération de 5\%.
+L’évaluation de la capacité de stockage dépend de l’outil de stockage utilisé. Pour ce concept, l’utilisation d’un disque SSD SATA III est adéquate en raison de sa haute vitesse d’écriture et sa durabilité.
+Le disque SSD de 128 Go dépasse l’estimation minimale de stockage nécessaire pour ce projet permettant donc de conserver les enregistrements de lemmings du Grand Nord pendant une période de plus d’un an.
+Lorsqu’on applique la formule de la section \ref{conservation_donnees} nous obtenons un résultat de 1 pour ce critère et donc une pondération de 5\%.
 
 \paragraph{Performance de communication distante :}
-Le second concept utilise Starlink performance kit pour assurer une communication fiable à haut débit sur de longue distances.  L’intégration avec Microsoft Autenticator permet de sécuriser l’accès sans toutefois compromettre la performance du système. 
-
-\bigskip
-Le système offre ainsi une communication robuste et adaptée au contexte arctique. Ce concept consomme toutefois une quantité importante d’énergie et requiers un investissement financier plus conséquent. Une note estimée de 0,75 est attribuée, soit 4,5\%.
+Le second concept utilise Starlink performance kit pour assurer une communication fiable à haut débit sur de longue distances.
+L’intégration avec Microsoft Autenticator permet de sécuriser l’accès sans toutefois compromettre la performance du système. 
+Le système offre ainsi une communication robuste et adaptée au contexte arctique.
+Selon la visibilité du ciel et les obstructions, le concept peut facilement communiquer n'importe où sur Terre.
+Ainsi, la portée sera considérée comme étant de 4000 km, soit le score idéal.
+Selon le barème \ref{performance_communication}, la note obtenue est de 1, ce qui correspond à 6\%.
 
 \paragraph{Qualité scientifique des données :}
-Le second concept utilise la caméra GoPro, capable de capturer des vidéos en résolution 4k répondant plus qu’aux exigences minimales du cahier des charges. Combinée à une détection par capteurs infrarouge 333179, la prise de données est déclenchée de manière fiable, assurant une collecte représentative de l’activité animale. Le stockage sur SSD Data III permet de conserver les données de façon fiable sur une longue période en plus de permettre un accès rapide à celle-ci.
-
-\bigskip
-Toutefois, ce gain en performance et en qualité des données requiert un investissement financier et une consommation énergétique un peu plus conséquent pour certaines caractéristiques qui n’apportent pas de bénéfices tangibles au projet. Une note estimée de 0,65 est attribuée, soit 3,25\%.
+Le second concept utilise la caméra GoPro, capable de capturer des vidéos en résolution 4k répondant plus qu’aux exigences minimales du cahier des charges.
+Combinée à une détection par capteurs infrarouge 333179, la prise de données est déclenchée de manière fiable, assurant une collecte représentative de l’activité animale.
+La GoPro est capable de se rendre jusqu'à 240 images par secondes en 720p.
+Selon le barème \ref{exploitation_scientifique}, la note obtenue est de 1, ce qui correspond à 5\%.
 
 
 \subsubsection{Réduire impacts et coûts}
@@ -539,6 +506,7 @@ La formule \ref{couts_fabrication} donne une note de 0.875 et ainsi un pourcenta
 Pour ce concept, les solutions les plus durables ont été sélectionnées afin d'assurer un bon fonctionnement à long terme.
 
 \subsubsection{Fonctionnement autonome du système}
+\label{autonomie_concept_3}
 
 \paragraph{Marge de l'état d'autonomie :}
 Étant donné que le concept est composé d’une ESP32-CAM, d’un Raspberry Pi et d’un module Iridium 9603 SBD, la demande énergétique du système est fortement réduite.
@@ -557,9 +525,7 @@ Ces composantes ont été choisies ici, puisqu'elles sont durables et qu'elles c
 \bigskip
 De plus, comme énoncé dans l'analyse du concept \#1, le Raspberry Pi et l'IRIDIUM 9603 SBD ont une consommation de 10W et 0.8W respectivement. 
 L'ESP32-CAM quant à lui à une consommation moyenne maximale d'environ 2.5W légèrement plus que la caméra utilisée au concept \#1, mais son flash intégré 
-rend la capture de nuit possible.
-
-\bigskip
+rend la capture de nuit possible. Le système consomme 13,3W au total.
 Selon le critère de la section \ref{consommation_electrique}, ce concept se voit donc attribuer une note de 0.53, ce qui équivaut à un pourcentage de 4.25\% sur les 8\% attribué à ce critère.
 
 
@@ -567,14 +533,9 @@ Selon le critère de la section \ref{consommation_electrique}, ce concept se voi
 Pour le concept \#3, les fonctions de capture de vidéo, de détection de mouvement et de communication sont protégées par l'entremise 
 d'un redémarrage des composantes si jamais une erreur devait se produire. De plus, puisqu'ici les données sont transférées directement dans l'espace infonuagique, 
 il n'y a donc aucun souci quant à la préservation des données.
-
-\bigskip
-En revanche, comme au concept \#1, l'utilisation de seulement 1 seul bloc de batteries primaires ne confère aucune forme de redondance 
-advenant une erreur critique au niveau des batteries.
-
-\bigskip
-Puisqu'ici, le concept choisi assure le fonctionnement de 4 fonctions critiques sur 5, il se voit attribuer une note de 0,8, 
-ce qui équivaut à une pondération de 4,8\%.
+En revanche, comme au concept \#1, l'utilisation de seulement 1 seul bloc de batteries primaires ne confère aucune forme de redondance advenant une erreur critique au niveau des batteries.
+Le concept choisi assure la protection de 4 fonctions critiques sur 5.
+Selon le barème \ref{resilience_systeme}, il se voit attribuer une note de 0,8, ce qui équivaut à une pondération de 4,8\%.
 
 
 \subsubsection{Résistance et entretien du système}
@@ -586,16 +547,15 @@ Pour évaluer ce critère dans une optique de durabilité à long terme et de r�
 Le cœur du système est composé d'équipements industriels extrêmement robustes : le micro-ordinateur Raspberry Pi, le module de communication satellite Iridium 9603 SBD, la caméra ESP32-CAM ainsi que le capteur infrarouge 333179 certifient tous une opérabilité jusqu'à -40°C.La contrainte thermique principale de ce design repose sur l'infrastructure réseau combinant Azure et l'antenne Starlink, dont la limite opérationnelle sécuritaire est documentée à -30°C. 
 
 \bigskip
-La température de fonctionnement minimale du système s'établit donc à -30°C. Cette valeur correspond très exactement à la cible idéale fixée par les exigences pour assurer la pérennité du déploiement. Selon le barème de la section 4.2.1, en appliquant la formule, ce concept se voit attribuer la note parfaite de 1, ce qui équivaut à un pourcentage de 10\% sur les 10\% attribués à ce critère. 
+La température de fonctionnement minimale du système s'établit donc à -30°C. Cette valeur correspond très exactement à la cible idéale fixée par les exigences pour assurer la pérennité du déploiement. Selon le barème de la section \ref{conditions_climatiques}, en appliquant la formule, ce concept se voit attribuer la note parfaite de 1, ce qui équivaut à un pourcentage de 10\% sur les 10\% attribués à ce critère. 
 
 \paragraph{Encombrement et complexité d'installation :}
 Le concept 3 privilégie des composantes relativement compactes permettant de limiter l’encombrement global du système tout en facilitant leur intégration. L’utilisation d’un boîtier en aluminium, choisi pour sa légèreté et sa résistance à la corrosion, favorise une durabilité accrue dans le temps. 
 
 \bigskip
  De plus, l’intégration d’un bloc de batteries et d’un module Iridium 9603 SBD assure un fonctionnement fiable à long terme avec peu d’interventions. Toutefois, la présence combinée de solutions de communication augmente la complexité d’installation et nécessite une configuration initiale plus rigoureuse.
-
-\bigskip
- Malgré cela, le système demeure installable par deux personnes sans expertise avancée. Le volume est estimé est de 1.5 m³ ce qui est conforme aux exigences du cahier des charges. Une note de 0,75 est attribuée, soit 4,5\%. 
+ Malgré cela, le système demeure installable par deux personnes sans expertise avancée. Le volume est estimé est de 1,5 m³ ce qui est conforme aux exigences du cahier des charges.
+ Le barème du critère \ref{installation_deploiement} lui donne une note de 0,95, soit 7,6\%. 
 
 
 \paragraph{Résistance mécanique à la neige :}
@@ -603,41 +563,43 @@ L'aluminium sera utilisé au concept \#3 pour la réalisation du boîtier. C'est
 l'installation de la boîte dans le l'arctique Québécois.
 
 \bigskip
-Tel qu'abordé au concept \#2, l'aluminium a une grande résistance mécanique à la flexion, ce qui lui permettra de supporter sans problème le poids de 2m de neige. 
+Tel qu'abordé au concept \#2, l'aluminium a une grande résistance mécanique à la flexion ($3000Kg/cm^2$), ce qui lui permettra de supporter sans problème le poids de 2m de neige. 
 De plus, c'est un matériau facilement recyclable et peut être protégé par un revêtement qui peut être appliqué directement à sa surface. Cette couche protectrice 
 assurera que l'aluminium conserve ses propriétés mécaniques sur le long terme en évitant que la corrosion prenne le dessus.
 
 \bigskip
-C'est donc en raison de son aspect durable que l'aluminium a été choisi pour ce concept. Puisqu'il dépasse largement les attentes fixées par le barème, il 
-se voit attribuer une note de 1 et obtient une pondération de 12\%.
+C'est donc en raison de son aspect durable que l'aluminium a été choisi pour ce concept. Puisqu'il dépasse largement les attentes fixées par le barème \ref{resistance_neige}, il 
+se voit attribuer une note de 1 et obtient avec la pondération 12\%.
 
 
 \subsubsection{Observation et gestion de données}
 
 \paragraph{Couverture de la zone d'observation :}
-L’évaluation de ce critère dépend encore une fois de la couverture minimale de la zone d’observation du matériel d’observation. Pour ce qui est du capteur, le capteur choisi est encore le capteur infrarouge 333179. Tel que mentionné plus tôt, installé à un mètre de haut, il couvre un rayon de 1,43m au sol. Cette zone, étant plus large de la base de $1 m^2$ du boîtier, montre que le capteur offre une couverture de 100\% de l’aire d’observation. Puis, la caméra ESP32-CAM quant à elle possède, un FOV horizontal d’environ 65° et un FOV vertical d’environ 50°. Lorsque placée à un mètre de hauteur, elle couvre 127,4 cm en largeur et 93,3 cm en longueur. 
+L’évaluation de ce critère dépend encore une fois de la couverture minimale de la zone d’observation du matériel d’observation. Pour ce qui est du capteur, le capteur choisi est encore le capteur infrarouge 333179. Tel que mentionné plus tôt, installé à un mètre de haut, il couvre un rayon de 1,43m au sol. Cette zone, montre que le capteur offre une couverture de 100\% de l’aire d’observation. Puis, la caméra ESP32-CAM quant à elle possède, un FOV horizontal d’environ 65° et un FOV vertical d’environ 50°. Lorsque placée à un mètre de hauteur, elle couvre 127,4 cm en largeur et 93,3 cm en longueur. 
 
 \bigskip
-Ainsi, seulement $0,933 m^2$ est couvert sur le $1 m^2$ à couvrir. Cette solution est donc attribuée une note de 93 pour ce critère et donc une note de 8,5%.
+Ainsi, seulement $0,933 m^2$ est couvert sur le $1 m^2$ à couvrir. Cette solution est donc attribuée une note de 0,93 pour le critère \ref{detection_mammiferes}, et donc une note avec pondération de 8,5\%.
 
 
 \paragraph{Capacité de stockage :}
 Pour évaluer ce critère il faut encore une fois se baser sur l’outil de stockage utilisé. Pour ce concept, la solution combinant le stockage infonuagique Azure au satellite Starlink est l’option préférée. Cette solution permet d’éviter la perte de données liée aux conditions environnementales du Grand Nord la rendant plus durable que d’autres. Le stockage Azure blob offre une capacité de stockage adaptée à l’estimation faite préalablement et permet au client de payer pour la quantité spécifique de stockage utilisé au fur et à mesure. 
 
 \bigskip
-En utilisant une capacité de 134 Go, ce critère se voit attribuer une note parfaite de 1 et donc 5\% pour sa pondération. 
+En utilisant une capacité de 134 Go, le critère \ref{conservation_donnees} lui attribue une note parfaite de 1 et donc 5\% avec sa pondération. 
 
 \paragraph{Performance de communication distante :}
-Le concept 3 utilise le module Iridium 9603 SBD pour assurer une communication fiable sur de longues distances, répondant aux exigences du cahier des charges en environnement isolé. L’utilisation du chiffrement Microsoft Autenticator permet de sécuriser l’accès sans limiter la bande passante. 
-
-\bigskip
-Le système offre ainsi une communication robuste et adaptée au contexte arctique. Ce concept consomme une faible quantité importante d’énergie et requiers un investissement financier raisonnable. Une note estimée de 0,95 est attribuée, soit 5,7\%.
+Le concept 3 utilise le module Iridium 9603 SBD pour assurer une communication fiable sur de longues distances, répondant aux exigences du cahier des charges en environnement isolé.
+L'utilisation du chiffrement Microsoft Autenticator permet de sécuriser l'accès sans limiter la bande passante. 
+Le système offre ainsi une communication robuste et adaptée au contexte arctique.
+Ce concept permet une communication jusqu'à 3700 km.
+Selon le barème \ref{performance_communication}, la note obtenue est de 0,85, ce qui correspond à 5,1 \%.
 
 \paragraph{Qualité scientifique des données :}
-Le concept 3 utilise la caméra ESP32-CAM, capable de capturer des vidéos en résolution 720p à 30 FPS qui répondons aux exigences minimales du cahier des charges. Combinée à une détection par capteurs infrarouge 333179, la prise de données est déclenchée de manière fiable, assurant une collecte représentative de l’activité animale. Le stockage sur Azure permet de conserver les données de façon fiable sur une longue période en plus de permettre un accès et une intégration simplifier avec Microsoft Autenticator.
-
-\bigskip
-Ce système répond très bien aux exigences du client tout en limitant l’impact environnemental notamment par sa faible consommation énergétique. Une note estimée de 0,9 est attribuée, soit 4,5\%. 
+Le concept 3 utilise la caméra ESP32-CAM, capable de capturer des vidéos en résolution 720p à 30 FPS qui répondons aux exigences minimales du cahier des charges.
+Combinée à une détection par capteurs infrarouge 333179, la prise de données est déclenchée de manière fiable, assurant une collecte représentative de l’activité animale.
+Le stockage sur Azure permet de conserver les données de façon fiable sur une longue période en plus de permettre un accès et une intégration simplifier avec Microsoft Autenticator.
+Ce système répond très bien aux exigences du client tout en limitant l’impact environnemental notamment par sa faible consommation énergétique.
+Selon le barème \ref{exploitation_scientifique}, la note obtenue est de 0,33, ce qui correspond à 1,67 \%.
 
 
 \subsubsection{Réduire impacts et coûts}
@@ -703,23 +665,23 @@ Ces valeurs permettent ensuite de calculer la note obtenue à l'aide des barème
 \textbf{\ref{Autonomie} Fonctionnement autonome du système} & & &  \\
 \hline
 \ref{robutesse_autonomie} Marge de l'état d'autonomie [mois] & 12,5 & 14 & 18 \\
-\ref{consommation_electrique} Consommation énergétique [W] & 11,3 & 167 & ?? \\
-\ref{resilience_systeme} Proportion des fonctions protégées & 5 & 5 & 5 \\
+\ref{consommation_electrique} Consommation énergétique [W] & 11,3 & 167 & 13,3 \\
+\ref{resilience_systeme} Proportion des fonctions protégées & 3 & 2 & 4 \\
 \hline
 
 \textbf{\ref{Robustesse} Résistance et entretien du système} & & &  \\
 \hline
 \ref{conditions_climatiques} Plage opérationnelle de température [°C] & -20 & -20 & -30 \\
-\ref{installation_deploiement} Encombrement et complexité d’installation [$m^3$] & 1 & ?? & ?? \\
-\ref{resistance_neige} Résistance mécanique à la neige [$kg/m^2$] & 7E6 & 3E7 & ?? \\
+\ref{installation_deploiement} Encombrement et complexité d’installation [$m^3$] & 3 & 2,5 & 1,5 \\
+\ref{resistance_neige} Résistance mécanique à la neige [$kg/m^2$] & 7E6 & 3E7 & 3E7 \\
 \hline
 
 \textbf{\ref{donnees} Observation et gestion de données} & & & \\
 \hline
 \ref{detection_mammiferes} Couverture de la zone d’observation [\%] & 100 & 100 & 93 \\
 \ref{conservation_donnees} Capacité de stockage [Go] & 8 & 128 & 134 \\
-\ref{performance_communication} Performance de communication distante [km] & ?? & ?? & ?? \\
-\ref{exploitation_scientifique} Qualité scientifique des données [fps] & ?? & ?? & ?? \\
+\ref{performance_communication} Performance de communication distante [km] & 3700 & 4000 & 3700 \\
+\ref{exploitation_scientifique} Qualité scientifique des données [fps] & 50 & 240 & 30 \\
 \hline
 
 \textbf{\ref{impacts_couts} Réduire impacts et coûts} & & &  \\
