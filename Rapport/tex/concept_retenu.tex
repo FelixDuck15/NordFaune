@@ -5,20 +5,18 @@
 \chapter{Concept retenu}
 \label{s:concept_retenu}
 \section{Matrice de décision}
-La matrice de décision 7.1 présente les pointages de chaque concept, ce qui permet de faciliter leur comparaison. 
-Les différents pourcentages découlant des formules du cahier des charges (voir section \ref{s:cahier_des_charges}) 
+La matrice de décision \ref{tab:matricede} présente les pointages attribués à chaque concept, facilitant ainsi leur comparaison.
+Les différents pourcentages, issus des formules du cahier des charges (voir section \ref{s:cahier_des_charges}), 
 aident à la prise de décision pour sélectionner le concept correspondant le mieux aux besoins du client.
 
 \section{Analyse de la matrice décisionnelle}
-Le tableau montre que le concept 3 se démarque avec un score total de 78,70 \%, comparativement aux concepts 1 (60,14 \%) et 2 (64,25 \%). Il obtient les meilleurs résultats dans les sections « fonctionnement autonome du système » et « résistance et entretien », qui sont les critères les plus pondérés.
+Le tableau \ref{tab:matricede} montre que le concept 3 se démarque avec un score total de 78,70 \%, comparativement aux concepts 1 (60,14 \%) et 2 (64,25 \%). Il obtient les meilleurs résultats dans les sections « fonctionnement autonome du système » et « résistance et entretien », qui sont les critères les plus pondérés.
+Le concept 3 est toutefois légèrement moins performant en « observation et gestion de données », ainsi qu’en « impacts et coûts ». Néanmoins, ses performances demeurent suffisantes pour répondre aux exigences du projet.
+Ainsi, le concept 3 correspond le mieux aux besoins globaux du système. C’est pourquoi il est retenu pour la suite de l’étude et détaillé dans la section \ref{descretenu}.
 
-\bigskip
-Le concept 3 est toutefois légèrement moins performant en « observation et gestion de données » que le concept 2, ainsi qu’en « impacts et coûts ». Néanmoins, ses performances demeurent suffisantes pour répondre aux exigences du projet.
 
-\bigskip
-Ainsi, le concept 3 correspond le mieux aux besoins globaux du système. C’est pourquoi il est retenu pour la suite de l’étude.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Matrice décisionnelle}
 \label{tab:matricede}
@@ -63,7 +61,10 @@ Critères d'évaluation & Pond. & Concept 1 & Concept 2 & Concept 3 \\
 \end{tabular}
 \end{table}
 
+
+
 \section{Description du concept retenu}
+\label{descretenu}
 \textbf{Supporter les conditions météorologiques}
 \begin{itemize}
     \item Protection du système avec un boitier en aluminium [\ref{sec:alumi}]
@@ -87,6 +88,14 @@ Critères d'évaluation & Pond. & Concept 1 & Concept 2 & Concept 3 \\
 \begin{itemize}
     \item Le système sera alimenté par un blocs de batteries au Lithium-thionyl chloride [\ref{sec:bloc}]
 \end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{fig/diagramme_physique.png}
+    \caption{Diagramme physique du projet NordFaune}
+    \label{diagramme_fonctionnel}
+\end{figure}
+
 
 \subsection{Supporter les conditions météorologiques}
 La protection des équipements informatiques et scientifiques du système sera assrurée par le boitier construit avec de l'aluminium. Ce matériau est très résistant et durable.
@@ -134,6 +143,8 @@ Cela assurera que les composantes électroniques seront théoriquement fonctionn
 se produire, le système est conçu pour envoyer une alerte à la centrale et se redémarrer automatiquement par la suite pour rester opérationnel. Ces mesures assureront donc que
 le système puisse fonctionner de manière complètement autonome ne nécessitant d'aucune interation humaine après sa mise en service initiale.
 
+
+\newpage
 \section{Conclusion}
 En somme, le concept \#3 s'avère être la meilleure solution pour assurer une collecte de données de qualité tout en résistant aux conditions extrêmes de l'arctique québécois. L'utilisation de composantes informatiques consommant peu d'énergie, ainsi qu'une bonne gestion de l'alimentation électrique garantira une autonomie énergétique du système sur une période de 12 mois.
 
